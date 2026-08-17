@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>POSTING GENERATOR DASHBOARD</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(0,123,255,.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0,255,180,.10), transparent 35%),
+        #050914;
+    color:#fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    padding:25px 20px 18px;
+    text-align:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    margin-top:7px;
+    font-size:13px;
+    color:#8d9bb5;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    padding:10px 20px 20px;
+}
+
+.menu-btn{
+    position:relative;
+    min-width:190px;
+    padding:15px 25px;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:.5px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.menu-btn:hover{
+    transform:translateY(-2px);
+}
+
+.menu-btn.active{
+    box-shadow:0 0 25px rgba(0,160,255,.25);
+}
+
+/* WP */
+
+.wp-btn{
+    background:linear-gradient(135deg,#1677c8,#07529c);
+}
+
+.wp-btn.active{
+    outline:2px solid rgba(55,170,255,.6);
+}
+
+/* WA */
+
+.wa-btn{
+    background:linear-gradient(135deg,#18c96b,#079447);
+}
+
+.wa-btn.active{
+    outline:2px solid rgba(40,255,140,.6);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.container{
+    width:96%;
+    max-width:1600px;
+    margin:auto;
+}
+
+.viewer{
+    position:relative;
+    width:100%;
+    height:calc(100vh - 155px);
+    min-height:650px;
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 30px rgba(0,130,255,.08);
+}
+
+/* iframe */
+
+#generatorFrame{
+    width:100%;
+    height:100%;
+    display:block;
+    border:0;
+    background:#fff;
+}
+
+/* Loading */
+
+.loading{
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:15px;
+    background:#07101d;
+    z-index:10;
+}
+
+.loading.show{
+    display:flex;
+}
+
+.spinner{
+    width:40px;
+    height:40px;
+    border:4px solid rgba(255,255,255,.12);
+    border-top-color:#00aaff;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+.loading-text{
+    font-size:13px;
+    color:#9ba9bf;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:18px 15px 12px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .subtitle{
+        font-size:11px;
+    }
+
+    .menu{
+        gap:8px;
+        padding:8px 10px 15px;
+    }
+
+    .menu-btn{
+        min-width:0;
+        width:50%;
+        padding:13px 8px;
+        font-size:12px;
+    }
+
+    .container{
+        width:100%;
+    }
+
+    .viewer{
+        height:calc(100vh - 135px);
+        min-height:500px;
+        border-radius:0;
+        border-left:0;
+        border-right:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        POSTING GENERATOR
+    </div>
+
+    <div class="subtitle">
+        Dashboard Generator WP & WA
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div class="menu">
+
+    <button
+        class="menu-btn wp-btn active"
+        onclick="openGenerator('generator-wp.html', this)"
+    >
+        📝 GENERATOR WP
+    </button>
+
+    <button
+        class="menu-btn wa-btn"
+        onclick="openGenerator('generator-wa.html', this)"
+    >
+        💬 GENERATOR WA
+    </button>
+
+</div>
+
+
+<!-- =========================
+     GENERATOR VIEWER
+========================= -->
+
+<main class="container">
+
+    <div class="viewer">
+
+        <div class="loading" id="loading">
+
+            <div class="spinner"></div>
+
+            <div class="loading-text">
+                Membuka generator...
+            </div>
+
+        </div>
+
+        <iframe
+            id="generatorFrame"
+            src="generator-wp.html"
+            title="Posting Generator"
+        ></iframe>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* ==========================================
+   BUKA GENERATOR
+========================================== */
+
+function openGenerator(file, button){
+
+    const frame = document.getElementById("generatorFrame");
+    const loading = document.getElementById("loading");
+
+    // Tampilkan loading
+    loading.classList.add("show");
+
+    // Hapus status active dari semua tombol
+    document.querySelectorAll(".menu-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    // Aktifkan tombol yang dipilih
+    button.classList.add("active");
+
+    // Ganti generator
+    frame.src = file;
+
+}
+
+
+/* ==========================================
+   HILANGKAN LOADING SETELAH SELESAI
+========================================== */
+
+document
+    .getElementById("generatorFrame")
+    .addEventListener("load", function(){
+
+        document
+            .getElementById("loading")
+            .classList.remove("show");
+
+    });
+
+
+/* ==========================================
+   TOMBOL KEYBOARD
+========================================== */
+
+document.addEventListener("keydown", function(e){
+
+    // ALT + 1 = Generator WP
+    if(e.altKey && e.key === "1"){
+
+        document
+            .querySelector(".wp-btn")
+            .click();
+
+    }
+
+    // ALT + 2 = Generator WA
+    if(e.altKey && e.key === "2"){
+
+        document
+            .querySelector(".wa-btn")
+            .click();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
