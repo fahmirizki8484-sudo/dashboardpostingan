@@ -452,7 +452,7 @@ body{
 }
 
 
-/* ICON */
+/* ICON STYLING & WARNA SPESIFIK */
 
 .menu-icon{
     width:43px;
@@ -476,6 +476,7 @@ body{
     transition:.25s;
 }
 
+/* WP */
 .wp-btn.active .menu-icon{
     background:
         linear-gradient(
@@ -483,45 +484,35 @@ body{
             #0874ff,
             #00c7ff
         );
-
-    box-shadow:
-        0 0 16px rgba(0,180,255,.45);
+    box-shadow: 0 0 16px rgba(0,180,255,.45);
 }
 
+/* WA */
 .wa-btn.active{
-    border-color:
-        rgba(60,230,150,.45);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,175,100,.27),
-            rgba(0,220,140,.08)
-        );
+    border-color: rgba(60,230,150,.45);
+    background: linear-gradient(135deg, rgba(0,175,100,.27), rgba(0,220,140,.08));
 }
-
 .wa-btn.active::before{
-    background:
-        linear-gradient(
-            180deg,
-            #00d879,
-            #00ffae
-        );
-
-    box-shadow:
-        0 0 10px #00e88a;
+    background: linear-gradient(180deg, #00d879, #00ffae);
+    box-shadow: 0 0 10px #00e88a;
+}
+.wa-btn.active .menu-icon{
+    background: linear-gradient(135deg, #00b968, #00e58a);
+    box-shadow: 0 0 16px rgba(0,220,130,.35);
 }
 
-.wa-btn.active .menu-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #00b968,
-            #00e58a
-        );
-
-    box-shadow:
-        0 0 16px rgba(0,220,130,.35);
+/* SYAIR */
+.syair-btn.active{
+    border-color: rgba(210,100,255,.45);
+    background: linear-gradient(135deg, rgba(140,0,220,.27), rgba(200,50,255,.08));
+}
+.syair-btn.active::before{
+    background: linear-gradient(180deg, #b000ff, #ea80ff);
+    box-shadow: 0 0 10px #cc44ff;
+}
+.syair-btn.active .menu-icon{
+    background: linear-gradient(135deg, #9900ee, #cc44ff);
+    box-shadow: 0 0 16px rgba(180,0,255,.35);
 }
 
 
@@ -921,7 +912,7 @@ body{
             </div>
 
             <div class="menu-number">
-                02
+                03
             </div>
 
         </div>
@@ -975,6 +966,36 @@ body{
 
                     <div class="menu-title">
                         GENERATOR WA
+                    </div>
+
+                    <div class="menu-desc">
+                        POSTING GENERATOR
+                    </div>
+
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
+            <!-- SYAIR -->
+
+            <button
+                class="menu-btn syair-btn"
+                onclick="openGenerator('generator-syair.html', this)"
+            >
+
+                <div class="menu-icon">
+                    📜
+                </div>
+
+                <div class="menu-content">
+
+                    <div class="menu-title">
+                        GENERATOR SYAIR
                     </div>
 
                     <div class="menu-desc">
@@ -1127,6 +1148,18 @@ document.addEventListener(
 
             document
                 .querySelector(".wa-btn")
+                .click();
+
+        }
+
+
+        if(
+            e.altKey &&
+            e.key === "3"
+        ){
+
+            document
+                .querySelector(".syair-btn")
                 .click();
 
         }
