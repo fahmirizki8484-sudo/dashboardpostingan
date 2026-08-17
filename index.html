@@ -515,6 +515,20 @@ body{
     box-shadow: 0 0 16px rgba(180,0,255,.35);
 }
 
+/* PIUTANG */
+.piutang-btn.active{
+    border-color: rgba(255,180,60,.45);
+    background: linear-gradient(135deg, rgba(220,130,0,.27), rgba(255,200,50,.08));
+}
+.piutang-btn.active::before{
+    background: linear-gradient(180deg, #ff9900, #ffcc00);
+    box-shadow: 0 0 10px #ffbb00;
+}
+.piutang-btn.active .menu-icon{
+    background: linear-gradient(135deg, #e68a00, #ffb800);
+    box-shadow: 0 0 16px rgba(255,170,0,.35);
+}
+
 
 /* TEXT */
 
@@ -900,7 +914,7 @@ body{
 
     <!-- =================================================
          SIDEBAR
-    ================================================= -->
+    ================================================ -->
 
     <aside class="sidebar">
 
@@ -912,7 +926,7 @@ body{
             </div>
 
             <div class="menu-number">
-                03
+                04
             </div>
 
         </div>
@@ -1011,6 +1025,36 @@ body{
             </button>
 
 
+            <!-- PIUTANG -->
+
+            <button
+                class="menu-btn piutang-btn"
+                onclick="openGenerator('generator-piutang.html', this)"
+            >
+
+                <div class="menu-icon">
+                    💰
+                </div>
+
+                <div class="menu-content">
+
+                    <div class="menu-title">
+                        GENERATOR PIUTANG
+                    </div>
+
+                    <div class="menu-desc">
+                        POSTING GENERATOR
+                    </div>
+
+                </div>
+
+                <div class="menu-arrow">
+                    ›
+                </div>
+
+            </button>
+
+
         </div>
 
 
@@ -1033,7 +1077,7 @@ body{
 
     <!-- =================================================
          VIEWER
-    ================================================= -->
+    ================================================ -->
 
     <main class="viewer-container">
 
@@ -1160,6 +1204,18 @@ document.addEventListener(
 
             document
                 .querySelector(".syair-btn")
+                .click();
+
+        }
+
+
+        if(
+            e.altKey &&
+            e.key === "4"
+        ){
+
+            document
+                .querySelector(".piutang-btn")
                 .click();
 
         }
