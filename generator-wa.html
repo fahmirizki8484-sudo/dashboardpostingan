@@ -1983,6 +1983,53 @@ input[type=file]::file-selector-button{
     }
 }
 
+select{
+    width:100%;
+    height:36px;
+
+    padding:0 11px;
+
+    border:1px solid #145b94;
+    border-radius:6px;
+
+    outline:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #051b3c,
+            #03132c
+        );
+
+    color:#fff;
+
+    font-family:Montserrat,sans-serif;
+    font-size:10px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+select:hover{
+    border-color:#168bd0;
+}
+
+select:focus{
+    border-color:#00d9ff;
+
+    box-shadow:
+        0 0 12px
+        rgba(0,217,255,.22);
+}
+
+select option{
+    background:#03132c;
+    color:#fff;
+    padding:10px;
+}
+
 </style>
 </head>
 
@@ -2028,38 +2075,54 @@ input[type=file]::file-selector-button{
 
 
     <div class="group">
-
     <label>
-        Link Wallpaper
+        Wallpaper Poster
     </label>
 
-    <input
-        id="wallpaperUrl"
-        type="text"
-        placeholder="https://domain.com/wallpaper.jpg"
-        value=""
-        oninput="updateWallpaper()"
-    >
+    <select id="wallpaperUrl" onchange="updateWallpaper()">
+        <option value="">Default Blue Theme</option>
 
+        <option value="https://ziablog207.com/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-10-at-14.36.48.jpeg">
+            Wallpaper 01
+        </option>
+
+        <option value="https://i.pinimg.com/1200x/b8/9a/79/b89a7981e1d80524202c0c5846dd10c9.jpg">
+            Wallpaper 02
+        </option>
+
+        <option value="https://i.pinimg.com/736x/ce/48/14/ce48140fe22e406e5b33a8fa9465db39.jpg">
+            Wallpaper 03
+        </option>
+
+        <option value="https://i.pinimg.com/736x/80/0a/20/800a20f19a3686cd72c37381efaf30b6.jpg">
+            Wallpaper 04
+        </option>
+
+        <option value="https://i.pinimg.com/1200x/58/92/76/589276ecb76c1a878ad1f447ae599dfe.jpg">
+            Wallpaper 05
+        </option>
+    </select>
 </div>
 
     <!-- LOGO -->
 
     <div class="group">
+    <label>
+        Logo
+    </label>
 
-        <label>
-            Logo
-        </label>
+    <select id="logoUrl" onchange="updatePoster()">
 
-        <input
-            id="logoUrl"
-            type="text"
-            placeholder="URL logo atau kosongkan"
-            value=""
-            oninput="updatePoster()"
-        >
+        <option value="">
+            Tanpa Logo
+        </option>
 
-    </div>
+        <option value="https://ziablog207.com/wp-content/uploads/2026/08/ChatGPT_Image_6_Jul_2026__16.47.33-removebg-preview.png">
+            Logo ZIATOGEL
+        </option>
+
+    </select>
+</div>
 
 
     <!-- USER ID -->
