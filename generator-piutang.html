@@ -7,896 +7,896 @@
 
 <style>
 *{
- box-sizing:border-box;
- margin:0;
- padding:0
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 :root{
- --b:#087cff;
- --b2:#0055d4;
- --n:#061427;
- --p:#0a2039;
- --l:#1c4468;
- --m:#7898b8;
- --y:#ffd400
+    --b:#087cff;
+    --b2:#0055d4;
+    --n:#061427;
+    --p:#0a2039;
+    --l:#1c4468;
+    --m:#7898b8;
+    --y:#ffd400;
 }
 
 body{
- min-height:100vh;
- padding:24px;
- color:#fff;
- font-family:Inter,"Segoe UI",Arial,sans-serif;
- background:
- radial-gradient(circle at 8% -5%,#087cff45,transparent 30%),
- radial-gradient(circle at 100% 15%,#00aaff18,transparent 28%),
- radial-gradient(circle at 80% 100%,#0754d620,transparent 35%),
- linear-gradient(135deg,#030b16,#061427 45%,#071a30)
+    min-height:100vh;
+    padding:24px;
+    color:#fff;
+    font-family:Inter,"Segoe UI",Arial,sans-serif;
+    background:
+        radial-gradient(circle at 8% -5%,#087cff45,transparent 30%),
+        radial-gradient(circle at 100% 15%,#00aaff18,transparent 28%),
+        radial-gradient(circle at 80% 100%,#0754d620,transparent 35%),
+        linear-gradient(135deg,#030b16,#061427 45%,#071a30);
 }
 
 .container{
- width:100%;
- max-width:1580px;
- margin:auto
+    width:100%;
+    max-width:1580px;
+    margin:auto;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .header{
- position:relative;
- min-height:120px;
- padding:25px 28px;
- margin-bottom:20px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
- border-radius:22px;
- background:
- linear-gradient(
-  135deg,
-  #0a2850,
-  #0b3e7d 48%,
-  #0753a8
- );
- border:1px solid #2a73b8;
- box-shadow:
- 0 25px 70px #0009,
- inset 0 1px #ffffff15;
- overflow:hidden
+    position:relative;
+    min-height:70px;
+    padding:20px 25px;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    border-radius:22px;
+    background:
+        linear-gradient(
+            135deg,
+            #0a2850,
+            #0b3e7d 48%,
+            #0753a8
+        );
+    border:1px solid #2a73b8;
+    box-shadow:
+        0 25px 70px #0009,
+        inset 0 1px #ffffff15;
+    overflow:hidden;
 }
 
 .header:before{
- content:"";
- position:absolute;
- width:420px;
- height:420px;
- right:-180px;
- top:-240px;
- border-radius:50%;
- background:#00aaff25;
- filter:blur(5px)
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    right:-180px;
+    top:-240px;
+    border-radius:50%;
+    background:#00aaff25;
+    filter:blur(5px);
 }
 
 .header>*{
- position:relative;
- z-index:2
+    position:relative;
+    z-index:2;
 }
 
 .header h1{
- font-size:29px;
- font-weight:950;
- letter-spacing:.6px
+    font-size:30px;
+    font-weight:950;
+    letter-spacing:.6px;
 }
 
 .header p{
- margin-top:8px;
- color:#b8d5f2;
- font-size:12px;
- line-height:1.6
+    margin-top:8px;
+    color:#b8d5f2;
+    font-size:12px;
+    line-height:1.6;
 }
 
 .hbadge{
- padding:10px 15px;
- border-radius:12px;
- background:#03172e66;
- border:1px solid #65baff55;
- color:#dff3ff;
- font-size:10px;
- font-weight:900;
- letter-spacing:.6px;
- backdrop-filter:blur(10px)
+    padding:10px 15px;
+    border-radius:12px;
+    background:#03172e66;
+    border:1px solid #65baff55;
+    color:#dff3ff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.6px;
+    backdrop-filter:blur(10px);
 }
 
 .hbadge i{
- display:inline-block;
- width:7px;
- height:7px;
- border-radius:50%;
- background:#00eaff;
- box-shadow:0 0 10px #00eaff;
- margin-right:7px
+    display:inline-block;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#00eaff;
+    box-shadow:0 0 10px #00eaff;
+    margin-right:7px;
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 .main-grid{
- display:grid;
- grid-template-columns:430px minmax(0,1fr);
- gap:20px;
- align-items:start
+    display:grid;
+    grid-template-columns:430px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
 }
 
 .card{
- min-width:0;
- padding:20px;
- border-radius:20px;
- background:
- linear-gradient(
-  145deg,
-  #0b2139e8,
-  #071625f5
- );
- border:1px solid var(--l);
- box-shadow:
- 0 20px 55px #0008,
- inset 0 1px #ffffff08;
- backdrop-filter:blur(16px)
+    min-width:0;
+    padding:20px;
+    border-radius:20px;
+    background:
+        linear-gradient(
+            145deg,
+            #0b2139e8,
+            #071625f5
+        );
+    border:1px solid var(--l);
+    box-shadow:
+        0 20px 55px #0008,
+        inset 0 1px #ffffff08;
+    backdrop-filter:blur(16px);
 }
 
-/* ================= TITLE ================= */
+/* TITLE */
 
 .title{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
- margin-bottom:16px
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:16px;
 }
 
 .title-left{
- display:flex;
- align-items:center;
- gap:10px
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .icon,
 .copy-icon{
- display:flex;
- align-items:center;
- justify-content:center;
- border-radius:9px;
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border:1px solid #49a2ff66
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border:1px solid #49a2ff66;
 }
 
 .icon{
- width:35px;
- height:35px;
- font-size:15px
+    width:35px;
+    height:35px;
+    font-size:15px;
 }
 
 .title h2{
- font-size:16px;
- font-weight:950
+    font-size:16px;
+    font-weight:950;
 }
 
 .badge{
- padding:6px 10px;
- border-radius:20px;
- color:#79c0ff;
- background:#087cff14;
- border:1px solid #087cff4c;
- font-size:9px;
- font-weight:900
+    padding:6px 10px;
+    border-radius:20px;
+    color:#79c0ff;
+    background:#087cff14;
+    border:1px solid #087cff4c;
+    font-size:9px;
+    font-weight:900;
 }
 
-/* ================= INPUT ================= */
+/* INPUT */
 
 textarea{
- width:100%;
- height:520px;
- resize:vertical;
- padding:16px;
- border-radius:14px;
- border:1px solid #214b70;
- outline:0;
- background:
- linear-gradient(
-  145deg,
-  #030d19,
-  #061423
- );
- color:#dceeff;
- font:12px/1.6 Consolas,"Courier New",monospace;
- box-shadow:inset 0 1px 12px #0005;
- transition:.25s
+    width:100%;
+    height:520px;
+    resize:vertical;
+    padding:16px;
+    border-radius:14px;
+    border:1px solid #214b70;
+    outline:0;
+    background:
+        linear-gradient(
+            145deg,
+            #030d19,
+            #061423
+        );
+    color:#dceeff;
+    font:12px/1.6 Consolas,"Courier New",monospace;
+    box-shadow:inset 0 1px 12px #0005;
+    transition:.25s;
 }
 
 textarea::placeholder{
- color:#4f6d89
+    color:#4f6d89;
 }
 
 textarea:focus{
- border-color:var(--b);
- box-shadow:
- 0 0 0 3px #087cff13,
- 0 0 30px #087cff0d,
- inset 0 1px 12px #0005
+    border-color:var(--b);
+    box-shadow:
+        0 0 0 3px #087cff13,
+        0 0 30px #087cff0d,
+        inset 0 1px 12px #0005;
 }
 
 .hint{
- margin-top:9px;
- color:#557694;
- font-size:9px
+    margin-top:9px;
+    color:#557694;
+    font-size:9px;
 }
 
 .hint b{
- color:#7fa8c8
+    color:#7fa8c8;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 .buttons{
- display:grid;
- grid-template-columns:1fr auto;
- gap:9px;
- margin-top:13px
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:9px;
+    margin-top:13px;
 }
 
 button{
- border:0;
- cursor:pointer;
- color:#fff;
- font-family:inherit;
- font-weight:900;
- border-radius:10px;
- transition:.18s
+    border:0;
+    cursor:pointer;
+    color:#fff;
+    font-family:inherit;
+    font-weight:900;
+    border-radius:10px;
+    transition:.18s;
 }
 
 button:hover{
- transform:translateY(-2px);
- filter:brightness(1.08)
+    transform:translateY(-2px);
+    filter:brightness(1.08);
 }
 
 button:active{
- transform:none
+    transform:none;
 }
 
 .primary,
 .danger{
- padding:12px 17px
+    padding:12px 17px;
 }
 
 .primary{
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border:1px solid #46a2ff66;
- box-shadow:0 8px 22px #006eff25
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border:1px solid #46a2ff66;
+    box-shadow:0 8px 22px #006eff25;
 }
 
 .danger{
- background:
- linear-gradient(
-  135deg,
-  #9f2638,
-  #761827
- );
- border:1px solid #ff526444
+    background:
+        linear-gradient(
+            135deg,
+            #9f2638,
+            #761827
+        );
+    border:1px solid #ff526444;
 }
 
-/* ================= STATS ================= */
+/* STATS */
 
 .stats{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:10px;
- margin-bottom:17px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:17px;
 }
 
 .stat{
- padding:14px;
- border-radius:14px;
- background:
- linear-gradient(
-  145deg,
-  #0c2743,
-  #091a2d
- );
- border:1px solid #1e4669
+    padding:14px;
+    border-radius:14px;
+    background:
+        linear-gradient(
+            145deg,
+            #0c2743,
+            #091a2d
+        );
+    border:1px solid #1e4669;
 }
 
 .label{
- color:#7091ae;
- font-size:9px;
- font-weight:900;
- text-transform:uppercase;
- letter-spacing:.6px
+    color:#7091ae;
+    font-size:15px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.6px;
 }
 
 .value{
- margin-top:6px;
- font-size:19px;
- font-weight:950;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis
+    margin-top:6px;
+    font-size:19px;
+    font-weight:950;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .total{
- color:var(--y)
+    color:var(--y);
 }
 
-/* ================= FILTER ================= */
+/* FILTER */
 
 .section{
- display:flex;
- align-items:center;
- gap:8px;
- margin-bottom:9px;
- color:#7192ae;
- font-size:9px;
- font-weight:950;
- text-transform:uppercase
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:9px;
+    color:#7192ae;
+    font-size:10px;
+    font-weight:950;
+    text-transform:uppercase;
 }
 
 .section:before{
- content:"";
- width:3px;
- height:12px;
- border-radius:10px;
- background:
- linear-gradient(
-  #00aaff,
-  var(--b)
- );
- box-shadow:0 0 10px #087cff88
+    content:"";
+    width:3px;
+    height:12px;
+    border-radius:10px;
+    background:
+        linear-gradient(
+            #00aaff,
+            var(--b)
+        );
+    box-shadow:0 0 10px #087cff88;
 }
 
 .toolbar{
- display:flex;
- flex-wrap:wrap;
- gap:7px;
- margin-bottom:17px
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:17px;
 }
 
 .filter{
- padding:7px 12px;
- border-radius:20px;
- background:
- linear-gradient(
-  145deg,
-  #102a43,
-  #0b1e32
- );
- border:1px solid #244c6e;
- color:#8eafcb;
- font-size:9px
+    padding:7px 12px;
+    border-radius:20px;
+    background:
+        linear-gradient(
+            145deg,
+            #102a43,
+            #0b1e32
+        );
+    border:1px solid #244c6e;
+    color:#8eafcb;
+    font-size:9px;
 }
 
 .filter.active,
 .filter:hover{
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border-color:#2e96ff;
- color:#fff
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border-color:#2e96ff;
+    color:#fff;
 }
 
-/* ================= COPY GRID ================= */
+/* COPY GRID */
 
 .copy-grid{
- display:grid;
- grid-template-columns:repeat(4,minmax(0,1fr));
- gap:10px;
- height:500px
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:10px;
+    height:500px;
 }
 
 .copy-card{
- min-width:0;
- height:500px;
- display:flex;
- flex-direction:column;
- background:
- linear-gradient(
-  145deg,
-  #0b2945,
-  #071827
- );
- border:1px solid #225173;
- border-radius:15px;
- overflow:hidden;
- box-shadow:0 12px 30px #0005
+    min-width:0;
+    height:500px;
+    display:flex;
+    flex-direction:column;
+    background:
+        linear-gradient(
+            145deg,
+            #0b2945,
+            #071827
+        );
+    border:1px solid #225173;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 12px 30px #0005;
 }
 
 .copy-head{
- height:48px;
- min-height:48px;
- padding:10px 11px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- border-bottom:1px solid #1c405d;
- background:
- linear-gradient(
-  135deg,
-  #0e2d4b,
-  #0a2138
- )
+    height:48px;
+    min-height:48px;
+    padding:10px 11px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #1c405d;
+    background:
+        linear-gradient(
+            135deg,
+            #0e2d4b,
+            #0a2138
+        );
 }
 
 .copy-head-left{
- display:flex;
- align-items:center;
- gap:7px;
- min-width:0
+    display:flex;
+    align-items:center;
+    gap:7px;
+    min-width:0;
 }
 
 .copy-icon{
- width:24px;
- height:24px;
- font-size:9px
+    width:24px;
+    height:24px;
+    font-size:9px;
 }
 
 .copy-head h3{
- font-size:9px;
- font-weight:950;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis
+    font-size:9px;
+    font-weight:950;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .copy-head span{
- padding:4px 6px;
- border-radius:6px;
- background:#06192b;
- border:1px solid #1b3d5a;
- color:#79a3c3;
- font-size:8px
+    padding:4px 6px;
+    border-radius:6px;
+    background:#06192b;
+    border:1px solid #1b3d5a;
+    color:#79a3c3;
+    font-size:8px;
 }
 
 .copy-body{
- flex:1;
- min-height:0;
- display:flex;
- flex-direction:column;
- padding:8px
+    flex:1;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    padding:8px;
 }
 
 .copy-action{
- width:100%;
- min-height:35px;
- margin-bottom:7px;
- padding:8px 9px;
- text-align:left;
- border-radius:8px;
- background:
- linear-gradient(
-  145deg,
-  #112f4c,
-  #0d243b
- );
- border:1px solid #2a5577;
- font-size:8px;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis
+    width:100%;
+    min-height:35px;
+    margin-bottom:7px;
+    padding:8px 9px;
+    text-align:left;
+    border-radius:8px;
+    background:
+        linear-gradient(
+            145deg,
+            #112f4c,
+            #0d243b
+        );
+    border:1px solid #2a5577;
+    font-size:8px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .copy-action small{
- float:right;
- color:#77a4c7
+    float:right;
+    color:#77a4c7;
 }
 
 .copy-action:hover,
 .copy-all{
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border-color:#2e96ff
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border-color:#2e96ff;
 }
 
 .bank-copy-buttons{
- display:flex;
- flex-wrap:wrap;
- gap:5px;
- max-height:78px;
- overflow-y:auto;
- padding-bottom:7px;
- margin-bottom:5px;
- border-bottom:1px solid #17364f
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    max-height:78px;
+    overflow-y:auto;
+    padding-bottom:7px;
+    margin-bottom:5px;
+    border-bottom:1px solid #17364f;
 }
 
 .bank-copy-btn{
- padding:6px 8px;
- border-radius:6px;
- background:#0e2a44;
- border:1px solid #285477;
- color:#a9c8e4;
- font-size:7px
+    padding:6px 8px;
+    border-radius:6px;
+    background:#0e2a44;
+    border:1px solid #285477;
+    color:#a9c8e4;
+    font-size:7px;
 }
 
 .bank-copy-btn:hover{
- background:var(--b);
- color:#fff
+    background:var(--b);
+    color:#fff;
 }
 
 .copy-list{
- flex:1;
- min-height:0;
- overflow-y:auto;
- padding-right:3px
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    padding-right:3px;
 }
 
 .copy-list::-webkit-scrollbar,
 .bank-copy-buttons::-webkit-scrollbar,
 .report-text::-webkit-scrollbar{
- width:5px
+    width:5px;
 }
 
 .copy-list::-webkit-scrollbar-thumb,
 .bank-copy-buttons::-webkit-scrollbar-thumb,
 .report-text::-webkit-scrollbar-thumb{
- background:#275879;
- border-radius:10px
+    background:#275879;
+    border-radius:10px;
 }
 
 .copy-item{
- width:100%;
- min-height:33px;
- margin-bottom:5px;
- padding:7px 8px;
- display:flex;
- align-items:center;
- gap:6px;
- border-radius:8px;
- background:
- linear-gradient(
-  145deg,
-  #0b2137,
-  #081a2c
- );
- border:1px solid #1a3b56
+    width:100%;
+    min-height:33px;
+    margin-bottom:5px;
+    padding:7px 8px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    border-radius:8px;
+    background:
+        linear-gradient(
+            145deg,
+            #0b2137,
+            #081a2c
+        );
+    border:1px solid #1a3b56;
 }
 
 .copy-item:last-child{
- margin:0
+    margin:0;
 }
 
 .copy-item-value{
- min-width:0;
- flex:1;
- color:#d8e9f9;
- font-size:8px;
- font-weight:750;
- white-space:nowrap;
- overflow:hidden;
- text-overflow:ellipsis
+    min-width:0;
+    flex:1;
+    color:#d8e9f9;
+    font-size:8px;
+    font-weight:750;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .copy-item-btn{
- padding:5px 7px;
- border-radius:5px;
- background:#12304a;
- border:1px solid #2a4f6c;
- color:#9fc5e7;
- font-size:7px
+    padding:5px 7px;
+    border-radius:5px;
+    background:#12304a;
+    border:1px solid #2a4f6c;
+    color:#9fc5e7;
+    font-size:7px;
 }
 
 .copy-item-btn:hover{
- background:var(--b);
- color:#fff
+    background:var(--b);
+    color:#fff;
 }
 
 .nominal-value{
- color:var(--y);
- font-weight:950
+    color:var(--y);
+    font-weight:950;
 }
 
-/* ================= EMPTY ================= */
+/* EMPTY */
 
 .empty{
- margin-top:12px;
- padding:11px 13px;
- display:flex;
- align-items:center;
- gap:9px;
- color:#6686a2;
- background:#071624;
- border:1px dashed #234963;
- border-radius:10px;
- font-size:9px;
- line-height:1.5
+    margin-top:12px;
+    padding:11px 13px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#6686a2;
+    background:#071624;
+    border:1px dashed #234963;
+    border-radius:10px;
+    font-size:13px;
+    line-height:1.5;
 }
 
 .empty-icon{
- width:24px;
- height:24px;
- display:flex;
- align-items:center;
- justify-content:center;
- border-radius:7px;
- background:#087cff0d;
- border:1px solid #087cff25;
- color:#55adff;
- flex:0 0 auto
+    width:24px;
+    height:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:7px;
+    background:#087cff0d;
+    border:1px solid #087cff25;
+    color:#55adff;
+    flex:0 0 auto;
 }
 
-/* ================= REPORT ================= */
+/* REPORT */
 
 .report-section{
- margin-top:20px;
- padding:17px;
- border-radius:16px;
- background:
- linear-gradient(
-  145deg,
-  #081f36,
-  #061523
- );
- border:1px solid #225173;
- box-shadow:0 15px 35px #0005
+    margin-top:20px;
+    padding:17px;
+    border-radius:16px;
+    background:
+        linear-gradient(
+            145deg,
+            #081f36,
+            #061523
+        );
+    border:1px solid #225173;
+    box-shadow:0 15px 35px #0005;
 }
 
 .report-header{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
- margin-bottom:12px
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
 }
 
 .report-title{
- display:flex;
- align-items:center;
- gap:9px
+    display:flex;
+    align-items:center;
+    gap:9px;
 }
 
 .report-title-icon{
- width:32px;
- height:32px;
- display:flex;
- align-items:center;
- justify-content:center;
- border-radius:9px;
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border:1px solid #49a2ff66
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border:1px solid #49a2ff66;
 }
 
 .report-title h3{
- font-size:13px;
- font-weight:950
+    font-size:13px;
+    font-weight:950;
 }
 
 .report-badge{
- padding:6px 9px;
- border-radius:20px;
- color:#79c0ff;
- background:#087cff14;
- border:1px solid #087cff4c;
- font-size:8px;
- font-weight:900
+    padding:6px 9px;
+    border-radius:20px;
+    color:#79c0ff;
+    background:#087cff14;
+    border:1px solid #087cff4c;
+    font-size:8px;
+    font-weight:900;
 }
 
 .report-text{
- width:100%;
- height:420px;
- resize:vertical;
- padding:16px;
- border-radius:12px;
- border:1px solid #214b70;
- outline:0;
- background:#030d19;
- color:#dceeff;
- font:11px/1.65 Consolas,"Courier New",monospace;
- box-shadow:inset 0 1px 12px #0005
+    width:100%;
+    height:420px;
+    resize:vertical;
+    padding:16px;
+    border-radius:12px;
+    border:1px solid #214b70;
+    outline:0;
+    background:#030d19;
+    color:#dceeff;
+    font:11px/1.65 Consolas,"Courier New",monospace;
+    box-shadow:inset 0 1px 12px #0005;
 }
 
 .report-buttons{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:8px;
- margin-top:10px
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:10px;
 }
 
 .report-btn{
- padding:11px 14px;
- border-radius:9px;
- background:
- linear-gradient(
-  135deg,
-  var(--b),
-  var(--b2)
- );
- border:1px solid #46a2ff66;
- font-size:9px
+    padding:11px 14px;
+    border-radius:9px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--b),
+            var(--b2)
+        );
+    border:1px solid #46a2ff66;
+    font-size:9px;
 }
 
 .report-btn.secondary{
- background:
- linear-gradient(
-  145deg,
-  #112f4c,
-  #0d243b
- );
- border:1px solid #2a5577
+    background:
+        linear-gradient(
+            145deg,
+            #112f4c,
+            #0d243b
+        );
+    border:1px solid #2a5577;
 }
 
-/* ================= TOAST ================= */
+/* TOAST */
 
 .toast{
- position:fixed;
- right:24px;
- bottom:24px;
- z-index:9999;
- max-width:350px;
- padding:12px 16px;
- border-radius:12px;
- background:
- linear-gradient(
-  135deg,
-  #0d3153,
-  #09233c
- );
- border:1px solid #347db4;
- box-shadow:0 15px 40px #0009;
- color:#fff;
- font-size:10px;
- font-weight:900;
- transform:translateY(100px) scale(.96);
- opacity:0;
- pointer-events:none;
- transition:.28s
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:9999;
+    max-width:350px;
+    padding:12px 16px;
+    border-radius:12px;
+    background:
+        linear-gradient(
+            135deg,
+            #0d3153,
+            #09233c
+        );
+    border:1px solid #347db4;
+    box-shadow:0 15px 40px #0009;
+    color:#fff;
+    font-size:10px;
+    font-weight:900;
+    transform:translateY(100px) scale(.96);
+    opacity:0;
+    pointer-events:none;
+    transition:.28s;
 }
 
 .toast.show{
- transform:none;
- opacity:1
+    transform:none;
+    opacity:1;
 }
 
 .toast:before{
- content:"✓";
- display:inline-flex;
- width:20px;
- height:20px;
- align-items:center;
- justify-content:center;
- border-radius:50%;
- background:var(--b);
- margin-right:8px
+    content:"✓";
+    display:inline-flex;
+    width:20px;
+    height:20px;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--b);
+    margin-right:8px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
 @media(max-width:1350px){
 
- .main-grid{
-  grid-template-columns:380px minmax(0,1fr)
- }
+    .main-grid{
+        grid-template-columns:380px minmax(0,1fr);
+    }
 
- .copy-grid{
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  height:760px
- }
+    .copy-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        height:760px;
+    }
 
- .copy-card{
-  height:370px
- }
+    .copy-card{
+        height:370px;
+    }
 }
 
 @media(max-width:900px){
 
- body{
-  padding:13px
- }
+    body{
+        padding:13px;
+    }
 
- .header{
-  padding:21px;
-  align-items:flex-start;
-  flex-direction:column
- }
+    .header{
+        padding:21px;
+        align-items:flex-start;
+        flex-direction:column;
+    }
 
- .header h1{
-  font-size:23px
- }
+    .header h1{
+        font-size:23px;
+    }
 
- .main-grid{
-  grid-template-columns:1fr
- }
+    .main-grid{
+        grid-template-columns:1fr;
+    }
 
- textarea{
-  height:400px
- }
+    textarea{
+        height:400px;
+    }
 }
 
 @media(max-width:600px){
 
- .card{
-  padding:14px
- }
+    .card{
+        padding:14px;
+    }
 
- .header{
-  border-radius:17px
- }
+    .header{
+        border-radius:17px;
+    }
 
- .header h1{
-  font-size:20px
- }
+    .header h1{
+        font-size:20px;
+    }
 
- .header p{
-  font-size:10px
- }
+    .header p{
+        font-size:10px;
+    }
 
- .stats{
-  grid-template-columns:1fr
- }
+    .stats{
+        grid-template-columns:1fr;
+    }
 
- .copy-grid{
-  grid-template-columns:1fr;
-  height:auto
- }
+    .copy-grid{
+        grid-template-columns:1fr;
+        height:auto;
+    }
 
- .copy-card{
-  height:400px
- }
+    .copy-card{
+        height:400px;
+    }
 
- .buttons{
-  grid-template-columns:1fr
- }
+    .buttons{
+        grid-template-columns:1fr;
+    }
 
- .danger{
-  width:100%
- }
+    .danger{
+        width:100%;
+    }
 
- .toast{
-  left:14px;
-  right:14px;
-  bottom:14px;
-  max-width:none
- }
+    .toast{
+        left:14px;
+        right:14px;
+        bottom:14px;
+        max-width:none;
+    }
 
- .report-buttons{
-  grid-template-columns:1fr
- }
+    .report-buttons{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:400px){
 
- body{
-  padding:8px
- }
+    body{
+        padding:8px;
+    }
 
- .header{
-  padding:17px
- }
+    .header{
+        padding:17px;
+    }
 
- .header h1{
-  font-size:18px
- }
+    .header h1{
+        font-size:18px;
+    }
 
- .badge{
-  display:none
- }
+    .badge{
+        display:none;
+    }
 }
 </style>
 </head>
@@ -905,2661 +905,2483 @@ button:active{
 
 <div class="container">
 
-<!-- ================= HEADER ================= -->
-
 <div class="header">
+    <div>
+        <h1>GENERATOR HUTANG / PIUTANG</h1>
+        <p>
+            Parser data fleksibel — membaca Jenis Bank, Nama Rekening,
+            Nomor Rekening dan Nominal secara otomatis.
+        </p>
+    </div>
 
- <div>
-  <h1>GENERATOR HUTANG / PIUTANG</h1>
-
-  <p>
-   Parser data fleksibel — membaca Jenis Bank, Nama Rekening,
-   Nomor Rekening dan Nominal secara otomatis.
-  </p>
- </div>
-
- <div class="hbadge">
-  <i></i> FLEXIBLE PARSER
- </div>
-
+    <div class="hbadge">
+        <i></i> FLEXIBLE PARSER
+    </div>
 </div>
-
-
-<!-- ================= MAIN ================= -->
 
 <div class="main-grid">
 
-
-<!-- ================= INPUT ================= -->
+<!-- INPUT -->
 
 <div class="card">
 
- <div class="title">
+    <div class="title">
+        <div class="title-left">
+            <div class="icon">⚡</div>
+            <h2>INPUT DATA MENTAH</h2>
+        </div>
 
-  <div class="title-left">
-
-   <div class="icon">⚡</div>
-
-   <h2>INPUT DATA MENTAH</h2>
-
-  </div>
-
-  <span class="badge">
-   RAW DATA
-  </span>
-
- </div>
-
+        <span class="badge">RAW DATA</span>
+    </div>
 
 <textarea
- id="rawInput"
- spellcheck="false"
- placeholder="Paste data mentah di sini...
+id="rawInput"
+spellcheck="false"
+placeholder="Paste data mentah di sini...
 
-Contoh 1:
+Contoh Markdown Table:
+
+| **MANDIRI** | **081341801804** | **MUHAMAD KHAIRUL ROHMAN** | **PENGIRIMAN DANA KE BNI** | | **5,000,000** |
+| **BCA** | **559301052467533** | **BADAR MAULANA ALBANTANI** | **PENGIRIMAN DANA KE WD BRI** | | **5,000,000** |
+
+Contoh pipe:
 
 903699207258 | DANAMON | MUHAMAD VALENCIA | 25,000,000
-903698195587 | DANAMON | VIVI SUSANTI | 25,000,000
 
-
-Contoh 2:
+Contoh Excel:
 
 903699207258    DANAMON    MUHAMAD VALENCIA    25,000,000
-903698195587    DANAMON    VIVI SUSANTI       25,000,000
 
-
-Contoh 3:
+Contoh label:
 
 BANK BRI
 Nama Rekening: ROZA
 Nomor Rekening: 1234567890
 Nominal: Rp 25.000.000
+"></textarea>
 
-atau paste langsung data dari Excel / spreadsheet..."
-></textarea>
+    <div class="hint">
+        <b>CTRL + ENTER</b> untuk memproses data
+    </div>
 
+    <div class="buttons">
+        <button class="primary" onclick="processData()">
+            ⚡ PROSES DATA
+        </button>
 
- <div class="hint">
-  <b>CTRL + ENTER</b> untuk memproses data
- </div>
-
-
- <div class="buttons">
-
-  <button
-   class="primary"
-   onclick="processData()">
-   ⚡ PROSES DATA
-  </button>
-
-  <button
-   class="danger"
-   onclick="clearAll()">
-   CLEAR
-  </button>
-
- </div>
+        <button class="danger" onclick="clearAll()">
+            CLEAR
+        </button>
+    </div>
 
 </div>
 
 
-<!-- ================= RESULT ================= -->
+<!-- RESULT -->
 
 <div class="card">
 
- <div class="title">
+    <div class="title">
 
-  <div class="title-left">
+        <div class="title-left">
+            <div class="icon">◈</div>
+            <h2>HASIL DATA</h2>
+        </div>
 
-   <div class="icon">◈</div>
+        <span class="badge" id="statusText">
+            0 DATA
+        </span>
 
-   <h2>HASIL DATA</h2>
-
-  </div>
-
-  <span
-   class="badge"
-   id="statusText">
-   0 DATA
-  </span>
-
- </div>
+    </div>
 
 
-<!-- STATS -->
+    <div class="stats">
 
-<div class="stats">
+        <div class="stat">
+            <div class="label">Jumlah Data</div>
+            <div class="value" id="totalData">0</div>
+        </div>
 
- <div class="stat">
+        <div class="stat">
+            <div class="label">Jumlah Bank</div>
+            <div class="value" id="totalBank">0</div>
+        </div>
 
-  <div class="label">
-   Jumlah Data
-  </div>
+        <div class="stat">
+            <div class="label">Total Nominal</div>
+            <div class="value total" id="totalNominal">
+                Rp 0
+            </div>
+        </div>
 
-  <div
-   class="value"
-   id="totalData">
-   0
-  </div>
-
- </div>
-
-
- <div class="stat">
-
-  <div class="label">
-   Jumlah Bank
-  </div>
-
-  <div
-   class="value"
-   id="totalBank">
-   0
-  </div>
-
- </div>
+    </div>
 
 
- <div class="stat">
+    <div class="section">
+        FILTER BANK
+    </div>
 
-  <div class="label">
-   Total Nominal
-  </div>
+    <div class="toolbar" id="bankFilters"></div>
 
-  <div
-   class="value total"
-   id="totalNominal">
-   Rp 0
-  </div>
 
- </div>
+    <div class="copy-grid">
+
+        <!-- BANK -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">🏦</div>
+                    <h3>JENIS BANK</h3>
+                </div>
+
+                <span id="bankCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('bank','ALL')">
+
+                    COPY SEMUA BANK
+
+                    <small id="bankTotalCopy">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="bank-copy-buttons"
+                    id="bankCopyButtons">
+                </div>
+
+                <div
+                    class="copy-list"
+                    id="bankList">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAME -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">👤</div>
+                    <h3>NAMA REKENING</h3>
+                </div>
+
+                <span id="nameCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('name','ALL')">
+
+                    COPY SEMUA NAMA
+
+                    <small id="nameCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="nameList">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACCOUNT -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">#</div>
+                    <h3>NOMOR REKENING</h3>
+                </div>
+
+                <span id="accountCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('account','ALL')">
+
+                    COPY SEMUA REKENING
+
+                    <small id="accountCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="accountList">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOMINAL -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">Rp</div>
+                    <h3>NOMINAL</h3>
+                </div>
+
+                <span id="nominalCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('nominal','ALL')">
+
+                    COPY SEMUA NOMINAL
+
+                    <small id="nominalCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="nominalList">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="empty">
+
+        <div class="empty-icon">
+            ℹ
+        </div>
+
+        <div>
+            Parser sekarang mendukung Markdown Table, Pipe Table,
+            Excel/Tab, CSV, data ber-spasi, dan format label.
+        </div>
+
+    </div>
+
+
+    <!-- REPORT -->
+
+    <div class="report-section">
+
+        <div class="report-header">
+
+            <div class="report-title">
+
+                <div class="report-title-icon">
+                    📋
+                </div>
+
+                <h3>REPORT GENERATOR</h3>
+
+            </div>
+
+            <span
+                class="report-badge"
+                id="reportStatus">
+                0 DATA
+            </span>
+
+        </div>
+
+
+        <textarea
+            id="reportOutput"
+            class="report-text"
+            spellcheck="false"
+            placeholder="Report akan muncul otomatis setelah data diproses..."
+        ></textarea>
+
+
+        <div class="report-buttons">
+
+            <button
+                class="report-btn"
+                onclick="copyReport()">
+                📋 COPY REPORT
+            </button>
+
+            <button
+                class="report-btn secondary"
+                onclick="generateReport()">
+                ↻ GENERATE ULANG
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
-
-<!-- FILTER -->
-
-<div class="section">
- FILTER BANK
-</div>
-
-<div
- class="toolbar"
- id="bankFilters">
-</div>
-
-
-<!-- COPY PANELS -->
-
-<div class="copy-grid">
-
-
-<!-- BANK -->
-
-<div class="copy-card">
-
- <div class="copy-head">
-
-  <div class="copy-head-left">
-
-   <div class="copy-icon">
-    🏦
-   </div>
-
-   <h3>
-    JENIS BANK
-   </h3>
-
-  </div>
-
-  <span id="bankCount">
-   0
-  </span>
-
- </div>
-
-
- <div class="copy-body">
-
-  <button
-   class="copy-action copy-all"
-   onclick="copyField('bank','ALL')">
-
-   COPY SEMUA BANK
-
-   <small id="bankTotalCopy">
-    0
-   </small>
-
-  </button>
-
-
-  <div
-   class="bank-copy-buttons"
-   id="bankCopyButtons">
-  </div>
-
-
-  <div
-   class="copy-list"
-   id="bankList">
-  </div>
-
- </div>
-
-</div>
-
-
-<!-- NAME -->
-
-<div class="copy-card">
-
- <div class="copy-head">
-
-  <div class="copy-head-left">
-
-   <div class="copy-icon">
-    👤
-   </div>
-
-   <h3>
-    NAMA REKENING
-   </h3>
-
-  </div>
-
-  <span id="nameCount">
-   0
-  </span>
-
- </div>
-
-
- <div class="copy-body">
-
-  <button
-   class="copy-action copy-all"
-   onclick="copyField('name','ALL')">
-
-   COPY SEMUA NAMA
-
-   <small id="nameCopyCount">
-    0
-   </small>
-
-  </button>
-
-
-  <div
-   class="copy-list"
-   id="nameList">
-  </div>
-
- </div>
-
-</div>
-
-
-<!-- ACCOUNT -->
-
-<div class="copy-card">
-
- <div class="copy-head">
-
-  <div class="copy-head-left">
-
-   <div class="copy-icon">
-    #
-   </div>
-
-   <h3>
-    NOMOR REKENING
-   </h3>
-
-  </div>
-
-  <span id="accountCount">
-   0
-  </span>
-
- </div>
-
-
- <div class="copy-body">
-
-  <button
-   class="copy-action copy-all"
-   onclick="copyField('account','ALL')">
-
-   COPY SEMUA REKENING
-
-   <small id="accountCopyCount">
-    0
-   </small>
-
-  </button>
-
-
-  <div
-   class="copy-list"
-   id="accountList">
-  </div>
-
- </div>
-
-</div>
-
-
-<!-- NOMINAL -->
-
-<div class="copy-card">
-
- <div class="copy-head">
-
-  <div class="copy-head-left">
-
-   <div class="copy-icon">
-    Rp
-   </div>
-
-   <h3>
-    NOMINAL
-   </h3>
-
-  </div>
-
-  <span id="nominalCount">
-   0
-  </span>
-
- </div>
-
-
- <div class="copy-body">
-
-  <button
-   class="copy-action copy-all"
-   onclick="copyField('nominal','ALL')">
-
-   COPY SEMUA NOMINAL
-
-   <small id="nominalCopyCount">
-    0
-   </small>
-
-  </button>
-
-
-  <div
-   class="copy-list"
-   id="nominalList">
-  </div>
-
- </div>
-
-</div>
-
-
-</div>
-
-
-<div class="empty">
-
- <div class="empty-icon">
-  ℹ
- </div>
-
- <div>
-  4 panel menampilkan seluruh data yang berhasil
-  terdeteksi. Jika data banyak, scrollbar muncul otomatis.
- </div>
-
-</div>
-
-
-<!-- ================= REPORT ================= -->
-
-<div class="report-section">
-
- <div class="report-header">
-
-  <div class="report-title">
-
-   <div class="report-title-icon">
-    📋
-   </div>
-
-   <h3>
-    REPORT GENERATOR
-   </h3>
-
-  </div>
-
-  <span
-   class="report-badge"
-   id="reportStatus">
-   0 DATA
-  </span>
-
- </div>
-
-
- <textarea
-  id="reportOutput"
-  class="report-text"
-  spellcheck="false"
-  placeholder="Report akan muncul otomatis setelah data diproses..."
- ></textarea>
-
-
- <div class="report-buttons">
-
-  <button
-   class="report-btn"
-   onclick="copyReport()">
-
-   📋 COPY REPORT
-
-  </button>
-
-
-  <button
-   class="report-btn secondary"
-   onclick="generateReport()">
-
-   ↻ GENERATE ULANG
-
-  </button>
-
- </div>
-
-</div>
-
-
-</div>
 </div>
 </div>
 
 
-<div
- class="toast"
- id="toast">
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
 /* =========================================================
-   DATA BANK
-   ========================================================= */
+   ELEMENT
+========================================================= */
 
 const $ = id => document.getElementById(id);
 
+
+/* =========================================================
+   BANK DATABASE
+   DITAMBAHKAN DANA
+========================================================= */
+
 const banks = [
 
- {
-  result:"BRI",
-  names:[
-   "BANK RAKYAT INDONESIA",
-   "BANK BRI",
-   "BRI"
-  ]
- },
+    {
+        result:"BRI",
+        names:[
+            "BANK RAKYAT INDONESIA",
+            "BANK BRI",
+            "BRI"
+        ]
+    },
 
- {
-  result:"MANDIRI",
-  names:[
-   "BANK MANDIRI",
-   "MANDIRI"
-  ]
- },
+    {
+        result:"MANDIRI",
+        names:[
+            "BANK MANDIRI",
+            "MANDIRI"
+        ]
+    },
 
- {
-  result:"BNI",
-  names:[
-   "BANK NEGARA INDONESIA",
-   "BANK BNI",
-   "BNI"
-  ]
- },
+    {
+        result:"BNI",
+        names:[
+            "BANK NEGARA INDONESIA",
+            "BANK BNI",
+            "BNI"
+        ]
+    },
 
- {
-  result:"DANAMON",
-  names:[
-   "BANK DANAMON",
-   "DANAMON"
-  ]
- },
+    {
+        result:"DANAMON",
+        names:[
+            "BANK DANAMON",
+            "DANAMON"
+        ]
+    },
 
- {
-  result:"PERMATA",
-  names:[
-   "BANK PERMATA",
-   "PERMATA"
-  ]
- },
+    {
+        result:"PERMATA",
+        names:[
+            "BANK PERMATA",
+            "PERMATA"
+        ]
+    },
 
- {
-  result:"BCA",
-  names:[
-   "BANK CENTRAL ASIA",
-   "BANK BCA",
-   "BCA"
-  ]
- },
+    {
+        result:"BCA",
+        names:[
+            "BANK CENTRAL ASIA",
+            "BANK BCA",
+            "BCA"
+        ]
+    },
 
- {
-  result:"CIMB",
-  names:[
-   "CIMB NIAGA",
-   "BANK CIMB",
-   "CIMB"
-  ]
- },
+    {
+        result:"CIMB",
+        names:[
+            "CIMB NIAGA",
+            "BANK CIMB",
+            "CIMB"
+        ]
+    },
 
- {
-  result:"OCBC",
-  names:[
-   "BANK OCBC",
-   "OCBC"
-  ]
- },
+    {
+        result:"OCBC",
+        names:[
+            "BANK OCBC",
+            "OCBC"
+        ]
+    },
 
- {
-  result:"SINARMAS",
-  names:[
-   "BANK SINARMAS",
-   "SINARMAS"
-  ]
- },
+    {
+        result:"SINARMAS",
+        names:[
+            "BANK SINARMAS",
+            "SINARMAS"
+        ]
+    },
 
- {
-  result:"BSI",
-  names:[
-   "BANK SYARIAH INDONESIA",
-   "BANK BSI",
-   "BSI"
-  ]
- },
+    {
+        result:"BSI",
+        names:[
+            "BANK SYARIAH INDONESIA",
+            "BANK BSI",
+            "BSI"
+        ]
+    },
 
- {
-  result:"SEABANK",
-  names:[
-   "BANK SEABANK",
-   "SEA BANK",
-   "SEABANK"
-  ]
- },
+    {
+        result:"SEABANK",
+        names:[
+            "BANK SEABANK",
+            "SEA BANK",
+            "SEABANK"
+        ]
+    },
 
- {
-  result:"BANK JAGO",
-  names:[
-   "BANK ARTOS",
-   "BANK JAGO",
-   "ARTOS",
-   "JAGO"
-  ]
- }
+    {
+        result:"BANK JAGO",
+        names:[
+            "BANK ARTOS",
+            "BANK JAGO",
+            "ARTOS",
+            "JAGO"
+        ]
+    },
+
+    {
+        result:"DANA",
+        names:[
+            "DANA",
+            "DOMPET DANA",
+            "E-WALLET DANA"
+        ]
+    }
 
 ];
 
 
 let allData = [];
-
 let currentFilter = "ALL";
 
 
 /* =========================================================
    FORMAT RUPIAH
-   ========================================================= */
+========================================================= */
 
-function formatRupiah(v){
+function formatRupiah(value){
 
- return "Rp " +
-  (Number(v)||0)
-   .toLocaleString("id-ID");
+    return "Rp " +
+        Number(value || 0).toLocaleString("id-ID");
+
+}
+
+
+/* =========================================================
+   CLEAN CELL
+   Membersihkan:
+   **text**
+   <br>
+   HTML
+   quotation
+========================================================= */
+
+function cleanCell(value){
+
+    if(value === null || value === undefined){
+        return "";
+    }
+
+    let text = String(value);
+
+    text = text
+        .replace(/<br\s*\/?>/gi," ")
+        .replace(/<[^>]*>/g," ")
+        .replace(/\*\*/g,"")
+        .replace(/__/g,"")
+        .replace(/`/g,"")
+        .replace(/&nbsp;/gi," ")
+        .replace(/\u00a0/g," ")
+        .trim();
+
+    return text;
+
+}
+
+
+/* =========================================================
+   NORMALIZE TEXT
+========================================================= */
+
+function normalizeText(value){
+
+    return cleanCell(value)
+        .toUpperCase()
+        .replace(/[()[\]{}:;,./\\_-]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
 
 }
 
 
 /* =========================================================
    DETECT BANK
-   ========================================================= */
+========================================================= */
 
-function detectBank(line){
+function detectBank(value){
 
- if(!line)
-  return null;
+    let text = normalizeText(value);
 
- let text = String(line)
-  .toUpperCase()
-  .replace(/[()[\]{}:;,./\\_-]/g," ")
-  .replace(/\s+/g," ")
-  .trim();
+    if(!text){
+        return null;
+    }
 
+    for(const bank of banks){
 
- for(const b of banks){
+        const names = [...bank.names]
+            .sort((a,b)=>b.length-a.length);
 
-  const names = [
-   ...b.names
-  ].sort(
-   (a,b)=>b.length-a.length
-  );
+        for(const name of names){
 
+            const target = normalizeText(name);
 
-  for(const n of names){
+            if(
+                text === target ||
+                text.includes(" " + target + " ") ||
+                text.startsWith(target + " ") ||
+                text.endsWith(" " + target)
+            ){
 
-   let escaped = n
-    .toUpperCase()
-    .replace(/[.*+?^${}()|[\]\\]/g,"\\$&")
-    .replace(/\s+/g,"\\s+");
+                return bank.result;
 
+            }
 
-   let regex = new RegExp(
-    "(^|\\s)" +
-    escaped +
-    "(?=\\s|$)"
-   );
+        }
 
+    }
 
-   if(regex.test(text))
-    return b.result;
-
-  }
-
- }
-
-
- return null;
-}
-
-
-/* =========================================================
-   PROCESS
-   ========================================================= */
-
-function processData(){
-
- const input =
-  $("rawInput").value.trim();
-
-
- if(!input){
-
-  showToast(
-   "Masukkan data terlebih dahulu."
-  );
-
-  return;
- }
-
-
- allData =
-  parseFlexibleData(input);
-
-
- currentFilter =
-  "ALL";
-
-
- render();
-
-
- generateReport();
-
-
- if(allData.length){
-
-  showToast(
-   allData.length +
-   " data berhasil dibaca."
-  );
-
- }else{
-
-  showToast(
-   "Data tidak berhasil dibaca. Periksa format data."
-  );
-
- }
+    return null;
 
 }
 
 
 /* =========================================================
-   FLEXIBLE PARSER UTAMA
-   ========================================================= */
+   ACCOUNT NORMALIZER
+========================================================= */
 
-function parseFlexibleData(text){
+function cleanAccount(value){
 
- let out = [];
+    let text = cleanCell(value)
+        .replace(/[^\d]/g,"");
 
- let seen = new Set();
-
-
- if(!text)
-  return out;
-
-
- /*
-  * LABEL
-  */
-
- const labelData =
-  parseLabelFormat(text);
-
-
- labelData.forEach(
-  addParsedData
- );
-
-
- /*
-  * PIPE TABLE
-  */
-
- const pipeData =
-  parseAnyTableFormat(text);
-
-
- pipeData.forEach(
-  addParsedData
- );
-
-
- /*
-  * TAB / EXCEL
-  */
-
- const tabData =
-  parseAnySeparatedFormat(text);
-
-
- tabData.forEach(
-  addParsedData
- );
-
-
- /*
-  * CSV
-  */
-
- const csvData =
-  parseCSVFormat(text);
-
-
- csvData.forEach(
-  addParsedData
- );
-
-
- return out;
-
-
- function addParsedData(x){
-
-  if(!x)
-   return;
-
-
-  let bank =
-   String(x.bank || "").trim();
-
-
-  let name =
-   String(x.name || "").trim();
-
-
-  let account =
-   String(x.account || "")
-    .replace(/[\s-]/g,"")
-    .trim();
-
-
-  let nominal =
-   Number(x.nominal || 0);
-
-
-  if(!bank)
-   return;
-
-
-  if(!name)
-   return;
-
-
-  if(!account)
-   return;
-
-
-  if(!/^\d{6,20}$/.test(account))
-   return;
-
-
-  if(nominal <= 0)
-   return;
-
-
-  let key = (
-   bank + "|" +
-   name + "|" +
-   account + "|" +
-   nominal
-  ).toUpperCase();
-
-
-  if(seen.has(key))
-   return;
-
-
-  seen.add(key);
-
-
-  out.push({
-
-   bank,
-   name,
-   account,
-   nominal,
-   ket:""
-
-  });
-
- }
+    return text;
 
 }
 
 
 /* =========================================================
-   PIPE TABLE
-   ========================================================= */
+   IS ACCOUNT
+========================================================= */
 
-function parseAnyTableFormat(text){
+function isAccount(value){
 
- let out = [];
+    let account = cleanAccount(value);
 
+    /*
+     * SENGAJA TIDAK MEMBLOK NOMOR
+     * YANG DIMULAI DENGAN 0.
+     */
 
- let lines =
-  text
-   .replace(/\r\n/g,"\n")
-   .replace(/\r/g,"\n")
-   .split("\n");
-
-
- lines.forEach(line=>{
-
-  let row =
-   line.trim();
-
-
-  if(!row.includes("|"))
-   return;
-
-
-  row =
-   row
-    .replace(/^\|/,"")
-    .replace(/\|$/,"");
-
-
-  let cells =
-   row
-    .split("|")
-    .map(
-     x=>x.trim()
-    )
-    .filter(
-     x=>x!==""
-    );
-
-
-  if(cells.length < 3)
-   return;
-
-
-  if(
-   cells.every(
-    x=>/^:?-+:?$/.test(x)
-   )
-  ){
-   return;
-  }
-
-
-  /*
-   * HEADER
-   */
-
-  if(
-   cells.some(
-    x=>
-     /^(bank|jenis bank|nama|nama rekening|nomor|nomor rekening|nominal|jumlah|account)$/i
-      .test(x)
-   )
-  ){
-   return;
-  }
-
-
-  let parsed =
-   parseCells(cells);
-
-
-  if(parsed)
-   out.push(parsed);
-
- });
-
-
- return out;
-}
-
-
-/* =========================================================
-   TAB / EXCEL
-   ========================================================= */
-
-function parseAnySeparatedFormat(text){
-
- let out = [];
-
-
- let lines =
-  text
-   .replace(/\r\n/g,"\n")
-   .replace(/\r/g,"\n")
-   .split("\n");
-
-
- lines.forEach(line=>{
-
-  let raw =
-   line.trim();
-
-
-  if(!raw)
-   return;
-
-
-  /*
-   * TAB
-   */
-
-  if(raw.includes("\t")){
-
-   let cells =
-    raw
-     .split("\t")
-     .map(
-      x=>x.trim()
-     )
-     .filter(
-      x=>x!==""
-     );
-
-
-   if(cells.length >= 3){
-
-    let parsed =
-     parseCells(cells);
-
-
-    if(parsed)
-     out.push(parsed);
-
-   }
-
-
-   return;
-  }
-
-
-  /*
-   * MULTIPLE SPACE
-   */
-
-  if(/\s{2,}/.test(raw)){
-
-   let cells =
-    raw
-     .split(/\s{2,}/)
-     .map(
-      x=>x.trim()
-     )
-     .filter(
-      x=>x!==""
-     );
-
-
-   if(cells.length >= 3){
-
-    let parsed =
-     parseCells(cells);
-
-
-    if(parsed)
-     out.push(parsed);
-
-   }
-
-  }
-
- });
-
-
- return out;
-}
-
-
-/* =========================================================
-   CSV
-   ========================================================= */
-
-function parseCSVFormat(text){
-
- let out = [];
-
-
- let lines =
-  text
-   .replace(/\r\n/g,"\n")
-   .replace(/\r/g,"\n")
-   .split("\n");
-
-
- lines.forEach(line=>{
-
-  let raw =
-   line.trim();
-
-
-  if(!raw)
-   return;
-
-
-  /*
-   * Hanya proses kalau memang
-   * kelihatan seperti CSV.
-   */
-
-  if(
-   !raw.includes(",") &&
-   !raw.includes(";")
-  ){
-   return;
-  }
-
-
-  /*
-   * Semicolon
-   */
-
-  if(raw.includes(";")){
-
-   let cells =
-    raw
-     .split(";")
-     .map(
-      x=>
-       x
-        .replace(/^["']|["']$/g,"")
-        .trim()
-     )
-     .filter(
-      x=>x!==""
-     );
-
-
-   if(cells.length >= 3){
-
-    let parsed =
-     parseCells(cells);
-
-
-    if(parsed)
-     out.push(parsed);
-
-   }
-
-
-   return;
-  }
-
-
-  /*
-   * Koma.
-   *
-   * Jangan proses angka seperti:
-   * 25,000,000
-   */
-
-  let commaParts =
-   raw.split(",");
-
-
-  /*
-   * Kalau hanya 1 atau 2 koma,
-   * bisa saja itu nominal.
-   */
-
-  if(commaParts.length <= 2)
-   return;
-
-
-  let cells =
-   commaParts
-    .map(
-     x=>
-      x
-       .replace(/^["']|["']$/g,"")
-       .trim()
-    )
-    .filter(
-     x=>x!==""
-    );
-
-
-  if(cells.length >= 3){
-
-   let parsed =
-    parseCells(cells);
-
-
-   if(parsed)
-    out.push(parsed);
-
-  }
-
- });
-
-
- return out;
-}
-
-
-/* =========================================================
-   PARSER CELL UNIVERSAL
-   ========================================================= */
-
-function parseCells(cells){
-
- if(!Array.isArray(cells))
-  return null;
-
-
- let bank = "";
-
- let account = "";
-
- let nominal = 0;
-
-
- /*
-  * ========================================
-  * BANK
-  * ========================================
-  */
-
- for(let cell of cells){
-
-  let detected =
-   detectBank(cell);
-
-
-  if(detected){
-
-   bank =
-    detected;
-
-   break;
-  }
-
- }
-
-
- if(!bank)
-  return null;
-
-
- /*
-  * ========================================
-  * ACCOUNT
-  * ========================================
-  */
-
- for(let cell of cells){
-
-  let raw =
-   String(cell)
-    .trim();
-
-
-  let clean =
-   raw
-    .replace(/^['"`]/,"")
-    .replace(/['"`]$/,"")
-    .replace(/\s+/g,"")
-    .replace(/-/g,"");
-
-
-  /*
-   * Rekening biasanya 6-20 digit.
-   */
-
-  if(
-   /^\d{6,20}$/.test(clean)
-  ){
-
-   /*
-    * Kalau merupakan nominal
-    * dengan format tertentu, skip.
-    */
-
-   if(
-    !/^0\d{5,}$/.test(clean)
-   ){
-
-    account =
-     clean;
-
-    break;
-
-   }
-
-  }
-
- }
-
-
- if(!account)
-  return null;
-
-
- /*
-  * ========================================
-  * NOMINAL
-  * ========================================
-  */
-
- for(
-  let i=cells.length-1;
-  i>=0;
-  i--
- ){
-
-  let cell =
-   String(cells[i] || "")
-    .trim();
-
-
-  if(!cell)
-   continue;
-
-
-  let cleanAccount =
-   cell
-    .replace(/\s+/g,"")
-    .replace(/-/g,"");
-
-
-  if(cleanAccount === account)
-   continue;
-
-
-  /*
-   * Jangan baca BANK sebagai nominal
-   */
-
-  if(detectBank(cell))
-   continue;
-
-
-  let parsed =
-   parseNominal(cell);
-
-
-  if(parsed <= 0)
-   continue;
-
-
-  /*
-   * Validasi agar angka biasa
-   * tidak dianggap nominal.
-   */
-
-  if(
-   /rp/i.test(cell) ||
-   /[.,]/.test(cell) ||
-   /^\d{5,}$/.test(
-    cell.replace(/\s/g,"")
-   )
-  ){
-
-   if(
-    cleanAccount === account
-   ){
-    continue;
-   }
-
-
-   nominal =
-    parsed;
-
-   break;
-
-  }
-
- }
-
-
- if(nominal <= 0)
-  return null;
-
-
- /*
-  * ========================================
-  * NAME
-  * ========================================
-  */
-
- let name = "";
-
-
- for(let cell of cells){
-
-  let value =
-   String(cell || "")
-    .trim();
-
-
-  if(!value)
-   continue;
-
-
-  /*
-   * BANK
-   */
-
-  if(detectBank(value))
-   continue;
-
-
-  /*
-   * ACCOUNT
-   */
-
-  let clean =
-   value
-    .replace(/\s+/g,"")
-    .replace(/-/g,"");
-
-
-  if(clean === account)
-   continue;
-
-
-  /*
-   * NOMINAL
-   */
-
-  if(isNominalText(value))
-   continue;
-
-
-  /*
-   * ANGKA MURNI
-   */
-
-  if(
-   /^\d[\d\s-]*$/.test(value)
-  ){
-   continue;
-  }
-
-
-  /*
-   * HEADER
-   */
-
-  if(
-   /^(bank|jenis bank|nama|nama rekening|rekening|nomor|nomor rekening|nominal|jumlah|total|account)$/i
-    .test(value)
-  ){
-   continue;
-  }
-
-
-  name =
-   value;
-
-  break;
- }
-
-
- if(!name)
-  return null;
-
-
- return {
-
-  bank,
-  name,
-  account,
-  nominal,
-  ket:""
-
- };
-
-}
-
-
-/* =========================================================
-   LABEL FORMAT
-   ========================================================= */
-
-function parseLabelFormat(text){
-
- let out = [];
-
-
- let lines =
-  text
-   .replace(/\r\n/g,"\n")
-   .replace(/\r/g,"\n")
-   .split("\n")
-   .map(
-    x=>x.trim()
-   )
-   .filter(Boolean);
-
-
- let cur = null;
-
-
- function save(){
-
-  if(
-   cur &&
-   cur.bank &&
-   cur.name &&
-   cur.account &&
-   cur.nominal > 0
-  ){
-
-   out.push({
-
-    bank:cur.bank,
-    name:cur.name,
-    account:cur.account,
-    nominal:cur.nominal,
-    ket:""
-
-   });
-
-  }
-
- }
-
-
- for(let line of lines){
-
-  /*
-   * BANK
-   */
-
-  let bank =
-   detectBank(line);
-
-
-  if(bank){
-
-   if(
-    cur &&
-    (
-     cur.name ||
-     cur.account ||
-     cur.nominal
-    )
-   ){
-    save();
-   }
-
-
-   cur = {
-
-    bank,
-    name:"",
-    account:"",
-    nominal:0
-
-   };
-
-
-   continue;
-  }
-
-
-  /*
-   * NAMA
-   */
-
-  let m =
-   line.match(
-    /^nama\s*(?:rekening)?\s*(?::|=|-)?\s*(.+)$/i
-   );
-
-
-  if(m){
-
-   if(!cur){
-
-    cur = {
-
-     bank:"",
-     name:"",
-     account:"",
-     nominal:0
-
-    };
-
-   }
-
-
-   cur.name =
-    m[1].trim();
-
-
-   continue;
-  }
-
-
-  /*
-   * NOMOR REKENING
-   */
-
-  m =
-   line.match(
-    /^(?:nomor\s*)?(?:rekening|rek)\s*(?::|=|-)?\s*([0-9][0-9\s-]{5,})$/i
-   );
-
-
-  if(m){
-
-   if(!cur){
-
-    cur = {
-
-     bank:"",
-     name:"",
-     account:"",
-     nominal:0
-
-    };
-
-   }
-
-
-   cur.account =
-    m[1]
-     .replace(/[\s-]/g,"")
-     .trim();
-
-
-   continue;
-  }
-
-
-  /*
-   * NOMINAL
-   */
-
-  m =
-   line.match(
-    /^(?:nominal|jumlah|total)\s*(?::|=|-)?\s*(?:rp\.?\s*)?([\d.,]+)(?:,-)?$/i
-   );
-
-
-  if(m){
-
-   if(!cur){
-
-    cur = {
-
-     bank:"",
-     name:"",
-     account:"",
-     nominal:0
-
-    };
-
-   }
-
-
-   cur.nominal =
-    parseNominal(
-     m[1]
-    );
-
-  }
-
- }
-
-
- save();
-
-
- return out;
-}
-
-
-/* =========================================================
-   NOMINAL CHECK
-   ========================================================= */
-
-function isNominalText(v){
-
- if(!v)
-  return false;
-
-
- let text =
-  String(v)
-   .trim();
-
-
- return (
-
-  /^rp\.?\s*[\d.,]+(?:,-)?$/i
-   .test(text)
-
-  ||
-
-  /^[\d]{1,3}(?:[.,]\d{3})+$/
-   .test(
-    text.replace(/\s/g,"")
-   )
-
- );
+    return /^\d{6,20}$/.test(account);
 
 }
 
 
 /* =========================================================
    PARSE NOMINAL
-   ========================================================= */
+========================================================= */
 
-function parseNominal(v){
+function parseNominal(value){
 
- if(
-  v === null ||
-  v === undefined
- ){
-  return 0;
- }
+    if(
+        value === null ||
+        value === undefined
+    ){
+        return 0;
+    }
 
+    let text = cleanCell(value)
+        .toUpperCase()
+        .replace(/^RP\.?\s*/,"")
+        .replace(/\s/g,"")
+        .replace(/,-$/,"")
+        .replace(/[^0-9.,]/g,"");
 
- let c =
-  String(v)
-   .toUpperCase()
-   .trim()
-   .replace(/^RP\.?\s*/i,"")
-   .replace(/,-$/,"")
-   .replace(/\s/g,"")
-   .replace(/[^0-9.,]/g,"");
-
-
- if(!c)
-  return 0;
+    if(!text){
+        return 0;
+    }
 
 
- /*
-  * 25.000.000
-  */
+    /*
+     * 5,000,000
+     */
 
- if(
-  /^\d{1,3}(\.\d{3})+$/.test(c)
- ){
+    if(/^\d{1,3}(,\d{3})+$/.test(text)){
 
-  return parseInt(
-   c.replace(/\./g,""),
-   10
-  );
+        return parseInt(
+            text.replace(/,/g,""),
+            10
+        ) || 0;
 
- }
+    }
 
 
- /*
-  * 25,000,000
-  */
+    /*
+     * 5.000.000
+     */
 
- if(
-  /^\d{1,3}(,\d{3})+$/.test(c)
- ){
+    if(/^\d{1,3}(\.\d{3})+$/.test(text)){
 
-  return parseInt(
-   c.replace(/,/g,""),
-   10
-  );
+        return parseInt(
+            text.replace(/\./g,""),
+            10
+        ) || 0;
 
- }
+    }
 
 
- /*
-  * 25.000.000,50
-  * 25,000,000.50
-  */
+    /*
+     * 5.000.000,50
+     * 5,000,000.50
+     */
 
- if(
-  c.includes(".") &&
-  c.includes(",")
- ){
+    if(
+        text.includes(".") &&
+        text.includes(",")
+    ){
 
-  let comma =
-   c.lastIndexOf(",");
+        const lastComma = text.lastIndexOf(",");
+        const lastDot = text.lastIndexOf(".");
 
-  let dot =
-   c.lastIndexOf(".");
+        if(lastComma > lastDot){
 
+            return parseInt(
+                text
+                    .replace(/\./g,"")
+                    .split(",")[0],
+                10
+            ) || 0;
 
-  if(comma > dot){
+        }
 
-   c =
-    c
-     .replace(/\./g,"")
-     .split(",")[0];
+        return parseInt(
+            text
+                .replace(/,/g,"")
+                .split(".")[0],
+            10
+        ) || 0;
 
-  }else{
-
-   c =
-    c
-     .replace(/,/g,"")
-     .split(".")[0];
-
-  }
-
-
-  return parseInt(c,10) || 0;
-
- }
+    }
 
 
- /*
-  * 25000000
-  */
+    /*
+     * 5000000
+     */
 
- return parseInt(
-  c.replace(/[.,]/g,""),
-  10
- ) || 0;
+    return parseInt(
+        text.replace(/[.,]/g,""),
+        10
+    ) || 0;
+
+}
+
+
+/* =========================================================
+   IS NOMINAL
+========================================================= */
+
+function isNominalText(value){
+
+    let text = cleanCell(value);
+
+    if(!text){
+        return false;
+    }
+
+    if(/^RP\.?\s*[\d.,]+/i.test(text)){
+        return true;
+    }
+
+    if(/^\d{1,3}([.,]\d{3})+$/.test(
+        text.replace(/\s/g,"")
+    )){
+        return true;
+    }
+
+    return false;
+
+}
+
+
+/* =========================================================
+   HEADER CHECK
+========================================================= */
+
+function isHeader(value){
+
+    let text = normalizeText(value);
+
+    return [
+        "BANK",
+        "JENIS BANK",
+        "NAMA",
+        "NAMA REKENING",
+        "REKENING",
+        "NOMOR",
+        "NOMOR REKENING",
+        "NOMOR REK",
+        "NOMINAL",
+        "JUMLAH",
+        "TOTAL",
+        "ACCOUNT"
+    ].includes(text);
+
+}
+
+
+/* =========================================================
+   PARSE CELLS UNIVERSAL
+========================================================= */
+
+function parseCells(cells){
+
+    if(!Array.isArray(cells)){
+        return null;
+    }
+
+
+    const cleanCells = cells
+        .map(cleanCell)
+        .filter(x=>x !== "");
+
+
+    if(cleanCells.length < 3){
+        return null;
+    }
+
+
+    /*
+     * CARI BANK
+     */
+
+    let bank = "";
+
+    for(const cell of cleanCells){
+
+        const detected = detectBank(cell);
+
+        if(detected){
+
+            bank = detected;
+            break;
+
+        }
+
+    }
+
+    if(!bank){
+        return null;
+    }
+
+
+    /*
+     * CARI ACCOUNT
+     */
+
+    let account = "";
+
+    for(const cell of cleanCells){
+
+        const candidate = cleanAccount(cell);
+
+        if(isAccount(candidate)){
+
+            account = candidate;
+            break;
+
+        }
+
+    }
+
+    if(!account){
+        return null;
+    }
+
+
+    /*
+     * CARI NOMINAL
+     * Mulai dari belakang karena nominal
+     * biasanya berada di kolom paling kanan.
+     */
+
+    let nominal = 0;
+
+    for(let i=cleanCells.length-1;i>=0;i--){
+
+        const cell = cleanCells[i];
+
+        if(!cell){
+            continue;
+        }
+
+        if(detectBank(cell)){
+            continue;
+        }
+
+        if(cleanAccount(cell) === account){
+            continue;
+        }
+
+        if(isHeader(cell)){
+            continue;
+        }
+
+        const number = parseNominal(cell);
+
+        /*
+         * Nominal minimal 1.
+         */
+
+        if(number > 0){
+
+            /*
+             * Hindari mengambil nomor lain
+             * sebagai nominal.
+             *
+             * Kalau cell adalah angka murni
+             * 6-20 digit dan bukan nominal berformat,
+             * anggap sebagai account/angka lain.
+             */
+
+            const cleaned = cell
+                .replace(/\s/g,"");
+
+            const plainNumber =
+                /^\d{6,20}$/.test(cleaned);
+
+            if(
+                plainNumber &&
+                !/[.,]/.test(cleaned) &&
+                !/^RP/i.test(cleaned)
+            ){
+                continue;
+            }
+
+            nominal = number;
+            break;
+
+        }
+
+    }
+
+    if(nominal <= 0){
+        return null;
+    }
+
+
+    /*
+     * CARI NAMA
+     */
+
+    let name = "";
+
+    for(const cell of cleanCells){
+
+        if(!cell){
+            continue;
+        }
+
+        if(detectBank(cell)){
+            continue;
+        }
+
+        if(cleanAccount(cell) === account){
+            continue;
+        }
+
+        if(isHeader(cell)){
+            continue;
+        }
+
+        if(isNominalText(cell)){
+            continue;
+        }
+
+        /*
+         * Skip angka murni
+         */
+
+        if(/^\d[\d\s-]*$/.test(cell)){
+            continue;
+        }
+
+        /*
+         * Skip teks yang isinya hanya nominal.
+         */
+
+        const possibleNominal = parseNominal(cell);
+
+        if(
+            possibleNominal > 0 &&
+            /^[\d\s.,Rp-]+$/i.test(cell)
+        ){
+            continue;
+        }
+
+        name = cell;
+        break;
+
+    }
+
+    if(!name){
+        return null;
+    }
+
+
+    return {
+        bank:bank,
+        name:name,
+        account:account,
+        nominal:nominal,
+        ket:""
+    };
+
+}
+
+
+/* =========================================================
+   MARKDOWN TABLE
+========================================================= */
+
+function parseMarkdownTable(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n");
+
+
+    for(const originalLine of lines){
+
+        let line = originalLine.trim();
+
+        if(!line){
+            continue;
+        }
+
+
+        /*
+         * HARUS ADA |
+         */
+
+        if(!line.includes("|")){
+            continue;
+        }
+
+
+        /*
+         * Buang pipe pembuka / penutup
+         */
+
+        line = line
+            .replace(/^\s*\|/,"")
+            .replace(/\|\s*$/,"");
+
+
+        let cells = line
+            .split("|")
+            .map(cleanCell)
+            .map(x=>x.trim());
+
+
+        /*
+         * Skip separator Markdown:
+         * :-----:
+         */
+
+        if(
+            cells.length &&
+            cells.every(
+                cell =>
+                    /^:?-+:?$/.test(
+                        cell.replace(/\s/g,"")
+                    )
+            )
+        ){
+            continue;
+        }
+
+
+        /*
+         * Header
+         */
+
+        if(
+            cells.some(
+                cell => isHeader(cell)
+            )
+        ){
+            continue;
+        }
+
+
+        const parsed = parseCells(cells);
+
+        if(parsed){
+            result.push(parsed);
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   PIPE TABLE / GENERAL PIPE
+========================================================= */
+
+function parsePipeTable(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n");
+
+
+    for(const originalLine of lines){
+
+        let line = originalLine.trim();
+
+        if(!line.includes("|")){
+            continue;
+        }
+
+        line = line
+            .replace(/^\s*\|/,"")
+            .replace(/\|\s*$/,"");
+
+
+        const cells = line
+            .split("|")
+            .map(cleanCell)
+            .filter(Boolean);
+
+
+        if(cells.length < 3){
+            continue;
+        }
+
+
+        /*
+         * Skip Markdown separator
+         */
+
+        if(
+            cells.every(
+                x => /^:?-+:?$/.test(
+                    x.replace(/\s/g,"")
+                )
+            )
+        ){
+            continue;
+        }
+
+
+        const parsed = parseCells(cells);
+
+        if(parsed){
+            result.push(parsed);
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   TAB / EXCEL
+========================================================= */
+
+function parseTabFormat(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n");
+
+
+    for(const lineRaw of lines){
+
+        const line = lineRaw.trim();
+
+        if(!line){
+            continue;
+        }
+
+        if(!line.includes("\t")){
+            continue;
+        }
+
+
+        const cells = line
+            .split("\t")
+            .map(cleanCell)
+            .filter(Boolean);
+
+
+        const parsed = parseCells(cells);
+
+        if(parsed){
+            result.push(parsed);
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   MULTIPLE SPACE
+========================================================= */
+
+function parseSpaceFormat(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n");
+
+
+    for(const lineRaw of lines){
+
+        const line = lineRaw.trim();
+
+        if(!line){
+            continue;
+        }
+
+
+        if(!/\s{2,}/.test(line)){
+            continue;
+        }
+
+
+        const cells = line
+            .split(/\s{2,}/)
+            .map(cleanCell)
+            .filter(Boolean);
+
+
+        if(cells.length < 3){
+            continue;
+        }
+
+
+        const parsed = parseCells(cells);
+
+        if(parsed){
+            result.push(parsed);
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   CSV / SEMICOLON
+========================================================= */
+
+function parseCSVFormat(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n");
+
+
+    for(const lineRaw of lines){
+
+        const line = lineRaw.trim();
+
+        if(!line){
+            continue;
+        }
+
+
+        let cells = null;
+
+
+        if(line.includes(";")){
+
+            cells = line
+                .split(";")
+                .map(cleanCell)
+                .filter(Boolean);
+
+        }
+        else if(line.includes(",")){
+
+            /*
+             * Jangan asal split
+             * "5,000,000"
+             *
+             * Hanya coba kalau terdapat
+             * bank + account di baris.
+             */
+
+            if(!detectBank(line)){
+                continue;
+            }
+
+
+            /*
+             * Coba regex:
+             * bank, account, name, nominal
+             */
+
+            const parts = line
+                .split(",")
+                .map(cleanCell)
+                .filter(Boolean);
+
+
+            if(parts.length >= 3){
+                cells = parts;
+            }
+
+        }
+
+
+        if(!cells || cells.length < 3){
+            continue;
+        }
+
+
+        const parsed = parseCells(cells);
+
+        if(parsed){
+            result.push(parsed);
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   LABEL FORMAT
+========================================================= */
+
+function parseLabelFormat(text){
+
+    const result = [];
+
+    const lines = text
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .split("\n")
+        .map(x=>cleanCell(x).trim())
+        .filter(Boolean);
+
+
+    let current = null;
+
+
+    function saveCurrent(){
+
+        if(!current){
+            return;
+        }
+
+        if(
+            current.bank &&
+            current.name &&
+            current.account &&
+            current.nominal > 0
+        ){
+
+            result.push({
+                bank:current.bank,
+                name:current.name,
+                account:current.account,
+                nominal:current.nominal,
+                ket:""
+            });
+
+        }
+
+    }
+
+
+    for(const line of lines){
+
+        /*
+         * BANK
+         */
+
+        const bank = detectBank(line);
+
+        if(bank){
+
+            if(current){
+                saveCurrent();
+            }
+
+            current = {
+                bank:bank,
+                name:"",
+                account:"",
+                nominal:0
+            };
+
+            continue;
+        }
+
+
+        /*
+         * NAME
+         */
+
+        let match = line.match(
+            /^nama\s*(?:rekening)?\s*(?::|=|-)?\s*(.+)$/i
+        );
+
+        if(match){
+
+            if(!current){
+                current = {
+                    bank:"",
+                    name:"",
+                    account:"",
+                    nominal:0
+                };
+            }
+
+            current.name = cleanCell(match[1]);
+
+            continue;
+        }
+
+
+        /*
+         * ACCOUNT
+         */
+
+        match = line.match(
+            /^(?:nomor\s*)?(?:rekening|rek)\s*(?::|=|-)?\s*([0-9][0-9\s-]{5,})$/i
+        );
+
+        if(match){
+
+            if(!current){
+                current = {
+                    bank:"",
+                    name:"",
+                    account:"",
+                    nominal:0
+                };
+            }
+
+            current.account = cleanAccount(match[1]);
+
+            continue;
+        }
+
+
+        /*
+         * NOMINAL
+         */
+
+        match = line.match(
+            /^(?:nominal|jumlah|total)\s*(?::|=|-)?\s*(?:rp\.?\s*)?([\d.,]+)(?:,-)?$/i
+        );
+
+        if(match){
+
+            if(!current){
+                current = {
+                    bank:"",
+                    name:"",
+                    account:"",
+                    nominal:0
+                };
+            }
+
+            current.nominal =
+                parseNominal(match[1]);
+
+        }
+
+    }
+
+
+    if(current){
+        saveCurrent();
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   PARSER UTAMA
+========================================================= */
+
+function parseFlexibleData(text){
+
+    const result = [];
+
+    const seen = new Set();
+
+
+    function add(item){
+
+        if(!item){
+            return;
+        }
+
+
+        const bank =
+            cleanCell(item.bank).toUpperCase();
+
+        const name =
+            cleanCell(item.name);
+
+        const account =
+            cleanAccount(item.account);
+
+        const nominal =
+            Number(item.nominal || 0);
+
+
+        if(!bank){
+            return;
+        }
+
+        if(!name){
+            return;
+        }
+
+        if(!isAccount(account)){
+            return;
+        }
+
+        if(nominal <= 0){
+            return;
+        }
+
+
+        const key =
+            bank +
+            "|" +
+            name.toUpperCase() +
+            "|" +
+            account +
+            "|" +
+            nominal;
+
+
+        if(seen.has(key)){
+            return;
+        }
+
+
+        seen.add(key);
+
+
+        result.push({
+            bank:bank,
+            name:name,
+            account:account,
+            nominal:nominal,
+            ket:""
+        });
+
+    }
+
+
+    /*
+     * Semua parser dijalankan.
+     */
+
+    parseMarkdownTable(text).forEach(add);
+
+    parsePipeTable(text).forEach(add);
+
+    parseTabFormat(text).forEach(add);
+
+    parseSpaceFormat(text).forEach(add);
+
+    parseCSVFormat(text).forEach(add);
+
+    parseLabelFormat(text).forEach(add);
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   PROCESS DATA
+========================================================= */
+
+function processData(){
+
+    const input =
+        $("rawInput").value.trim();
+
+
+    if(!input){
+
+        showToast(
+            "Masukkan data terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    allData =
+        parseFlexibleData(input);
+
+
+    currentFilter =
+        "ALL";
+
+
+    render();
+
+
+    generateReport();
+
+
+    if(allData.length){
+
+        showToast(
+            allData.length +
+            " data berhasil dibaca."
+        );
+
+    }
+    else{
+
+        showToast(
+            "Data tidak berhasil dibaca. Periksa format data."
+        );
+
+    }
 
 }
 
 
 /* =========================================================
    RENDER
-   ========================================================= */
+========================================================= */
 
 function render(){
 
- stats();
-
- filters();
-
- panels();
+    updateStats();
+    renderFilters();
+    renderPanels();
 
 }
 
 
 /* =========================================================
    STATS
-   ========================================================= */
+========================================================= */
 
-function stats(){
+function updateStats(){
 
- let total =
-  allData.length;
-
-
- let bs =
-  [
-   ...new Set(
-    allData.map(
-     x=>x.bank
-    )
-   )
-  ];
+    const total =
+        allData.length;
 
 
- let nom =
-  allData.reduce(
-   (s,x)=>
-    s + Number(x.nominal || 0),
-   0
-  );
+    const bankCount =
+        new Set(
+            allData.map(x=>x.bank)
+        ).size;
 
 
- $("totalData").textContent =
-  total.toLocaleString("id-ID");
+    const totalNominal =
+        allData.reduce(
+            (sum,x)=>
+                sum +
+                Number(x.nominal || 0),
+            0
+        );
 
 
- $("totalBank").textContent =
-  bs.length;
+    $("totalData").textContent =
+        total.toLocaleString("id-ID");
 
 
- $("totalNominal").textContent =
-  formatRupiah(nom);
+    $("totalBank").textContent =
+        bankCount;
 
 
- $("statusText").textContent =
-  total + " DATA";
+    $("totalNominal").textContent =
+        formatRupiah(totalNominal);
 
 
- $("bankCount").textContent =
-  bs.length;
+    $("statusText").textContent =
+        total + " DATA";
 
 
- $("nameCount").textContent =
-  total;
+    $("bankCount").textContent =
+        bankCount;
 
 
- $("accountCount").textContent =
-  total;
+    $("nameCount").textContent =
+        getFilteredData().length;
 
 
- $("nominalCount").textContent =
-  total;
+    $("accountCount").textContent =
+        getFilteredData().length;
 
 
- $("bankTotalCopy").textContent =
-  total;
+    $("nominalCount").textContent =
+        getFilteredData().length;
 
 
- $("nameCopyCount").textContent =
-  total;
+    $("bankTotalCopy").textContent =
+        getFilteredData().length;
 
 
- $("accountCopyCount").textContent =
-  total;
+    $("nameCopyCount").textContent =
+        getFilteredData().length;
 
 
- $("nominalCopyCount").textContent =
-  total;
+    $("accountCopyCount").textContent =
+        getFilteredData().length;
 
 
- $("reportStatus").textContent =
-  total + " DATA";
+    $("nominalCopyCount").textContent =
+        getFilteredData().length;
+
+
+    $("reportStatus").textContent =
+        total + " DATA";
 
 }
 
 
 /* =========================================================
-   FILTERS
-   ========================================================= */
+   FILTER
+========================================================= */
 
-function filters(){
+function renderFilters(){
 
- let box =
-  $("bankFilters");
+    const box =
+        $("bankFilters");
 
-
- box.innerHTML = "";
-
-
- const add =
-  (
-   text,
-   active,
-   fn
-  )=>{
-
-   let b =
-    document.createElement(
-     "button"
-    );
+    box.innerHTML = "";
 
 
-   b.className =
-    "filter " +
-    (
-     active
-      ? "active"
-      : ""
-    );
+    const allButton =
+        document.createElement("button");
+
+    allButton.className =
+        "filter " +
+        (
+            currentFilter === "ALL"
+                ? "active"
+                : ""
+        );
+
+    allButton.textContent =
+        "SEMUA";
+
+    allButton.onclick =
+        ()=>filterBank("ALL");
+
+    box.appendChild(allButton);
 
 
-   b.textContent =
-    text;
+    const uniqueBanks =
+        [
+            ...new Set(
+                allData.map(x=>x.bank)
+            )
+        ];
 
 
-   b.onclick =
-    fn;
+    uniqueBanks.forEach(bank=>{
 
+        const button =
+            document.createElement("button");
 
-   box.appendChild(b);
+        button.className =
+            "filter " +
+            (
+                currentFilter === bank
+                    ? "active"
+                    : ""
+            );
 
-  };
+        button.textContent =
+            bank;
 
+        button.onclick =
+            ()=>filterBank(bank);
 
- add(
-  "SEMUA",
-  currentFilter === "ALL",
-  ()=>filterBank("ALL")
- );
+        box.appendChild(button);
 
-
- [
-  ...new Set(
-   allData.map(
-    x=>x.bank
-   )
-  )
- ].forEach(
-  b=>
-   add(
-    b,
-    currentFilter === b,
-    ()=>filterBank(b)
-   )
- );
+    });
 
 }
 
 
 /* =========================================================
    FILTER BANK
-   ========================================================= */
+========================================================= */
 
-function filterBank(b){
+function filterBank(bank){
 
- currentFilter =
-  b;
+    currentFilter =
+        bank;
 
-
- filters();
-
- panels();
+    renderFilters();
+    renderPanels();
+    updateFilteredCounts();
 
 }
 
 
 /* =========================================================
-   GET DATA
-   ========================================================= */
+   GET FILTERED DATA
+========================================================= */
 
-function getData(){
+function getFilteredData(){
 
- return currentFilter === "ALL"
+    if(currentFilter === "ALL"){
+        return allData;
+    }
 
-  ? allData
-
-  : allData.filter(
-     x=>
-      x.bank === currentFilter
+    return allData.filter(
+        x =>
+            x.bank === currentFilter
     );
 
 }
 
 
 /* =========================================================
+   FILTERED COUNT
+========================================================= */
+
+function updateFilteredCounts(){
+
+    const count =
+        getFilteredData().length;
+
+
+    $("nameCount").textContent =
+        count;
+
+    $("accountCount").textContent =
+        count;
+
+    $("nominalCount").textContent =
+        count;
+
+    $("bankTotalCopy").textContent =
+        count;
+
+    $("nameCopyCount").textContent =
+        count;
+
+    $("accountCopyCount").textContent =
+        count;
+
+    $("nominalCopyCount").textContent =
+        count;
+
+}
+
+
+/* =========================================================
    PANELS
-   ========================================================= */
+========================================================= */
 
-function panels(){
+function renderPanels(){
 
- let d =
-  getData();
-
-
- bankPanel(d);
+    const data =
+        getFilteredData();
 
 
- listPanel(
-  "nameList",
-  "name",
-  d
- );
+    renderBankPanel(data);
 
 
- listPanel(
-  "accountList",
-  "account",
-  d
- );
+    renderList(
+        "nameList",
+        "name",
+        data
+    );
 
 
- listPanel(
-  "nominalList",
-  "nominal",
-  d
- );
+    renderList(
+        "accountList",
+        "account",
+        data
+    );
+
+
+    renderList(
+        "nominalList",
+        "nominal",
+        data
+    );
 
 }
 
 
 /* =========================================================
    BANK PANEL
-   ========================================================= */
+========================================================= */
 
-function bankPanel(data){
+function renderBankPanel(data){
 
- let list =
-  $("bankList");
+    const list =
+        $("bankList");
 
-
- let buttons =
-  $("bankCopyButtons");
-
-
- list.innerHTML = "";
-
- buttons.innerHTML = "";
+    const buttons =
+        $("bankCopyButtons");
 
 
- banks.forEach(b=>{
-
-  let n =
-   allData.filter(
-    x=>
-     x.bank === b.result
-   ).length;
+    list.innerHTML = "";
+    buttons.innerHTML = "";
 
 
-  if(!n)
-   return;
+    const uniqueBanks =
+        [
+            ...new Set(
+                allData.map(x=>x.bank)
+            )
+        ];
 
 
-  let btn =
-   document.createElement(
-    "button"
-   );
+    uniqueBanks.forEach(bank=>{
+
+        const count =
+            allData.filter(
+                x=>x.bank === bank
+            ).length;
 
 
-  btn.className =
-   "bank-copy-btn";
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "bank-copy-btn";
+
+        button.textContent =
+            "COPY " +
+            bank +
+            " (" +
+            count +
+            ")";
 
 
-  btn.textContent =
-   `COPY ${b.result} (${n})`;
+        button.onclick =
+            ()=>copyField(
+                "bank",
+                bank
+            );
 
 
-  btn.onclick =
-   ()=>copyField(
-    "bank",
-    b.result
-   );
+        buttons.appendChild(button);
+
+    });
 
 
-  buttons.appendChild(
-   btn
-  );
-
- });
-
-
- data.forEach(
-  (x,i)=>
-   addItem(
-    list,
-    x.bank,
-    "bank",
-    i
-   )
- );
+    data.forEach(
+        (item,index)=>
+            addItem(
+                list,
+                item.bank,
+                "bank",
+                index
+            )
+    );
 
 }
 
 
 /* =========================================================
    LIST PANEL
-   ========================================================= */
+========================================================= */
 
-function listPanel(
- id,
- field,
- data
+function renderList(
+    id,
+    field,
+    data
 ){
 
- let list =
-  $(id);
+    const list =
+        $(id);
+
+    list.innerHTML = "";
 
 
- list.innerHTML = "";
+    data.forEach(
+        (item,index)=>{
+
+            const value =
+                field === "nominal"
+                    ? formatRupiah(item.nominal)
+                    : item[field];
 
 
- data.forEach(
-  (x,i)=>{
+            addItem(
+                list,
+                value,
+                field,
+                index
+            );
 
-   let v =
-    field === "nominal"
-
-     ? formatRupiah(
-        x.nominal
-       )
-
-     : x[field];
-
-
-   addItem(
-    list,
-    v,
-    field,
-    i
-   );
-
-  }
- );
+        }
+    );
 
 }
 
 
 /* =========================================================
    ADD ITEM
-   ========================================================= */
+========================================================= */
 
 function addItem(
- list,
- value,
- field,
- index
-){
-
- let row =
-  document.createElement(
-   "div"
-  );
-
-
- row.className =
-  "copy-item";
-
-
- row.innerHTML = `
-
-  <div
-   class="copy-item-value ${
-    field === "nominal"
-     ? "nominal-value"
-     : ""
-   }">
-
-   ${escapeHtml(value)}
-
-  </div>
-
-  <button
-   class="copy-item-btn">
-
-   COPY
-
-  </button>
-
- `;
-
-
- row
-  .querySelector("button")
-  .onclick =
-   ()=>copySingleFiltered(
+    list,
+    value,
     field,
     index
-   );
+){
+
+    const row =
+        document.createElement("div");
 
 
- list.appendChild(
-  row
- );
+    row.className =
+        "copy-item";
+
+
+    const valueBox =
+        document.createElement("div");
+
+
+    valueBox.className =
+        "copy-item-value";
+
+
+    if(field === "nominal"){
+        valueBox.classList.add(
+            "nominal-value"
+        );
+    }
+
+
+    valueBox.textContent =
+        value;
+
+
+    const button =
+        document.createElement("button");
+
+
+    button.className =
+        "copy-item-btn";
+
+
+    button.textContent =
+        "COPY";
+
+
+    button.onclick =
+        ()=>copySingleFiltered(
+            field,
+            index
+        );
+
+
+    row.appendChild(valueBox);
+    row.appendChild(button);
+
+    list.appendChild(row);
 
 }
 
 
 /* =========================================================
    COPY FIELD
-   ========================================================= */
+========================================================= */
 
 function copyField(
- field,
- bank
+    field,
+    bank
 ){
 
- let data =
-  bank !== "ALL"
-
-   ? allData.filter(
-      x=>
-       x.bank === bank
-     )
-
-   : getData();
+    let data;
 
 
- if(!data.length){
+    if(bank !== "ALL"){
 
-  showToast(
-   "Tidak ada data."
-  );
+        data =
+            allData.filter(
+                x =>
+                    x.bank === bank
+            );
 
-  return;
- }
+    }
+    else{
 
+        data =
+            getFilteredData();
 
- let out =
-  data.map(
-   x=>
-    field === "nominal"
-
-     ? String(x.nominal)
-
-     : x[field]
-  )
-  .join("\n");
+    }
 
 
- copyToClipboard(
-  out
- );
+    if(!data.length){
+
+        showToast(
+            "Tidak ada data."
+        );
+
+        return;
+    }
 
 
- showToast(
-  "Data berhasil disalin."
- );
+    const output =
+        data.map(
+            item =>
+                field === "nominal"
+                    ? String(item.nominal)
+                    : item[field]
+        ).join("\n");
+
+
+    copyToClipboard(output);
+
+
+    showToast(
+        "Data berhasil disalin."
+    );
 
 }
 
 
 /* =========================================================
    COPY SINGLE
-   ========================================================= */
+========================================================= */
 
 function copySingleFiltered(
- field,
- index
+    field,
+    index
 ){
 
- let x =
-  getData()[index];
+    const data =
+        getFilteredData();
 
 
- if(!x)
-  return;
+    const item =
+        data[index];
 
 
- let v =
-  field === "nominal"
-
-   ? String(x.nominal)
-
-   : x[field];
+    if(!item){
+        return;
+    }
 
 
- copyToClipboard(v);
+    const value =
+        field === "nominal"
+            ? String(item.nominal)
+            : item[field];
 
 
- showToast(
-  "Berhasil copy."
- );
+    copyToClipboard(value);
+
+
+    showToast(
+        "Berhasil copy."
+    );
 
 }
 
 
 /* =========================================================
    REPORT
-   ========================================================= */
+========================================================= */
 
 function generateReport(){
 
- let data =
-  allData;
+    const data =
+        allData;
 
 
- if(!data.length){
+    if(!data.length){
 
-  $("reportOutput").value =
-   "";
+        $("reportOutput").value =
+            "";
 
-  $("reportStatus").textContent =
-   "0 DATA";
+        $("reportStatus").textContent =
+            "0 DATA";
 
-  return;
-
- }
-
-
- let total =
-  data.reduce(
-   (sum,x)=>
-    sum +
-    Number(x.nominal || 0),
-   0
-  );
+        return;
+    }
 
 
- let lines = [];
+    const total =
+        data.reduce(
+            (sum,item)=>
+                sum +
+                Number(item.nominal || 0),
+            0
+        );
 
 
- lines.push(
-  "Info : ZIATOGEL"
- );
+    const lines = [];
 
 
- lines.push(
-  "Perihal :"
- );
+    lines.push(
+        "Info : ZIATOGEL"
+    );
 
+    lines.push(
+        "Perihal :"
+    );
 
- lines.push(
-  "Dari :"
- );
-
-
- lines.push("");
-
-
- lines.push(
-  "Total : " +
-  total.toLocaleString("en-US")
- );
-
-
- lines.push("");
-
-
- data.forEach(
-  (x,index)=>{
-
-   lines.push(
-    "BANK : " +
-    x.bank +
-    " BERSIH"
-   );
-
-
-   lines.push(
-    "Nama Rekening : " +
-    x.name
-   );
-
-
-   lines.push(
-    "Nomor Rekening : " +
-    x.account
-   );
-
-
-   lines.push(
-    "Nominal : Rp. " +
-    Number(
-     x.nominal
-    ).toLocaleString("en-US")
-   );
-
-
-   if(
-    index <
-    data.length - 1
-   ){
+    lines.push(
+        "Dari :"
+    );
 
     lines.push("");
 
-   }
 
-  }
- );
-
-
- $("reportOutput").value =
-  lines.join("\n");
+    lines.push(
+        "Total : " +
+        total.toLocaleString("en-US")
+    );
 
 
- $("reportStatus").textContent =
-  data.length +
-  " DATA";
+    lines.push("");
+
+
+    data.forEach(
+        (item,index)=>{
+
+            lines.push(
+                "BANK : " +
+                item.bank +
+                " BERSIH"
+            );
+
+            lines.push(
+                "Nama Rekening : " +
+                item.name
+            );
+
+            lines.push(
+                "Nomor Rekening : " +
+                item.account
+            );
+
+            lines.push(
+                "Nominal : Rp. " +
+                Number(
+                    item.nominal
+                ).toLocaleString("en-US")
+            );
+
+
+            if(
+                index <
+                data.length - 1
+            ){
+                lines.push("");
+            }
+
+        }
+    );
+
+
+    $("reportOutput").value =
+        lines.join("\n");
+
+
+    $("reportStatus").textContent =
+        data.length +
+        " DATA";
 
 }
 
 
 /* =========================================================
    COPY REPORT
-   ========================================================= */
+========================================================= */
 
 function copyReport(){
 
- let text =
-  $("reportOutput").value.trim();
+    const text =
+        $("reportOutput")
+            .value
+            .trim();
 
 
- if(!text){
+    if(!text){
 
-  showToast(
-   "Report masih kosong."
-  );
+        showToast(
+            "Report masih kosong."
+        );
 
-  return;
- }
-
-
- copyToClipboard(
-  text
- );
+        return;
+    }
 
 
- showToast(
-  "Report berhasil disalin."
- );
+    copyToClipboard(text);
+
+
+    showToast(
+        "Report berhasil disalin."
+    );
 
 }
 
 
 /* =========================================================
    CLIPBOARD
-   ========================================================= */
+========================================================= */
 
 function copyToClipboard(text){
 
- if(
-  navigator.clipboard &&
-  window.isSecureContext
- ){
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
 
-  navigator.clipboard
-   .writeText(text)
-   .then(
-    ()=>{}
-   )
-   .catch(
-    ()=>fallbackCopy(text)
-   );
+        navigator.clipboard
+            .writeText(text)
+            .catch(
+                ()=>fallbackCopy(text)
+            );
 
-  return;
- }
+        return;
+    }
 
 
- fallbackCopy(text);
+    fallbackCopy(text);
 
 }
 
 
 /* =========================================================
    FALLBACK COPY
-   ========================================================= */
+========================================================= */
 
 function fallbackCopy(text){
 
- let t =
-  document.createElement(
-   "textarea"
-  );
+    const area =
+        document.createElement("textarea");
 
 
- t.value =
-  text;
+    area.value =
+        text;
 
 
- t.style.position =
-  "fixed";
+    area.style.position =
+        "fixed";
+
+    area.style.left =
+        "-999999px";
+
+    area.style.top =
+        "0";
 
 
- t.style.left =
-  "-999999px";
+    document.body.appendChild(area);
 
 
- t.style.top =
-  "0";
+    area.focus();
+    area.select();
 
 
- document.body.appendChild(
-  t
- );
+    try{
+
+        document.execCommand("copy");
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
 
 
- t.focus();
-
- t.select();
-
-
- try{
-
-  document.execCommand(
-   "copy"
-  );
-
- }catch(e){
-
-  console.error(e);
-
- }
-
-
- t.remove();
+    area.remove();
 
 }
 
 
 /* =========================================================
    CLEAR
-   ========================================================= */
+========================================================= */
 
 function clearAll(){
 
- $("rawInput").value =
-  "";
+    $("rawInput").value =
+        "";
+
+    $("reportOutput").value =
+        "";
+
+    allData = [];
+
+    currentFilter =
+        "ALL";
 
 
- allData = [];
+    render();
 
 
- currentFilter =
-  "ALL";
-
-
- $("reportOutput").value =
-  "";
-
-
- $("reportStatus").textContent =
-  "0 DATA";
-
-
- render();
-
-
- showToast(
-  "Semua data dibersihkan."
- );
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
-
-function escapeHtml(v){
-
- return String(v ?? "")
-  .replace(
-   /&/g,
-   "&amp;"
-  )
-  .replace(
-   /</g,
-   "&lt;"
-  )
-  .replace(
-   />/g,
-   "&gt;"
-  )
-  .replace(
-   /"/g,
-   "&quot;"
-  )
-  .replace(
-   /'/g,
-   "&#039;"
-  );
+    showToast(
+        "Semua data dibersihkan."
+    );
 
 }
 
 
 /* =========================================================
    TOAST
-   ========================================================= */
+========================================================= */
 
-function showToast(msg){
+function showToast(message){
 
- let t =
-  $("toast");
-
-
- t.textContent =
-  msg;
+    const toast =
+        $("toast");
 
 
- t.classList.add(
-  "show"
- );
+    toast.textContent =
+        message;
 
 
- clearTimeout(
-  window.toastTimer
- );
+    toast.classList.add("show");
 
 
- window.toastTimer =
-  setTimeout(
-   ()=>t.classList.remove(
-    "show"
-   ),
-   2200
-  );
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            ()=>{
+                toast.classList.remove(
+                    "show"
+                );
+            },
+            2200
+        );
 
 }
 
 
 /* =========================================================
    CTRL + ENTER
-   ========================================================= */
+========================================================= */
 
 $("rawInput").addEventListener(
- "keydown",
- e=>{
+    "keydown",
+    function(event){
 
-  if(
-   e.ctrlKey &&
-   e.key === "Enter"
-  ){
+        if(
+            event.ctrlKey &&
+            event.key === "Enter"
+        ){
 
-   e.preventDefault();
+            event.preventDefault();
 
-   processData();
+            processData();
 
-  }
+        }
 
- });
+    }
+);
 
 
 /* =========================================================
    INITIAL
-   ========================================================= */
+========================================================= */
 
 render();
 
