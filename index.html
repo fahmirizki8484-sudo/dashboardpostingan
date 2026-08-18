@@ -33,12 +33,10 @@
 
 body{
     min-height:100vh;
-
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
     color:#fff;
 
     background:
@@ -69,9 +67,7 @@ body{
 
 .header{
     height:76px;
-
     padding:0 28px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -83,11 +79,9 @@ body{
             rgba(5,24,58,.97)
         );
 
-    border-bottom:1px solid rgba(90,190,255,.25);
-
+    border-bottom:2px solid rgba(90,190,255,.25);
     box-shadow:
         0 8px 30px rgba(0,0,0,.25);
-
     position:relative;
 
     z-index:10;
@@ -95,15 +89,11 @@ body{
 
 .header::after{
     content:"";
-
     position:absolute;
-
     left:0;
     right:0;
     bottom:-1px;
-
-    height:2px;
-
+    height:3px;
     background:
         linear-gradient(
             90deg,
@@ -124,31 +114,24 @@ body{
 .header-left{
     display:flex;
     align-items:center;
-
     gap:14px;
 }
 
 .logo-icon{
-    width:43px;
-    height:43px;
-
+    width:45px;
+    height:45px;
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:12px;
-
-    font-size:20px;
-
+    font-size:25px;
     background:
         linear-gradient(
             135deg,
             #0b6fff,
             #00bfff
         );
-
     border:1px solid rgba(255,255,255,.25);
-
     box-shadow:
         0 5px 20px rgba(0,110,255,.35),
         inset 0 1px 0 rgba(255,255,255,.35);
@@ -157,30 +140,22 @@ body{
 .logo-area{
     display:flex;
     flex-direction:column;
-
     gap:4px;
 }
 
 .logo{
-    font-size:19px;
-
+    font-size:25px;
     font-weight:900;
-
     letter-spacing:1.5px;
-
     color:#fff;
-
     text-shadow:
         0 2px 10px rgba(0,0,0,.3);
 }
 
 .subtitle{
     color:#78a8d8;
-
     font-size:9px;
-
     font-weight:700;
-
     letter-spacing:1.8px;
 }
 
@@ -190,42 +165,30 @@ body{
 .header-right{
     display:flex;
     align-items:center;
-
     gap:12px;
 }
 
 .online{
     display:flex;
     align-items:center;
-
     gap:8px;
-
     padding:8px 14px;
-
     border-radius:20px;
-
     border:1px solid rgba(0,230,255,.25);
-
     background:
         rgba(0,190,255,.08);
 
     color:#8deaff;
-
-    font-size:9px;
-
+    font-size:10px;
     font-weight:900;
-
     letter-spacing:1px;
 }
 
 .online-dot{
     width:7px;
     height:7px;
-
     border-radius:50%;
-
     background:#00eaff;
-
     box-shadow:
         0 0 7px #00eaff,
         0 0 15px rgba(0,234,255,.6);
@@ -238,7 +201,6 @@ body{
 
 .main-layout{
     display:flex;
-
     height:calc(100vh - 76px);
 }
 
@@ -249,9 +211,7 @@ body{
 
 .sidebar{
     width:285px;
-
     padding:24px 17px;
-
     display:flex;
     flex-direction:column;
 
@@ -263,10 +223,8 @@ body{
         );
 
     border-right:1px solid rgba(90,190,255,.2);
-
     box-shadow:
         8px 0 35px rgba(0,0,0,.22);
-
     position:relative;
 
     z-index:5;
@@ -277,22 +235,17 @@ body{
 
 .sidebar::before{
     content:"";
-
     position:absolute;
-
     top:0;
     left:0;
-
     width:100%;
     height:160px;
-
     background:
         radial-gradient(
             circle at 50% 0%,
             rgba(0,150,255,.18),
             transparent 70%
         );
-
     pointer-events:none;
 }
 
@@ -301,38 +254,27 @@ body{
 
 .menu-top{
     position:relative;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:3px 8px 16px;
 }
 
 .menu-label{
     color:#7fa5ca;
-
     font-size:10px;
-
     font-weight:900;
-
     letter-spacing:1.8px;
 }
 
 .menu-number{
     padding:4px 8px;
-
     border-radius:6px;
-
     color:#6bdcff;
-
     background:
         rgba(0,190,255,.1);
-
     border:1px solid rgba(0,210,255,.2);
-
     font-size:8px;
-
     font-weight:900;
 }
 
@@ -343,37 +285,24 @@ body{
 
 .menu-list{
     position:relative;
-
     display:flex;
     flex-direction:column;
-
     gap:11px;
 }
 
 .menu-btn{
     position:relative;
-
     width:100%;
-
     min-height:70px;
-
     padding:12px 13px;
-
     border-radius:15px;
-
     border:1px solid rgba(255,255,255,.07);
-
     color:#fff;
-
     cursor:pointer;
-
     display:flex;
     align-items:center;
-
     gap:12px;
-
     text-align:left;
-
     background:
         linear-gradient(
             145deg,
@@ -390,10 +319,8 @@ body{
 
 .menu-btn:hover{
     transform:translateX(3px);
-
     border-color:
         rgba(80,190,255,.4);
-
     background:
         linear-gradient(
             145deg,
@@ -410,7 +337,6 @@ body{
 
 .menu-btn.active{
     transform:translateX(3px);
-
     border-color:
         rgba(75,205,255,.65);
 
@@ -428,18 +354,12 @@ body{
 
 .menu-btn.active::before{
     content:"";
-
     position:absolute;
-
     left:-1px;
-
     top:14px;
     bottom:14px;
-
     width:4px;
-
     border-radius:0 5px 5px 0;
-
     background:
         linear-gradient(
             180deg,
@@ -457,15 +377,11 @@ body{
 .menu-icon{
     width:43px;
     height:43px;
-
     flex:none;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:12px;
-
     font-size:19px;
 
     background:
@@ -534,7 +450,6 @@ body{
 
 .menu-content{
     flex:1;
-
     display:flex;
     flex-direction:column;
 
@@ -542,8 +457,7 @@ body{
 }
 
 .menu-title{
-    font-size:12px;
-
+    font-size:11px;
     font-weight:900;
 
     letter-spacing:.5px;
@@ -551,19 +465,14 @@ body{
 
 .menu-desc{
     color:#7894b5;
-
-    font-size:8px;
-
+    font-size:10px;
     font-weight:700;
-
     letter-spacing:.7px;
 }
 
 .menu-arrow{
     color:#52718f;
-
     font-size:18px;
-
     transition:.25s;
 }
 
@@ -581,15 +490,10 @@ body{
 
 .sidebar-info{
     position:relative;
-
     margin-top:auto;
-
     padding:15px;
-
     border-radius:15px;
-
     border:1px solid rgba(80,190,255,.13);
-
     background:
         linear-gradient(
             145deg,
@@ -600,21 +504,15 @@ body{
 
 .info-title{
     margin-bottom:6px;
-
     color:#75cfff;
-
-    font-size:9px;
-
+    font-size:10px;
     font-weight:900;
-
     letter-spacing:1.2px;
 }
 
 .info-text{
     color:#617c9d;
-
-    font-size:8px;
-
+    font-size:10px;
     line-height:1.55;
 }
 
@@ -625,28 +523,19 @@ body{
 
 .viewer-container{
     flex:1;
-
     min-width:0;
-
     position:relative;
-
     background:#f7faff;
-
     overflow:hidden;
 }
 
 #generatorFrame{
     width:100%;
     height:100%;
-
     border:0;
-
     display:block;
-
     background:#fff;
-
     position:relative;
-
     z-index:2;
 }
 
@@ -657,18 +546,12 @@ body{
 
 .loading{
     position:absolute;
-
     inset:0;
-
     display:none;
-
     align-items:center;
     justify-content:center;
-
     flex-direction:column;
-
     gap:15px;
-
     background:
         radial-gradient(
             circle at center,
@@ -687,28 +570,19 @@ body{
 .spinner{
     width:48px;
     height:48px;
-
     border:3px solid rgba(255,255,255,.1);
-
     border-top-color:#00cfff;
-
     border-right-color:#087cff;
-
     border-radius:50%;
-
     animation:spin .7s linear infinite;
-
     box-shadow:
         0 0 18px rgba(0,190,255,.35);
 }
 
 .loading-text{
     color:#8cb9dd;
-
     font-size:10px;
-
     font-weight:900;
-
     letter-spacing:1.4px;
 }
 
@@ -878,7 +752,7 @@ body{
         <div class="logo-area">
 
             <div class="logo">
-                POSTING GENERATOR
+                DASHBOARD TUGAS HARIAN
             </div>
 
             <div class="subtitle">
@@ -933,129 +807,53 @@ body{
 
 
         <div class="menu-list">
-
-
-            <!-- WP -->
-
-            <button
-                class="menu-btn wp-btn active"
-                onclick="openGenerator('generator-wp.html', this)"
-            >
-
-                <div class="menu-icon">
-                    📝
-                </div>
-
-                <div class="menu-content">
-
-                    <div class="menu-title">
-                        GENERATOR WP
-                    </div>
-
-                    <div class="menu-desc">
-                        POSTING GENERATOR
-                    </div>
-
-                </div>
-
-                <div class="menu-arrow">
-                    ›
-                </div>
-
-            </button>
-
-
-            <!-- WA -->
-
-            <button
-                class="menu-btn wa-btn"
-                onclick="openGenerator('generator-wa.html', this)"
-            >
-
-                <div class="menu-icon">
-                    💬
-                </div>
-
-                <div class="menu-content">
-
-                    <div class="menu-title">
-                        GENERATOR WA
-                    </div>
-
-                    <div class="menu-desc">
-                        POSTING GENERATOR
-                    </div>
-
-                </div>
-
-                <div class="menu-arrow">
-                    ›
-                </div>
-
-            </button>
-
-
-            <!-- SYAIR -->
-
-            <button
-                class="menu-btn syair-btn"
-                onclick="openGenerator('generator-syair.html', this)"
-            >
-
-                <div class="menu-icon">
-                    📜
-                </div>
-
-                <div class="menu-content">
-
-                    <div class="menu-title">
-                        GENERATOR SYAIR
-                    </div>
-
-                    <div class="menu-desc">
-                        POSTING GENERATOR
-                    </div>
-
-                </div>
-
-                <div class="menu-arrow">
-                    ›
-                </div>
-
-            </button>
-
-
-            <!-- PIUTANG -->
-
-            <button
-                class="menu-btn piutang-btn"
-                onclick="openGenerator('generator-piutang.html', this)"
-            >
-
-                <div class="menu-icon">
-                    💰
-                </div>
-
-                <div class="menu-content">
-
-                    <div class="menu-title">
-                        GENERATOR PIUTANG
-                    </div>
-
-                    <div class="menu-desc">
-                        POSTING GENERATOR
-                    </div>
-
-                </div>
-
-                <div class="menu-arrow">
-                    ›
-                </div>
-
-            </button>
-
-
+    <!-- Menu Asli -->
+    <button class="menu-btn wp-btn active" onclick="openGenerator('generator-wp.html', this)">
+        <div class="menu-icon">📝</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR WP</div>
+            <div class="menu-desc">POSTING WORDPRES</div>
         </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <button class="menu-btn wa-btn" onclick="openGenerator('generator-wa.html', this)">
+        <div class="menu-icon">💬</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR WA</div>
+            <div class="menu-desc">POSTING WHATSAPP</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <button class="menu-btn syair-btn" onclick="openGenerator('generator-syair.html', this)">
+        <div class="menu-icon">📜</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR SYAIR</div>
+            <div class="menu-desc">SYAIR TOGEL</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <button class="menu-btn piutang-btn" onclick="openGenerator('generator-piutang.html', this)">
+        <div class="menu-icon">💰</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR PIUTANG</div>
+            <div class="menu-desc">HUTANG & PIUTANG</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <!-- MENU TAMBAHAN (Mengikuti gaya desain asli) -->
+    <button class="menu-btn analisa-btn" onclick="openGenerator('generator-analisa.html', this)">
+        <div class="menu-icon">📊</div>
+        <div class="menu-content">
+            <div class="menu-title">PREDIKSI & JADWAL</div>
+            <div class="menu-desc">TOGEL ONLINE</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+</div>
 
 
         <div class="sidebar-info">
@@ -1169,60 +967,16 @@ document
    SHORTCUT
 ===================================================== */
 
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(
-            e.altKey &&
-            e.key === "1"
-        ){
-
-            document
-                .querySelector(".wp-btn")
-                .click();
-
-        }
-
-
-        if(
-            e.altKey &&
-            e.key === "2"
-        ){
-
-            document
-                .querySelector(".wa-btn")
-                .click();
-
-        }
-
-
-        if(
-            e.altKey &&
-            e.key === "3"
-        ){
-
-            document
-                .querySelector(".syair-btn")
-                .click();
-
-        }
-
-
-        if(
-            e.altKey &&
-            e.key === "4"
-        ){
-
-            document
-                .querySelector(".piutang-btn")
-                .click();
-
-        }
-
+document.addEventListener("keydown", function(e){
+    if(e.altKey){
+        if(e.key === "1") openGenerator('generator-wp.html', document.querySelector('.wp-btn'));
+        if(e.key === "2") openGenerator('generator-wa.html', document.querySelector('.wa-btn'));
+        if(e.key === "3") openGenerator('generator-syair.html', document.querySelector('.syair-btn'));
+        if(e.key === "4") openGenerator('generator-piutang.html', document.querySelector('.piutang-btn'));
+        if(e.key === "5") openGenerator('generator-analisa.html', document.querySelector('.analisa-btn'));
+        if(e.key === "6") openGenerator('generator-settings.html', document.querySelector('.settings-btn'));
     }
-);
-
+});
 </script>
 
 </body>
