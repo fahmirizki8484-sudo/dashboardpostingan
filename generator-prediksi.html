@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>System V.2.1 - Command Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
+<style>
+:root{
+    --royal:#0A2D88;
+    --royal2:#0B3C7A;
+    --navy:#07152F;
+    --navy2:#020611;
+
+    --electric:#007BFF;
+    --electric2:#00AFFF;
+    --cyan:#22D3FF;
+
+    --white:#FFFFFF;
+    --muted:#91A9D5;
+
+    --danger:#ff4545;
+    --success:#00e676;
+
+    --card:rgba(7,28,82,.58);
+    --card2:rgba(5,20,48,.82);
+
+    --border:rgba(0,174,255,.28);
+
+    --shadow:
+        0 15px 40px rgba(0,0,0,.45),
+        0 0 25px rgba(0,123,255,.08);
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(0,123,255,.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(10,45,136,.30),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #020611 0%,
+            #061536 45%,
+            #03102A 70%,
+            #020611 100%
+        );
+
+    color:var(--white);
+    font-family:'Rajdhani',sans-serif;
+    overflow:hidden;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main-wrapper{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.fixed-header{
+    flex-shrink:0;
+    padding:22px 25px 25px;
+    position:relative;
+    z-index:100;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(2,6,17,.98),
+            rgba(2,6,17,.90),
+            transparent
+        );
+}
+
+h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:28px;
+    font-weight:800;
+    text-align:center;
+
+    letter-spacing:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--electric2),
+            #ffffff,
+            var(--electric)
+        );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:titleShine 5s linear infinite;
+
+    margin-bottom:25px;
+
+    text-shadow:
+        0 0 20px rgba(0,174,255,.25);
+}
+
+@keyframes titleShine{
+    to{
+        background-position:300% center;
+    }
+}
+
+h1::after{
+    content:"";
+    display:block;
+
+    width:min(700px,80%);
+    height:2px;
+
+    margin:18px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--electric2),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(0,174,255,.8);
+}
+
+/* =========================
+   TOP CONTROLS
+========================= */
+
+.top-row{
+    width:100%;
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    width:220px;
+    height:38px;
+
+    padding:0 16px;
+
+    border-radius:10px;
+
+    outline:none;
+
+    border:1px solid rgba(0,174,255,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7,28,82,.75),
+            rgba(2,10,25,.9)
+        );
+
+    color:white;
+
+    font-family:'Rajdhani',sans-serif;
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+}
+
+.search-box::placeholder{
+    color:#7191C7;
+}
+
+.search-box:focus{
+    border-color:var(--electric2);
+
+    box-shadow:
+        0 0 0 2px rgba(0,174,255,.08),
+        0 0 20px rgba(0,174,255,.22);
+}
+
+/* =========================
+   HEADER BUTTONS
+========================= */
+
+.btn-copy-all,
+.view-toggle-btn,
+.add-market-btn{
+    height:38px;
+
+    padding:0 20px;
+
+    border:none;
+    border-radius:10px;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:11px;
+    font-weight:700;
+
+    color:white;
+
+    cursor:pointer;
+
+    letter-spacing:.5px;
+
+    transition:.3s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-copy-all,
+.view-toggle-btn{
+    background:
+        linear-gradient(
+            135deg,
+            #075CEB,
+            #00AFFF
+        );
+
+    box-shadow:
+        0 7px 20px rgba(0,123,255,.20);
+}
+
+.add-market-btn{
+    background:
+        linear-gradient(
+            135deg,
+            #0A2D88,
+            #007BFF
+        );
+
+    border:1px solid rgba(0,174,255,.35);
+}
+
+.btn-copy-all:hover,
+.view-toggle-btn:hover,
+.add-market-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(0,123,255,.35),
+        0 0 20px rgba(0,174,255,.20);
+}
+
+/* =========================
+   SCROLL
+========================= */
+
+.scroll-container{
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:
+        25px
+        35px
+        70px;
+
+    scroll-behavior:smooth;
+}
+
+.scroll-container::-webkit-scrollbar{
+    width:5px;
+}
+
+.scroll-container::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+.scroll-container::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            var(--electric),
+            var(--electric2)
+        );
+
+    border-radius:20px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid-menu{
+    width:100%;
+    max-width:1450px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(280px,1fr)
+        );
+
+    gap:22px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.menu-item{
+    position:relative;
+
+    padding:17px;
+
+    min-height:175px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,45,136,.65),
+            rgba(3,14,35,.88)
+        );
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+    flex-direction:column;
+
+    gap:11px;
+
+    overflow:hidden;
+
+    animation:cardIn .45s ease both;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.menu-item::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--electric2),
+            transparent
+        );
+
+    opacity:.75;
+}
+
+.menu-item::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    right:-70px;
+    top:-70px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,174,255,.20),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+.menu-item:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(0,174,255,.65);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55),
+        0 0 25px rgba(0,123,255,.16);
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MARKET HEADER
+========================= */
+
+.market-header-area{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    padding-bottom:9px;
+
+    border-bottom:
+        1px solid
+        rgba(0,174,255,.14);
+}
+
+.market-title{
+    flex:1;
+
+    text-align:center;
+
+    color:
+        var(--electric2);
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:17px;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 12px
+        rgba(0,174,255,.45);
+}
+
+/* =========================
+   DELETE
+========================= */
+
+.btn-delete-market{
+    width:28px;
+    height:28px;
+
+    border:1px solid rgba(255,69,69,.12);
+
+    border-radius:7px;
+
+    background:rgba(255,0,0,.03);
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:.35;
+
+    transition:.3s;
+}
+
+.menu-item:hover .btn-delete-market{
+    opacity:.8;
+}
+
+.btn-delete-market:hover{
+    opacity:1;
+
+    background:
+        rgba(255,69,69,.12);
+
+    border-color:
+        rgba(255,69,69,.5);
+
+    box-shadow:
+        0 0 12px rgba(255,69,69,.2);
+}
+
+.btn-delete-market svg{
+    width:14px;
+    height:14px;
+
+    fill:none;
+
+    stroke:var(--danger);
+
+    stroke-width:2;
+}
+
+/* =========================
+   TIME INFO
+========================= */
+
+.time-info{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:4px 2px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+}
+
+.time-box{
+    display:flex;
+    align-items:center;
+
+    gap:5px;
+}
+
+.time-ttp{
+    color:#ff5757;
+
+    text-shadow:
+        0 0 8px rgba(255,69,69,.25);
+}
+
+.time-buka{
+    color:#00e676;
+
+    text-shadow:
+        0 0 8px rgba(0,230,118,.20);
+}
+
+.hoki-result{
+    width:100%;
+
+    text-align:center;
+
+    padding:5px;
+
+    color:var(--electric2);
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 10px rgba(0,174,255,.45);
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.btn-group{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:7px;
+
+    margin-top:auto;
+}
+
+.btn-action{
+    height:32px;
+
+    border-radius:7px;
+
+    border:1px solid
+        rgba(0,174,255,.25);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#DCEBFF;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.btn-action:hover{
+    background:
+        linear-gradient(
+            135deg,
+            var(--electric),
+            var(--electric2)
+        );
+
+    color:white;
+
+    border-color:
+        var(--electric2);
+
+    box-shadow:
+        0 0 15px
+        rgba(0,174,255,.35);
+
+    transform:translateY(-1px);
+}
+
+/* =========================
+   OFFICIAL LINK
+========================= */
+
+.btn-direct-link{
+    width:100%;
+
+    min-height:30px;
+
+    padding:7px 10px;
+
+    border-radius:7px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-decoration:none;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:9px;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:
+        var(--electric2);
+
+    background:
+        rgba(0,123,255,.06);
+
+    border:
+        1px solid
+        rgba(0,174,255,.25);
+
+    transition:.3s;
+}
+
+.btn-direct-link:hover{
+    background:
+        linear-gradient(
+            135deg,
+            var(--electric),
+            var(--electric2)
+        );
+
+    color:white;
+
+    border-color:
+        var(--electric2);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,174,255,.35);
+}
+
+/* =========================
+   COMPACT
+========================= */
+
+.grid-menu.compact{
+    grid-template-columns:1fr;
+
+    gap:10px;
+}
+
+.grid-menu.compact .menu-item{
+    min-height:auto;
+
+    padding:
+        10px 16px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.3fr 1.4fr 1.8fr 1.2fr;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.grid-menu.compact .market-header-area{
+    border:none;
+
+    padding:0;
+}
+
+.grid-menu.compact .market-title{
+    text-align:left;
+
+    font-size:15px;
+}
+
+.grid-menu.compact .time-info{
+    padding:0;
+}
+
+.grid-menu.compact .btn-group{
+    margin:0;
+}
+
+.grid-menu.compact .btn-direct-link{
+    margin:0;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(0,5,15,.78);
+
+    backdrop-filter:
+        blur(10px);
+
+    z-index:20000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.modal-overlay.open{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+.modal-content{
+    width:min(440px,92%);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,45,136,.96),
+            rgba(2,12,30,.98)
+        );
+
+    border:
+        1px solid
+        rgba(0,174,255,.55);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 35px rgba(0,123,255,.20);
+
+    transform:
+        scale(.92)
+        translateY(10px);
+
+    transition:.3s;
+}
+
+.modal-overlay.open .modal-content{
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.modal-content h3{
+    margin-bottom:22px;
+
+    text-align:center;
+
+    color:
+        var(--electric2);
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 15px rgba(0,174,255,.4);
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+
+    gap:6px;
+
+    margin-bottom:15px;
+}
+
+.form-group label{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:10px;
+
+    color:#8FA9D4;
+
+    letter-spacing:1px;
+}
+
+.form-group input{
+    width:100%;
+
+    height:40px;
+
+    padding:0 12px;
+
+    border-radius:8px;
+
+    outline:none;
+
+    border:
+        1px solid
+        rgba(0,174,255,.22);
+
+    background:
+        rgba(0,4,15,.55);
+
+    color:white;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.form-group input:focus{
+    border-color:
+        var(--electric2);
+
+    box-shadow:
+        0 0 15px
+        rgba(0,174,255,.15);
+}
+
+/* =========================
+   MODAL BUTTON
+========================= */
+
+.modal-buttons{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    margin-top:22px;
+}
+
+.modal-btn{
+    height:40px;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.modal-btn.save{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075CEB,
+            #00AFFF
+        );
+
+    box-shadow:
+        0 7px 20px
+        rgba(0,123,255,.20);
+}
+
+.modal-btn.save:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 22px
+        rgba(0,174,255,.40);
+}
+
+.modal-btn.cancel{
+    color:#B8C7E0;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+}
+
+.modal-btn.cancel:hover{
+    background:
+        rgba(255,255,255,.10);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    padding:
+        11px 22px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--electric),
+            var(--electric2)
+        );
+
+    color:white;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    z-index:50000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,123,255,.35);
+
+    transition:.3s;
+}
+
+#toast.show{
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =========================
+   QUICK BAR
+========================= */
+
+.quick-action-bar{
+    position:fixed;
+
+    left:18px;
+    bottom:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    z-index:9999;
+
+    padding:6px;
+
+    border-radius:12px;
+
+    background:
+        rgba(2,8,20,.68);
+
+    border:
+        1px solid
+        rgba(0,174,255,.15);
+
+    backdrop-filter:blur(12px);
+}
+
+.action-btn{
+    width:36px;
+    height:36px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    text-decoration:none;
+
+    color:
+        var(--electric2);
+
+    background:
+        rgba(0,123,255,.07);
+
+    border:
+        1px solid
+        rgba(0,174,255,.30);
+
+    font-size:16px;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+.action-btn:hover{
+    background:
+        var(--electric);
+
+    color:white;
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 18px
+        rgba(0,174,255,.45);
+}
+
+.action-btn::after{
+    content:attr(data-label);
+
+    position:absolute;
+
+    left:50px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    padding:
+        6px 10px;
+
+    border-radius:6px;
+
+    background:
+        var(--electric);
+
+    color:white;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:9px;
+
+    white-space:nowrap;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.25s;
+}
+
+.action-btn:hover::after{
+    opacity:1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    h1{
+        font-size:19px;
+
+        letter-spacing:2px;
+    }
+
+    .fixed-header{
+        padding:
+            15px
+            12px
+            18px;
+    }
+
+    .top-row{
+        gap:7px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .btn-copy-all,
+    .view-toggle-btn,
+    .add-market-btn{
+        flex:1;
+
+        padding:
+            0 8px;
+
+        font-size:9px;
+    }
+
+    .scroll-container{
+        padding:
+            15px
+            12px
+            60px;
+    }
+
+    .grid-menu{
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .grid-menu.compact .menu-item{
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:9px;
+    }
+
+    .grid-menu.compact .market-title{
+        text-align:center;
+    }
+
+    .grid-menu.compact .time-info{
+        justify-content:space-between;
+    }
+
+    .quick-action-bar{
+        left:8px;
+        bottom:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+    <!-- HEADER -->
+    <div class="fixed-header">
+
+        <h1>
+            PREDIKSI & JADWAL PASARAN TOGEL
+        </h1>
+
+        <div class="top-row">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-box"
+                placeholder="SEARCH MARKET..."
+            >
+
+            <button
+                class="btn-copy-all"
+                onclick="copyAll()"
+            >
+                COPY ALL PREDIKSI
+            </button>
+
+            <button
+                class="view-toggle-btn"
+                id="toggleBtn"
+                onclick="toggleView()"
+            >
+                COMPACT VIEW
+            </button>
+
+            <button
+                class="add-market-btn"
+                onclick="openAddModal()"
+            >
+                + ADD MARKET
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- CONTENT -->
+    <div class="scroll-container">
+
+        <div
+            class="grid-menu"
+            id="gridContainer"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- QUICK ACTION -->
+<div class="quick-action-bar">
+
+    <a
+        href="https://kick.com/live-ttm4d"
+        target="_blank"
+        class="action-btn"
+        data-label="LIVE TTM 4D"
+    >⚡</a>
+
+    <a
+        href="https://kick.com/studio-live-game"
+        target="_blank"
+        class="action-btn"
+        data-label="LIVE TTM 5D"
+    >⚡</a>
+
+    <a
+        href="https://dlive.tv/HOKIDRAW"
+        target="_blank"
+        class="action-btn"
+        data-label="LIVE HOKIDRAW"
+    >⚡</a>
+
+    <a
+        href="https://www.hokivgs.com/wap/"
+        target="_blank"
+        class="action-btn"
+        data-label="LINK BIRU"
+    >⚡</a>
+
+    <a
+        href="https://w6.ceriawlatogel88.net/wap/"
+        target="_blank"
+        class="action-btn"
+        data-label="LINK MERAH"
+    >⚡</a>
+
+</div>
+
+
+<!-- ADD / EDIT MODAL -->
+<div
+    class="modal-overlay"
+    id="marketModal"
+>
+
+    <div class="modal-content">
+
+        <h3 id="modalTitle">
+            NEW PASARAN
+        </h3>
+
+        <div class="form-group">
+
+            <label>
+                NAMA PASARAN
+            </label>
+
+            <input
+                type="text"
+                id="marketName"
+                placeholder="Contoh: SINGAPORE"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                JAM TUTUP / TTP
+            </label>
+
+            <input
+                type="text"
+                id="marketTtp"
+                placeholder="Contoh: 17:30 WIB"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                JAM BUKA
+            </label>
+
+            <input
+                type="text"
+                id="marketBuka"
+                placeholder="Contoh: 17:45 WIB"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                LINK RESMI PASARAN
+            </label>
+
+            <input
+                type="url"
+                id="marketLink"
+                placeholder="https://example.com"
+            >
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button
+                class="modal-btn cancel"
+                onclick="closeModal()"
+            >
+                CANCEL
+            </button>
+
+            <button
+                class="modal-btn save"
+                onclick="saveMarket()"
+            >
+                SAVE UPDATE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+
+<script>
+
+/* =====================================================
+   DATA DEFAULT
+===================================================== */
+
+const initialPasarans = [
+
+    {n:"HOKIDRAW",t:"07:55",b:"08:00",l:"https://hokidraw.com"},
+
+    {n:"CALIFORNIA",t:"08:25 WIB",b:"08:30 WIB",l:"https://calottery.com"},
+
+    {n:"FLORIDA EVENING",t:"08:35 WIB",b:"08:50 WIB",l:"https://flalottery.com"},
+
+    {n:"OREGON 09",t:"08:50 WIB",b:"09:00 WIB",l:"https://oregonlottery.org"},
+
+    {n:"BANGKOK 0930",t:"09:15 WIB",b:"09:30 WIB",l:"https://bangkokpools.com"},
+
+    {n:"NEWYORK EVENING",t:"09:25 WIB",b:"09:35 WIB",l:"https://nylottery.ny.gov"},
+
+    {n:"KENTUCKY EVENING",t:"09:45 WIB",b:"10:00 WIB",l:"https://www.kylottery.com"},
+
+    {n:"CAROLINA EVENING",t:"10:17 WIB",b:"10:22 WIB",l:"https://nclottery.com"},
+
+    {n:"TOTOCAMBODIA",t:"10:45 WIB",b:"11:00 WIB",l:"https://cambodiapools.com"},
+
+    {n:"CHELSEA 11",t:"11:00 WIB",b:"11:15 WIB",l:"https://chelseapools.com"},
+
+    {n:"OREGON 12",t:"11:50 WIB",b:"12:00 WIB",l:"https://oregonlottery.org"},
+
+    {n:"POIPET 12",t:"12:15 WIB",b:"12:30 WIB",l:"https://poipetpools.com"},
+
+    {n:"TOTOMACAU SIANG - P1",t:"13:00 WIB",b:"13:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"BULLSEYE",t:"13:00 WIB",b:"13:15 WIB",l:"https://mylotto.co.nz"},
+
+    {n:"SYDNEY LOTTO",t:"13:49 WIB",b:"14:05 WIB",l:"https://sydneypoolstoday.com"},
+
+    {n:"JAKARTA 1400",t:"13:55 WIB",b:"14:10 WIB",l:"https://jakartapools.com"},
+
+    {n:"BRUNEI 14",t:"14:30 WIB",b:"14:45 WIB",l:"https://bruneipools.com"},
+
+    {n:"CHELSEA 15",t:"15:00 WIB",b:"15:15 WIB",l:"https://chelseapools.com"},
+
+    {n:"TOTOMALI 1530",t:"15:15 WIB",b:"15:30 WIB",l:"https://malipools.com"},
+
+    {n:"TOTOMACAU 5D SORE",t:"15:15 WIB",b:"15:30 WIB",l:"https://totomacaupools.com"},
+
+    {n:"POIPET 15",t:"15:15 WIB",b:"15:30 WIB",l:"https://poipetpools.com"},
+
+    {n:"TOTOMACAU SORE - P2",t:"16:00 WIB",b:"16:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"HUAHIN 1630",t:"16:15 WIB",b:"16:30 WIB",l:"https://huahinpools.com"},
+
+    {n:"KING KONG 4D I",t:"17:00 WIB",b:"17:15 WIB",l:"https://kingkong4d.com"},
+
+    {n:"SINGAPORE",t:"17:30 WIB",b:"17:45 WIB",l:"https://singaporepools.com"},
+
+    {n:"MAGNUM 4D",t:"18:10 WIB",b:"18:40 WIB",l:"https://magnum4d.my"},
+
+    {n:"TOTOMACAU MALAM I - P3",t:"19:00 WIB",b:"19:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"CHELSEA 19",t:"19:00 WIB",b:"19:15 WIB",l:"https://chelseapools.com"},
+
+    {n:"POIPET 19",t:"19:30 WIB",b:"19:45 WIB",l:"https://poipetpools.com"},
+
+    {n:"PCSO",t:"19:50 WIB",b:"20:10 WIB",l:"https://pcso.gov.ph"},
+
+    {n:"TOTOMALI 2030",t:"20:15 WIB",b:"20:30 WIB",l:"https://malipools.com"},
+
+    {n:"HUAHIN 2100",t:"20:45 WIB",b:"21:00 WIB",l:"https://huahinpools.com"},
+
+    {n:"CHELSEA 21",t:"21:00 WIB",b:"21:15 WIB",l:"https://chelseapools.com"},
+
+    {n:"TOTOMACAU 5D MALAM",t:"21:15 WIB",b:"21:30 WIB",l:"https://totomacaupools.com"},
+
+    {n:"NEVADA",t:"21:15 WIB",b:"21:30 WIB",l:"https://nevadalottery.com"},
+
+    {n:"BRUNEI 21",t:"21:30 WIB",b:"21:45 WIB",l:"https://bruneipools.com"},
+
+    {n:"TOTOMACAU MALAM II - P4",t:"22:00 WIB",b:"22:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"POIPET 22",t:"22:30 WIB",b:"22:45 WIB",l:"https://poipetpools.com"},
+
+    {n:"HONGKONG LOTTO",t:"22:59 WIB",b:"23:15 WIB",l:"https://hongkongpools.com"},
+
+    {n:"TOTOMACAU MALAM III - P5",t:"23:00 WIB",b:"23:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"TOTOMALI 2330",t:"23:15 WIB",b:"23:30 WIB",l:"https://malipools.com"},
+
+    {n:"JAKARTA 2330",t:"23:25 WIB",b:"23:40 WIB",l:"https://jakartapools.com"},
+
+    {n:"KING KONG 4D II",t:"23:30 WIB",b:"23:45 WIB",l:"https://kingkong4d.com"},
+
+    {n:"TOTOMACAU PAGI - P6",t:"00:00 WIB",b:"00:15 WIB",l:"https://totomacaupools.com"},
+
+    {n:"KENTUCKY MIDDAY",t:"00:05 WIB",b:"00:20 WIB",l:"https://www.kylottery.com"},
+
+    {n:"FLORIDA MIDDAY",t:"00:20 WIB",b:"00:30 WIB",l:"https://flalottery.com"},
+
+    {n:"HUAHIN 0100",t:"00:45 WIB",b:"01:00 WIB",l:"https://huahinpools.com"},
+
+    {n:"NEWYORK MIDDAY",t:"01:15 WIB",b:"01:25 WIB",l:"https://nylottery.ny.gov"},
+
+    {n:"BANGKOK 0130",t:"01:15 WIB",b:"01:30 WIB",l:"https://bangkokpools.com"},
+
+    {n:"CAROLINA DAY",t:"01:45 WIB",b:"02:00 WIB",l:"https://nclottery.com"},
+
+    {n:"BRUNEI 02",t:"02:30 WIB",b:"02:45 WIB",l:"https://bruneipools.com"},
+
+    {n:"OREGON 03",t:"02:50 WIB",b:"03:00 WIB",l:"https://oregonlottery.org"},
+
+    {n:"OREGON 06",t:"05:50 WIB",b:"06:00 WIB",l:"https://oregonlottery.org"}
+
+];
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let pasarans = [...initialPasarans];
+
+let isFirebaseConnected = false;
+
+let db = null;
+
+let editIndex = null;
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:"YOUR_API_KEY",
+
+    authDomain:"YOUR_PROJECT_ID.firebaseapp.com",
+
+    databaseURL:
+        "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
+
+    projectId:"YOUR_PROJECT_ID",
+
+    storageBucket:"YOUR_PROJECT_ID.appspot.com",
+
+    messagingSenderId:"YOUR_SENDER_ID",
+
+    appId:"YOUR_APP_ID"
+
+};
+
+
+if(
+    firebaseConfig.apiKey &&
+    firebaseConfig.apiKey !== "YOUR_API_KEY"
+){
+
+    try{
+
+        firebase.initializeApp(firebaseConfig);
+
+        db = firebase.database();
+
+        isFirebaseConnected = true;
+
+    }catch(error){
+
+        console.error(
+            "Firebase gagal:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SHIO
+===================================================== */
+
+const shios = [
+
+    "NAGA",
+    "MACAN",
+    "KELINCI",
+    "KUDA",
+    "KAMBING",
+    "MONYET",
+    "AYAM",
+    "ANJING",
+    "BABI",
+    "TIKUS",
+    "KERBAU",
+    "ULAR"
+
+];
+
+
+/* =====================================================
+   RANDOM
+===================================================== */
+
+function seedRandom(seed){
+
+    let x =
+        Math.sin(seed) * 10000;
+
+    return x -
+        Math.floor(x);
+}
+
+
+function getPrediction(pName){
+
+    const d = new Date();
+
+    const dateStr =
+        d.getFullYear() +
+        "" +
+        d.getMonth() +
+        "" +
+        d.getDate();
+
+    let seed = 0;
+
+    const key =
+        pName +
+        dateStr;
+
+    for(
+        let i=0;
+        i<key.length;
+        i++
+    ){
+
+        seed +=
+            key.charCodeAt(i);
+
+    }
+
+    const getRnd = (
+        min,
+        max
+    ) =>
+        Math.floor(
+            seedRandom(seed++) *
+            (max-min+1)
+        ) + min;
+
+
+    const getNums = (
+        count,
+        length
+    ) => {
+
+        return Array.from(
+            {length:count},
+            () =>
+                Array.from(
+                    {length},
+                    () =>
+                        getRnd(0,9)
+                ).join("")
+        ).join(" ");
+
+    };
+
+
+    return {
+
+        bbfs:
+            Array.from(
+                {length:7},
+                () => getRnd(0,9)
+            ).join(""),
+
+        am:
+            Array.from(
+                {length:5},
+                () => getRnd(0,9)
+            ).join(""),
+
+        d4:getNums(4,4),
+
+        d3:getNums(4,3),
+
+        d2:getNums(10,2),
+
+        cb:
+            getRnd(0,9) +
+            "/" +
+            getRnd(0,9),
+
+        cb2d:
+            getRnd(10,99) +
+            "/" +
+            getRnd(10,99) +
+            "/" +
+            getRnd(10,99),
+
+        shio:
+            shios[getRnd(0,11)] +
+            "/" +
+            shios[getRnd(0,11)] +
+            "/" +
+            shios[getRnd(0,11)],
+
+        twin:
+            getRnd(0,9).toString().repeat(2) +
+            "/" +
+            getRnd(0,9).toString().repeat(2) +
+            "/" +
+            getRnd(0,9).toString().repeat(2)
+
+    };
+
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function getFullDate(){
+
+    const d =
+        new Date();
+
+    const hari = [
+
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu"
+
+    ][d.getDay()];
+
+
+    const bulan = [
+
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mei",
+        "Jun",
+        "Jul",
+        "Agu",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Des"
+
+    ][d.getMonth()];
+
+
+    return `${hari}, ${d.getDate()} ${bulan} ${d.getFullYear()}`;
+
+}
+
+
+/* =====================================================
+   COPY PREDIKSI
+===================================================== */
+
+function formatText(pName){
+
+    const data =
+        getPrediction(pName);
+
+    return `Prediksi ${pName}
+Hari ${getFullDate()}
+BBFS KUAT: ${data.bbfs}
+Angka Main : ${data.am}
+4D (BB): ${data.d4}
+3D (BB) : ${data.d3}
+2D (BB): ${data.d2}
+Colok Bebas : ${data.cb}
+Colok bebas 2D : ${data.cb2d}
+Colok Shio : ${data.shio}
+Invest Twin : ${data.twin}
+Biasakan UPS - UTAMAKAN PREDIKSI SENDIRI ya bosku`;
+
+}
+
+
+/* =====================================================
+   COPY JADWAL
+===================================================== */
+
+function formatJadwal(
+    pName,
+    pTtp,
+    pBuka,
+    pLink
+){
+
+    const d =
+        new Date();
+
+    const hariIni =
+        d.getDay();
+
+    let infoLibur = "";
+
+
+    if(
+        pName === "PCSO" &&
+        hariIni === 0
+    ){
+
+        infoLibur =
+            "\nSTATUS : MINGGU LIBUR";
+
+    }
+
+
+    if(
+        pName === "SINGAPORE" &&
+        (
+            hariIni === 2 ||
+            hariIni === 5
+        )
+    ){
+
+        infoLibur =
+            "\nSTATUS : SELASA & JUMAT LIBUR";
+
+    }
+
+
+    if(
+        pName === "MAGNUM 4D" &&
+        [1,2,4,5].includes(hariIni)
+    ){
+
+        infoLibur =
+            "\nSTATUS : SENIN, SELASA, KAMIS, JUMAT LIBUR\n" +
+            "Jika pada hari tertentu Pasaran magnum dibuka akan kami informasikan melalui memo ya bosku";
+
+    }
+
+
+    if(
+        pName === "HOKIDRAW"
+    ){
+
+        return `${pName}
+RESULT 1 JAM SEKALI
+Link Resmi : ${pLink}
+Note : Apabila mengalami kendala dalam mengakses link tersebut kami sarankan menggunakan VPN ya bosku.`;
+
+    }
+
+
+    return `${pName}
+TUTUP : ${pTtp} | BUKA : ${pBuka}${infoLibur}
+Link Resmi : ${pLink}
+Note : Apabila mengalami kendala dalam mengakses link tersebut kami sarankan menggunakan VPN ya bosku.`;
+
+}
+
+
+/* =====================================================
+   COPY ENGINE
+===================================================== */
+
+function executeCopy(
+    text,
+    successMsg
+){
+
+    if(!text)return;
+
+
+    const textarea =
+        document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position =
+        "fixed";
+
+    textarea.style.left =
+        "-9999px";
+
+    textarea.style.top =
+        "0";
+
+    document.body.appendChild(
+        textarea
+    );
+
+    textarea.focus();
+
+    textarea.select();
+
+
+    try{
+
+        const success =
+            document.execCommand("copy");
+
+        if(success){
+
+            showToast(successMsg);
+
+        }else{
+
+            showToast(
+                "GAGAL COPY!"
+            );
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "GAGAL COPY!"
+        );
+
+    }
+
+
+    textarea.remove();
+
+}
+
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
+
+function handleCopyPrediksi(index){
+
+    const p =
+        pasarans[index];
+
+    if(!p)return;
+
+    executeCopy(
+        formatText(p.n),
+        `${p.n} PREDIKSI COPIED!`
+    );
+
+}
+
+
+function handleCopyJadwal(index){
+
+    const p =
+        pasarans[index];
+
+    if(!p)return;
+
+    executeCopy(
+
+        formatJadwal(
+            p.n,
+            p.t,
+            p.b,
+            p.l
+        ),
+
+        `${p.n} JADWAL COPIED!`
+
+    );
+
+}
+
+
+function copyAll(){
+
+    const text =
+        pasarans
+            .map(
+                p => formatText(p.n)
+            )
+            .join("\n\n");
+
+
+    executeCopy(
+        text,
+        "SYSTEM: ALL PREDICTIONS COPIED!"
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function openAddModal(){
+
+    editIndex = null;
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "NEW PASARAN";
+
+
+    document.getElementById(
+        "marketName"
+    ).value = "";
+
+
+    document.getElementById(
+        "marketTtp"
+    ).value = "";
+
+
+    document.getElementById(
+        "marketBuka"
+    ).value = "";
+
+
+    document.getElementById(
+        "marketLink"
+    ).value = "";
+
+
+    document.getElementById(
+        "marketModal"
+    ).classList.add("open");
+
+}
+
+
+function openEditModal(index){
+
+    const p =
+        pasarans[index];
+
+    if(!p)return;
+
+
+    editIndex =
+        index;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "EDIT PASARAN";
+
+
+    document.getElementById(
+        "marketName"
+    ).value =
+        p.n || "";
+
+
+    document.getElementById(
+        "marketTtp"
+    ).value =
+        p.t || "";
+
+
+    document.getElementById(
+        "marketBuka"
+    ).value =
+        p.b || "";
+
+
+    document.getElementById(
+        "marketLink"
+    ).value =
+        p.l || "";
+
+
+    document.getElementById(
+        "marketModal"
+    ).classList.add("open");
+
+}
+
+
+function closeModal(){
+
+    document.getElementById(
+        "marketModal"
+    ).classList.remove("open");
+
+    editIndex = null;
+
+}
+
+
+/* =====================================================
+   SAVE ADD / EDIT
+===================================================== */
+
+function saveMarket(){
+
+    const name =
+        document.getElementById(
+            "marketName"
+        ).value.trim().toUpperCase();
+
+
+    const ttp =
+        document.getElementById(
+            "marketTtp"
+        ).value.trim();
+
+
+    const buka =
+        document.getElementById(
+            "marketBuka"
+        ).value.trim();
+
+
+    const link =
+        document.getElementById(
+            "marketLink"
+        ).value.trim();
+
+
+    if(
+        !name ||
+        !ttp ||
+        !buka ||
+        !link
+    ){
+
+        alert(
+            "Harap isi semua kolom!"
+        );
+
+        return;
+
+    }
+
+
+    const market = {
+
+        n:name,
+
+        t:ttp,
+
+        b:buka,
+
+        l:link
+
+    };
+
+
+    /* =====================
+       EDIT
+    ===================== */
+
+    if(editIndex !== null){
+
+        const index =
+            editIndex;
+
+
+        if(isFirebaseConnected){
+
+            db.ref(
+                "pasaran_cloud/" +
+                index
+            )
+            .update(market)
+            .then(() => {
+
+                closeModal();
+
+                showToast(
+                    `${name} BERHASIL DIUPDATE!`
+                );
+
+            })
+            .catch(error => {
+
+                alert(
+                    "Gagal update Firebase: " +
+                    error.message
+                );
+
+            });
+
+        }else{
+
+            pasarans[index] =
+                market;
+
+            closeModal();
+
+            render(
+                document.getElementById(
+                    "searchInput"
+                ).value
+            );
+
+            showToast(
+                `${name} BERHASIL DIUPDATE!`
+            );
+
+        }
+
+        return;
+
+    }
+
+
+    /* =====================
+       ADD
+    ===================== */
+
+    if(isFirebaseConnected){
+
+        const newIndex =
+            pasarans.length;
+
+
+        db.ref(
+            "pasaran_cloud/" +
+            newIndex
+        )
+        .set(market)
+        .then(() => {
+
+            closeModal();
+
+            showToast(
+                "PASARAN BARU DISIMPAN!"
+            );
+
+        })
+        .catch(error => {
+
+            alert(
+                "Gagal menyimpan: " +
+                error.message
+            );
+
+        });
+
+    }else{
+
+        pasarans.push(
+            market
+        );
+
+        closeModal();
+
+        render(
+            document.getElementById(
+                "searchInput"
+            ).value
+        );
+
+        showToast(
+            "PASARAN BERHASIL DITAMBAHKAN!"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+function deleteMarket(index){
+
+    const p =
+        pasarans[index];
+
+    if(!p)return;
+
+
+    const confirmDelete =
+        confirm(
+            `Apakah Anda yakin ingin menghapus pasaran "${p.n}" dari sistem?`
+        );
+
+
+    if(!confirmDelete)return;
+
+
+    if(isFirebaseConnected){
+
+        db.ref(
+            "pasaran_cloud/" +
+            index
+        )
+        .remove()
+        .then(() => {
+
+            showToast(
+                `${p.n} BERHASIL DIHAPUS!`
+            );
+
+        })
+        .catch(error => {
+
+            alert(
+                "Gagal menghapus: " +
+                error.message
+            );
+
+        });
+
+    }else{
+
+        pasarans.splice(
+            index,
+            1
+        );
+
+        render(
+            document.getElementById(
+                "searchInput"
+            ).value
+        );
+
+        showToast(
+            `${p.n} BERHASIL DIHAPUS!`
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+const trashIcon = `
+
+<svg viewBox="0 0 24 24">
+
+    <polyline
+        points="3 6 5 6 21 6">
+    </polyline>
+
+    <path
+        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6">
+    </path>
+
+    <path
+        d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+    </path>
+
+    <line
+        x1="10"
+        y1="11"
+        x2="10"
+        y2="17">
+    </line>
+
+    <line
+        x1="14"
+        y1="11"
+        x2="14"
+        y2="17">
+    </line>
+
+</svg>
+
+`;
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(filter=""){
+
+    const container =
+        document.getElementById(
+            "gridContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    const keyword =
+        filter.toLowerCase();
+
+
+    pasarans.forEach(
+        (p,index) => {
+
+            if(
+                !p ||
+                !p.n ||
+                !p.n.toLowerCase()
+                    .includes(keyword)
+            ){
+
+                return;
+
+            }
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "menu-item";
+
+
+            const isHoki =
+                p.n === "HOKIDRAW";
+
+
+            let schedule;
+
+
+            if(isHoki){
+
+                schedule = `
+
+                    <div class="hoki-result">
+
+                        ⚡ RESULT 1 JAM SEKALI ⚡
+
+                    </div>
+
+                `;
+
+            }else{
+
+                schedule = `
+
+                    <div class="time-info">
+
+                        <div class="time-box">
+
+                            <span class="time-ttp">
+
+                                🔴 TTP : ${escapeHTML(p.t)}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="time-box">
+
+                            <span class="time-buka">
+
+                                🟢 BUKA : ${escapeHTML(p.b)}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            const safeLink =
+                p.l || "#";
+
+
+            card.innerHTML = `
+
+                <div class="market-header-area">
+
+                    <div class="market-title">
+
+                        ${escapeHTML(p.n)}
+
+                    </div>
+
+
+                    <button
+
+                        class="btn-delete-market"
+
+                        onclick="deleteMarket(${index})"
+
+                        title="Hapus Pasaran"
+
+                    >
+
+                        ${trashIcon}
+
+                    </button>
+
+                </div>
+
+
+                ${schedule}
+
+
+                <div class="btn-group">
+
+                    <button
+
+                        class="btn-action"
+
+                        onclick="handleCopyPrediksi(${index})"
+
+                    >
+
+                        PREDIKSI
+
+                    </button>
+
+
+                    <button
+
+                        class="btn-action"
+
+                        onclick="handleCopyJadwal(${index})"
+
+                    >
+
+                        JADWAL
+
+                    </button>
+
+
+                    <button
+
+                        class="btn-action"
+
+                        onclick="openEditModal(${index})"
+
+                    >
+
+                        EDIT
+
+                    </button>
+
+                </div>
+
+
+                <a
+
+                    href="${escapeAttribute(safeLink)}"
+
+                    target="_blank"
+
+                    rel="noopener noreferrer"
+
+                    class="btn-direct-link"
+
+                >
+
+                    ⚡ OPEN LINK RESMI
+
+                </a>
+
+            `;
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SECURITY HELPER
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+    return String(value)
+        .replace(/"/g,"&quot;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+
+}
+
+
+/* =====================================================
+   FIREBASE LISTENER
+===================================================== */
+
+if(isFirebaseConnected){
+
+    db.ref(
+        "pasaran_cloud"
+    ).on(
+        "value",
+        snapshot => {
+
+            const data =
+                snapshot.val();
+
+
+            if(data){
+
+                pasarans = [];
+
+
+                data.forEach(
+                    item => {
+
+                        if(item){
+
+                            pasarans.push(
+                                item
+                            );
+
+                        }
+
+                    }
+                );
+
+            }else{
+
+                db.ref(
+                    "pasaran_cloud"
+                )
+                .set(
+                    initialPasarans
+                );
+
+
+                pasarans =
+                    [...initialPasarans];
+
+            }
+
+
+            render(
+                document.getElementById(
+                    "searchInput"
+                ).value
+            );
+
+        }
+    );
+
+}else{
+
+    window.addEventListener(
+        "DOMContentLoaded",
+        () => render()
+    );
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document
+    .getElementById(
+        "searchInput"
+    )
+    .addEventListener(
+        "input",
+        event => {
+
+            render(
+                event.target.value
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   VIEW TOGGLE
+===================================================== */
+
+function toggleView(){
+
+    const grid =
+        document.getElementById(
+            "gridContainer"
+        );
+
+
+    const button =
+        document.getElementById(
+            "toggleBtn"
+        );
+
+
+    grid.classList.toggle(
+        "compact"
+    );
+
+
+    if(
+        grid.classList.contains(
+            "compact"
+        )
+    ){
+
+        button.textContent =
+            "CARD VIEW";
+
+    }else{
+
+        button.textContent =
+            "COMPACT VIEW";
+
+    }
+
+}
+
+
+/* =====================================================
+   CLOSE MODAL CLICK OUTSIDE
+===================================================== */
+
+document
+    .getElementById(
+        "marketModal"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            if(
+                event.target.id ===
+                "marketModal"
+            ){
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   ESC CLOSE MODAL
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
