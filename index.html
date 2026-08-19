@@ -445,6 +445,19 @@ body{
     box-shadow: 0 0 16px rgba(255,170,0,.35);
 }
 
+/* DAILY REPORT */
+.daily-btn.active{
+    border-color: rgba(0,220,255,.45);
+    background: linear-gradient(135deg, rgba(0,140,220,.27), rgba(0,200,255,.08));
+}
+.daily-btn.active::before{
+    background: linear-gradient(180deg, #00b3ff, #00f0ff);
+    box-shadow: 0 0 10px #00d9ff;
+}
+.daily-btn.active .menu-icon{
+    background: linear-gradient(135deg, #0099ee, #00d9ff);
+    box-shadow: 0 0 16px rgba(0,200,255,.35);
+}
 
 /* TEXT */
 
@@ -800,7 +813,7 @@ body{
             </div>
 
             <div class="menu-number">
-                04
+                05
             </div>
 
         </div>
@@ -844,12 +857,20 @@ body{
         <div class="menu-arrow">›</div>
     </button>
 
-    <!-- MENU TAMBAHAN (Mengikuti gaya desain asli) -->
     <button class="menu-btn analisa-btn" onclick="openGenerator('generator-prediksi.html', this)">
         <div class="menu-icon">📊</div>
         <div class="menu-content">
             <div class="menu-title">PREDIKSI & JADWAL</div>
             <div class="menu-desc">TOGEL ONLINE</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <button class="menu-btn daily-btn" onclick="openGenerator('daily-report.html', this)">
+        <div class="menu-icon">📊</div>
+        <div class="menu-content">
+            <div class="menu-title">DAILY REPORT</div>
+            <div class="menu-desc">REKAP LAPORAN HARIAN</div>
         </div>
         <div class="menu-arrow">›</div>
     </button>
@@ -974,7 +995,7 @@ document.addEventListener("keydown", function(e){
         if(e.key === "3") openGenerator('generator-syair.html', document.querySelector('.syair-btn'));
         if(e.key === "4") openGenerator('generator-piutang.html', document.querySelector('.piutang-btn'));
         if(e.key === "5") openGenerator('generator-prediksi.html', document.querySelector('.analisa-btn'));
-        if(e.key === "6") openGenerator('generator-settings.html', document.querySelector('.settings-btn'));
+        if(e.key === "6") openGenerator('daily-report.html', document.querySelector('.daily-btn'));
     }
 });
 </script>
