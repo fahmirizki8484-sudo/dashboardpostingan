@@ -1,318 +1,903 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>ZIATOGEL Winner Generator PRO</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-margin:0;
-padding:30px;
-background:
-radial-gradient(circle at top,#0A2D88,#020611 70%);
-color:white;
-font-family:'Rajdhani',sans-serif;
+    margin:0;
+    padding:24px;
+    min-height:100vh;
+
+    font-family:'Rajdhani',sans-serif;
+    color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(0,175,255,.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(10,45,136,.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #01050d 0%,
+            #031126 48%,
+            #020713 100%
+        );
+
+    overflow-x:hidden;
 }
 
+/* Ambient glow */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:420px;
+    height:420px;
+    top:-180px;
+    left:-150px;
+
+    background:rgba(0,175,255,.11);
+    filter:blur(90px);
+
+    pointer-events:none;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:420px;
+    height:420px;
+    bottom:-220px;
+    right:-150px;
+
+    background:rgba(10,45,136,.14);
+    filter:blur(100px);
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container{
-max-width:1250px;
-margin:auto;
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:1160px;
+
+    margin:0 auto;
 }
 
-.header{
-text-align:center;
-margin-bottom:35px;
-}
-
-.header h1{
-font-family:'Orbitron',sans-serif;
-font-size:34px;
-font-weight:900;
-letter-spacing:3px;
-background:
-linear-gradient(90deg,#FFD400,#fff,#00AFFF);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.header p{
-font-size:18px;
-letter-spacing:2px;
-color:#ddd;
-}
-
+/* =========================================================
+   MAIN GRID
+========================================================= */
 
 .grid{
-display:grid;
-grid-template-columns:420px 1fr;
-gap:25px;
+    display:grid;
+    grid-template-columns:360px minmax(0,1fr);
+
+    gap:16px;
+
+    align-items:stretch;
 }
 
+/* =========================================================
+   PREMIUM CARD
+========================================================= */
 
 .card{
-background:
-rgba(255,255,255,.08);
-border:1px solid rgba(0,175,255,.35);
-border-radius:22px;
-padding:25px;
-backdrop-filter:blur(15px);
-box-shadow:0 0 40px rgba(0,175,255,.15);
+    position:relative;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12,33,76,.88),
+            rgba(3,11,28,.92)
+        );
+
+    border:1px solid rgba(0,175,255,.24);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.36),
+        inset 0 1px 0 rgba(255,255,255,.07),
+        inset 0 0 30px rgba(0,175,255,.025),
+        0 0 28px rgba(0,175,255,.045);
+
+    overflow:hidden;
 }
 
+/* Top luminous line */
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:7%;
+    right:7%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,175,255,.9),
+            rgba(255,212,0,.7),
+            rgba(0,175,255,.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(0,175,255,.35);
+
+    opacity:.75;
+}
+
+/* Corner glow */
+
+.card::after{
+    content:"";
+
+    position:absolute;
+
+    top:-100px;
+    right:-100px;
+
+    width:220px;
+    height:220px;
+
+    background:rgba(0,175,255,.055);
+
+    border-radius:50%;
+
+    filter:blur(40px);
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
 
 .title{
-font-family:'Orbitron',sans-serif;
-font-size:16px;
-font-weight:900;
-color:#FFD400;
-letter-spacing:2px;
-margin-bottom:20px;
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    margin-bottom:14px;
+    padding-bottom:11px;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:12px;
+    font-weight:900;
+
+    letter-spacing:1.35px;
+
+    color:#FFD400;
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    text-shadow:
+        0 0 12px rgba(255,212,0,.18);
 }
 
+.title::after{
+    content:"";
 
+    position:absolute;
+
+    left:0;
+    bottom:-1px;
+
+    width:70px;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00AFFF,
+            #FFD400,
+            transparent
+        );
+
+    border-radius:10px;
+
+    box-shadow:
+        0 0 10px rgba(0,175,255,.35);
+}
+
+/* =========================================================
+   INPUT AREA
+========================================================= */
 
 input{
-width:100%;
-padding:16px;
-margin-bottom:15px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,.2);
-background:#06163f;
-color:white;
-font-family:'Rajdhani';
-font-size:19px;
-font-weight:700;
+    width:100%;
+    height:46px;
+
+    margin-bottom:9px;
+    padding:0 14px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7,25,64,.95),
+            rgba(2,10,28,.98)
+        );
+
+    color:#fff;
+
+    font-family:'Rajdhani',sans-serif;
+    font-size:16px;
+    font-weight:700;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 5px 15px rgba(0,0,0,.12);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease,
+        background .2s ease;
+}
+
+input::placeholder{
+    color:rgba(255,255,255,.42);
+}
+
+input:hover{
+    border-color:rgba(0,175,255,.38);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,30,76,.98),
+            rgba(2,11,30,.98)
+        );
 }
 
 input:focus{
-outline:none;
-border-color:#00AFFF;
-box-shadow:0 0 20px #00AFFF;
+    outline:none;
+
+    border-color:#00AFFF;
+
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 0 0 2px rgba(0,175,255,.07),
+        0 0 20px rgba(0,175,255,.15),
+        inset 0 0 15px rgba(0,175,255,.025);
 }
+
+/* =========================================================
+   BUTTON
+========================================================= */
 
 button{
-width:100%;
-padding:16px;
-margin-top:12px;
-border:0;
-border-radius:15px;
-cursor:pointer;
-font-family:'Orbitron';
-font-weight:900;
-letter-spacing:1px;
-transition:.3s;
+    position:relative;
+
+    width:100%;
+    height:44px;
+
+    margin-top:7px;
+    padding:0;
+
+    border:0;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    font-family:'Orbitron',sans-serif;
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:1.1px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
 }
 
+/* Button shine */
 
+button::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.16),
+            transparent
+        );
+
+    transform:skewX(-25deg);
+
+    transition:left .55s ease;
+}
+
+button:hover::before{
+    left:140%;
+}
 
 button:hover{
-transform:translateY(-3px);
+    transform:translateY(-2px);
+    filter:brightness(1.08);
 }
 
+button:active{
+    transform:translateY(0);
+}
+
+/* =========================================================
+   GENERATE BUTTON
+========================================================= */
 
 .generate{
-background:#FFD400;
-color:#06163f;
+    color:#061533;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFE45A 0%,
+            #FFD400 48%,
+            #FFCA00 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(255,212,0,.16),
+        inset 0 1px 0 rgba(255,255,255,.55);
+
+    border:1px solid rgba(255,236,140,.7);
 }
+
+.generate:hover{
+    box-shadow:
+        0 10px 28px rgba(255,212,0,.25),
+        0 0 18px rgba(255,212,0,.08);
+}
+
+/* =========================================================
+   COPY BUTTON
+========================================================= */
 
 .copy{
-background:#00AFFF;
-color:white;
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #08C8FF 0%,
+            #008CFF 50%,
+            #0069E8 100%
+        );
+
+    box-shadow:
+        0 8px 22px rgba(0,155,255,.17),
+        inset 0 1px 0 rgba(255,255,255,.22);
+
+    border:1px solid rgba(85,210,255,.34);
 }
+
+.copy:hover{
+    box-shadow:
+        0 10px 28px rgba(0,175,255,.28),
+        0 0 18px rgba(0,175,255,.08);
+}
+
+/* =========================================================
+   RESET BUTTON
+========================================================= */
 
 .reset{
-background:#ff3131;
-color:white;
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5252,
+            #e32323
+        );
+
+    box-shadow:
+        0 8px 20px rgba(255,48,48,.13),
+        inset 0 1px 0 rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,100,100,.25);
 }
 
+.reset:hover{
+    box-shadow:
+        0 10px 26px rgba(255,48,48,.22);
+}
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
 
 textarea{
-width:100%;
-height:450px;
-resize:none;
-border-radius:15px;
-padding:18px;
-background:#020611;
-border:1px solid #00AFFF;
-color:#00ffcc;
-font-family:monospace;
+    display:block;
+
+    width:100%;
+    height:278px;
+
+    padding:14px;
+
+    resize:vertical;
+
+    border-radius:12px;
+
+    border:1px solid rgba(0,175,255,.22);
+
+    background:
+        linear-gradient(
+            145deg,
+            #020A1B,
+            #010611
+        );
+
+    color:#00F0C8;
+
+    font-family:'Consolas','Courier New',monospace;
+    font-size:12px;
+    line-height:1.6;
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.38),
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 0 18px rgba(0,175,255,.025);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
+textarea::placeholder{
+    color:rgba(0,240,200,.28);
+}
+
+textarea:hover{
+    border-color:rgba(0,175,255,.38);
+}
+
+textarea:focus{
+    outline:none;
+
+    border-color:#00AFFF;
+
+    box-shadow:
+        0 0 0 2px rgba(0,175,255,.05),
+        0 0 18px rgba(0,175,255,.12),
+        inset 0 0 25px rgba(0,0,0,.4);
+}
+
+/* =========================================================
+   PREVIEW SECTION
+========================================================= */
+
+.preview-card{
+    margin-top:16px !important;
+}
+
+/* Preview frame */
 
 .preview{
-background:#020611;
-border-radius:18px;
-padding:20px;
-min-height:350px;
-overflow:hidden;
+    position:relative;
+
+    min-height:260px;
+
+    padding:15px;
+
+    overflow:hidden;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #030B1D,
+            #010611
+        );
+
+    border:1px solid rgba(0,175,255,.18);
+
+    box-shadow:
+        inset 0 0 30px rgba(0,0,0,.32),
+        0 0 20px rgba(0,175,255,.025);
+
+    color:rgba(255,255,255,.48);
+
+    font-family:'Rajdhani',sans-serif;
+    font-size:15px;
 }
 
+/* Preview top highlight */
+
+.preview::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:10%;
+    right:10%;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,175,255,.55),
+            transparent
+        );
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+textarea::-webkit-scrollbar,
+.preview::-webkit-scrollbar{
+    width:6px;
+}
+
+textarea::-webkit-scrollbar-track,
+.preview::-webkit-scrollbar-track{
+    background:#01050d;
+
+    border-radius:10px;
+}
+
+textarea::-webkit-scrollbar-thumb,
+.preview::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            180deg,
+            #008CFF,
+            #075FA8
+        );
+
+    border-radius:10px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover,
+.preview::-webkit-scrollbar-thumb:hover{
+    background:
+        linear-gradient(
+            180deg,
+            #00C2FF,
+            #008CFF
+        );
+}
+
+/* =========================================================
+   SMALL PREMIUM STATUS DETAIL
+========================================================= */
+
+.card + .card{
+    min-width:0;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:900px){
-.grid{
-grid-template-columns:1fr;
-}
-}
 
-.brand{
-font-family:'Orbitron',sans-serif;
-font-size:32px;
-font-weight:900;
-letter-spacing:12px;
-margin-top:15px;
+    body{
+        padding:15px;
+    }
 
-background:
-linear-gradient(
-90deg,
-#FFD400,
-#ffffff,
-#00AFFF,
-#FFD400
-);
+    .grid{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
 
-background-size:300%;
--webkit-background-clip:text;
-color:transparent;
+    .card{
+        padding:16px;
+        border-radius:16px;
+    }
 
-text-shadow:
-0 0 20px rgba(0,175,255,.5);
-
-animation:shine 4s linear infinite;
+    textarea{
+        height:300px;
+    }
 }
 
+@media(max-width:500px){
 
-@keyframes shine{
+    body{
+        padding:9px;
+    }
 
-0%{
-background-position:0%;
-}
+    .card{
+        padding:14px;
+        border-radius:14px;
+    }
 
-100%{
-background-position:300%;
-}
+    .grid{
+        gap:12px;
+    }
+
+    .title{
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:12px;
+    }
+
+    input{
+        height:44px;
+        font-size:15px;
+    }
+
+    button{
+        height:43px;
+        font-size:10px;
+    }
+
+    textarea{
+        height:280px;
+        padding:12px;
+        font-size:11px;
+    }
+
+    .preview{
+        min-height:240px;
+        padding:10px;
+    }
 
 }
 
 </style>
 </head>
+
 <body>
 
 <div class="container">
-<div class="header">
-<h1>
-GENERATOR SCRIPT POSTINGAN WP 
-</h1>
-<p class="brand">
-Z I A T O G E L
-</p>
+
+    <div class="grid">
+
+        <!-- =================================================
+             INPUT CARD
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="title">
+                ⚡ INPUT DATA POSTINGAN
+            </div>
+
+            <input
+                id="gambar"
+                placeholder="🔗  Link Gambar"
+            >
+
+            <input
+                id="userid"
+                placeholder="👤  User ID"
+            >
+
+            <input
+                id="game"
+                placeholder="🎰  Nama Game"
+            >
+
+            <input
+                id="nominal"
+                placeholder="💰  Total Kemenangan"
+            >
+
+            <button
+                class="generate"
+                onclick="generate()"
+            >
+                GENERATE POST
+            </button>
+
+            <button
+                class="copy"
+                onclick="copyScript()"
+            >
+                COPY HTML SCRIPT
+            </button>
+
+            <button
+                class="reset"
+                onclick="resetData()"
+            >
+                RESET DATA
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             GENERATOR CARD
+        ================================================== -->
+
+        <div class="card">
+
+            <div class="title">
+                📄 GENERATOR HTML
+            </div>
+
+            <textarea
+                id="hasil"
+                spellcheck="false"
+                placeholder="Hasil HTML akan muncul di sini..."
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PREVIEW CARD
+    ====================================================== -->
+
+    <div class="card preview-card">
+
+        <div class="title">
+            👁 CEK HASIL POSTINGAN
+        </div>
+
+        <div
+            id="preview"
+            class="preview"
+        >
+            Tidak Ada Data Postingan
+        </div>
+
+    </div>
+
 </div>
 
 
-<div class="grid">
-
-
-
-<div class="card">
-<div class="title">
-⚡ INPUT DATA POSTINGAN
-</div>
-
-
-<input id="gambar" placeholder="🔗 Link Gambar">
-<input id="userid" placeholder="👤 User ID">
-<input id="game" placeholder="🎰 Nama Game">
-<input id="nominal" placeholder="💰 Total Kemenangan">
-
-<button class="generate" onclick="generate()">
-GENERATE POST
-</button>
-<button class="copy" onclick="copyScript()">
-COPY HTML SCRIPT
-</button>
-<button class="reset" onclick="resetData()">
-RESET DATA
-</button>
-</div>
-
-<div class="card">
-<div class="title">
-📄 GENERATOR HTML
-</div>
-<textarea id="hasil"></textarea>
-
-</div>
-</div>
-
-<div class="card" style="margin-top:25px">
-
-<div class="title">
-👁 CEK HASIL POSTINGAN
-</div>
-
-<div id="preview" class="preview">
-Tidak Ada Data Postingan
-</div>
-</div>
-
-</div>
 <script>
 
-let fields=[
-"gambar",
-"userid",
-"game",
-"nominal"
+/* =========================================================
+   FIELD STORAGE
+========================================================= */
+
+let fields = [
+    "gambar",
+    "userid",
+    "game",
+    "nominal"
 ];
 
 
-// LOAD DATA SAAT REFRESH
-window.onload=function(){
-fields.forEach(id=>{
-let data=localStorage.getItem(id);
-if(data){
-document.getElementById(id).value=data;
-}
-});
+/* =========================================================
+   LOAD DATA SAAT REFRESH
+========================================================= */
 
-let old=localStorage.getItem("hasil");
-if(old){
-document.getElementById("hasil").value=old;
-document.getElementById("preview").innerHTML=old;
-}
+window.onload=function(){
+
+    fields.forEach(id=>{
+
+        let data=localStorage.getItem(id);
+
+        if(data){
+
+            document.getElementById(id).value=data;
+
+        }
+
+    });
+
+    let old=localStorage.getItem("hasil");
+
+    if(old){
+
+        document.getElementById("hasil").value=old;
+
+        document.getElementById("preview").innerHTML=old;
+
+    }
+
 };
 
 
-// AUTO SAVE INPUT
+/* =========================================================
+   AUTO SAVE INPUT
+========================================================= */
+
 fields.forEach(id=>{
-document.getElementById(id)
-.addEventListener("input",function(){
-localStorage.setItem(
-id,
-this.value
-);
+
+    document
+    .getElementById(id)
+    .addEventListener("input",function(){
+
+        localStorage.setItem(
+            id,
+            this.value
+        );
+
+    });
 
 });
-});
 
+
+/* =========================================================
+   GENERATE
+========================================================= */
 
 function generate(){
 
-const gambar = document.getElementById("gambar").value;
-const userid = document.getElementById("userid").value;
-const game = document.getElementById("game").value;
-const nominal = document.getElementById("nominal").value;
+    const gambar =
+        document.getElementById("gambar").value;
 
-const html = `
+    const userid =
+        document.getElementById("userid").value;
+
+    const game =
+        document.getElementById("game").value;
+
+    const nominal =
+        document.getElementById("nominal").value;
+
+
+    const html = `
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- wp:image {"id":2200,"sizeSlug":"large","linkDestination":"none"} -->
@@ -471,48 +1056,88 @@ color:#FFD400;
 </div>
 `;
 
-document.getElementById("hasil").value = html;
-document.getElementById("preview").innerHTML = html;
-localStorage.setItem("hasil", html);
+
+    document.getElementById("hasil").value=html;
+
+    document.getElementById("preview").innerHTML=html;
+
+    localStorage.setItem("hasil",html);
 
 }
 
 
+/* =========================================================
+   COPY SCRIPT
+========================================================= */
 
 function copyScript(){
-let text = document.getElementById("hasil");
 
-// cara lama yang lebih kompatibel
-text.select();
-text.setSelectionRange(0, 999999);
+    let text =
+        document.getElementById("hasil");
 
-try{
+    text.select();
 
-document.execCommand("copy");
-alert("SCRIPT BERHASIL DI COPY");
+    text.setSelectionRange(
+        0,
+        999999
+    );
+
+    try{
+
+        document.execCommand("copy");
+
+        alert(
+            "SCRIPT BERHASIL DI COPY"
+        );
+
+    }
+
+    catch(err){
+
+        alert(
+            "GAGAL COPY, SILAHKAN COPY MANUAL"
+        );
+
+    }
+
 }
-catch(err){
-alert("GAGAL COPY, SILAHKAN COPY MANUAL");
-}
-}
 
 
+/* =========================================================
+   RESET DATA
+========================================================= */
 
 function resetData(){
-if(confirm("Hapus semua data?")){
-fields.forEach(id=>{
-localStorage.removeItem(id);
-document.getElementById(id).value="";
-});
+
+    if(confirm("Hapus semua data?")){
+
+        fields.forEach(id=>{
+
+            localStorage.removeItem(id);
+
+            document
+            .getElementById(id)
+            .value="";
+
+        });
 
 
+        localStorage.removeItem("hasil");
 
-localStorage.removeItem("hasil");
-document.getElementById("hasil").value="";
-document.getElementById("preview").innerHTML=
-"Belum ada data";
-alert("DATA BERHASIL DI RESET");
-}
+        document
+        .getElementById("hasil")
+        .value="";
+
+        document
+        .getElementById("preview")
+        .innerHTML="Belum ada data";
+
+        alert(
+            "DATA BERHASIL DI RESET"
+        );
+
+    }
+
 }
 
 </script>
