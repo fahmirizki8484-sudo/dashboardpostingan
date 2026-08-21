@@ -40,87 +40,9 @@ body{
     margin:auto;
 }
 
-/* HEADER */
-
-.header{
-    position:relative;
-    min-height:70px;
-    padding: 16px 22px;
-    border-radius: 16px;
-    margin-bottom:20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    border-radius:22px;
-    background:
-        linear-gradient(
-            135deg,
-            #0a2850,
-            #0b3e7d 48%,
-            #0753a8
-        );
-    border:1px solid #2a73b8;
-    box-shadow:
-        0 25px 70px #0009,
-        inset 0 1px #ffffff15;
-    overflow:hidden;
-}
-
-.header:before{
-    content:"";
-    position:absolute;
-    width:420px;
-    height:420px;
-    right:-180px;
-    top:-240px;
-    border-radius:50%;
-    background:#00aaff25;
-    filter:blur(5px);
-}
-
-.header>*{
-    position:relative;
-    z-index:2;
-}
-
-.header h1{
-    font-size:20px;
-    margin: 0;
-    font-weight:950;
-    letter-spacing:.6px;
-}
-
-.header p{
-    margin-top:8px;
-    color:#b8d5f2;
-    font-size:12px;
-    line-height:1.6;
-}
-
-.hbadge{
-    padding:10px 15px;
-    border-radius:12px;
-    background:#03172e66;
-    border:1px solid #65baff55;
-    color:#dff3ff;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:.6px;
-    backdrop-filter:blur(10px);
-}
-
-.hbadge i{
-    display:inline-block;
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#00eaff;
-    box-shadow:0 0 10px #00eaff;
-    margin-right:7px;
-}
-
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .main-grid{
     display:grid;
@@ -146,7 +68,9 @@ body{
     backdrop-filter:blur(16px);
 }
 
-/* TITLE */
+/* =========================
+   TITLE
+========================= */
 
 .title{
     display:flex;
@@ -198,7 +122,9 @@ body{
     font-weight:900;
 }
 
-/* INPUT */
+/* =========================
+   INPUT
+========================= */
 
 textarea{
     width:100%;
@@ -242,7 +168,9 @@ textarea:focus{
     color:#7fa8c8;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 .buttons{
     display:grid;
@@ -296,7 +224,9 @@ button:active{
     border:1px solid #ff526444;
 }
 
-/* STATS */
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:grid;
@@ -338,7 +268,9 @@ button:active{
     color:var(--y);
 }
 
-/* FILTER */
+/* =========================
+   FILTER
+========================= */
 
 .section{
     display:flex;
@@ -397,7 +329,9 @@ button:active{
     color:#fff;
 }
 
-/* COPY GRID */
+/* =========================
+   COPY GRID
+========================= */
 
 .copy-grid{
     display:grid;
@@ -513,31 +447,6 @@ button:active{
     border-color:#2e96ff;
 }
 
-.bank-copy-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:5px;
-    max-height:78px;
-    overflow-y:auto;
-    padding-bottom:7px;
-    margin-bottom:5px;
-    border-bottom:1px solid #17364f;
-}
-
-.bank-copy-btn{
-    padding:6px 8px;
-    border-radius:6px;
-    background:#0e2a44;
-    border:1px solid #285477;
-    color:#a9c8e4;
-    font-size:7px;
-}
-
-.bank-copy-btn:hover{
-    background:var(--b);
-    color:#fff;
-}
-
 .copy-list{
     flex:1;
     min-height:0;
@@ -546,13 +455,11 @@ button:active{
 }
 
 .copy-list::-webkit-scrollbar,
-.bank-copy-buttons::-webkit-scrollbar,
 .report-text::-webkit-scrollbar{
     width:5px;
 }
 
 .copy-list::-webkit-scrollbar-thumb,
-.bank-copy-buttons::-webkit-scrollbar-thumb,
 .report-text::-webkit-scrollbar-thumb{
     background:#275879;
     border-radius:10px;
@@ -610,7 +517,9 @@ button:active{
     font-weight:950;
 }
 
-/* EMPTY */
+/* =========================
+   EMPTY INFO
+========================= */
 
 .empty{
     margin-top:12px;
@@ -639,7 +548,9 @@ button:active{
     flex:0 0 auto;
 }
 
-/* REPORT */
+/* =========================
+   REPORT
+========================= */
 
 .report-section{
     margin-top:20px;
@@ -744,7 +655,9 @@ button:active{
     border:1px solid #2a5577;
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
     position:fixed;
@@ -788,7 +701,30 @@ button:active{
     margin-right:8px;
 }
 
-/* RESPONSIVE */
+/* =========================
+   COPY ALL GLOBAL
+========================= */
+
+.copy-all-global{
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #0055d4
+        ) !important;
+    border-color:#2e96ff !important;
+    color:#fff !important;
+    box-shadow:0 5px 16px #087cff35;
+}
+
+.copy-all-global:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.12);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:1350px){
 
@@ -812,16 +748,6 @@ button:active{
         padding:13px;
     }
 
-    .header{
-        padding:21px;
-        align-items:flex-start;
-        flex-direction:column;
-    }
-
-    .header h1{
-        font-size:23px;
-    }
-
     .main-grid{
         grid-template-columns:1fr;
     }
@@ -835,18 +761,6 @@ button:active{
 
     .card{
         padding:14px;
-    }
-
-    .header{
-        border-radius:17px;
-    }
-
-    .header h1{
-        font-size:20px;
-    }
-
-    .header p{
-        font-size:10px;
     }
 
     .stats{
@@ -888,37 +802,9 @@ button:active{
         padding:8px;
     }
 
-    .header{
-        padding:17px;
-    }
-
-    .header h1{
-        font-size:18px;
-    }
-
     .badge{
         display:none;
     }
-}
-
-.copy-all-global{
-    background:
-        linear-gradient(
-            135deg,
-            #087cff,
-            #0055d4
-        ) !important;
-
-    border-color:#2e96ff !important;
-    color:#fff !important;
-
-    box-shadow:
-        0 5px 16px #087cff35;
-}
-
-.copy-all-global:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.12);
 }
 </style>
 </head>
@@ -927,23 +813,11 @@ button:active{
 
 <div class="container">
 
-<div class="header">
-    <div>
-        <h1>GENERATOR HUTANG / PIUTANG</h1>
-        <p>
-            Parser data fleksibel — membaca Jenis Bank, Nama Rekening,
-            Nomor Rekening dan Nominal secara otomatis.
-        </p>
-    </div>
-
-    <div class="hbadge">
-        <i></i> FLEXIBLE PARSER
-    </div>
-</div>
-
 <div class="main-grid">
 
-<!-- INPUT -->
+<!-- =========================
+     INPUT
+========================= -->
 
 <div class="card">
 
@@ -999,7 +873,9 @@ Nominal: Rp 25.000.000
 </div>
 
 
-<!-- RESULT -->
+<!-- =========================
+     RESULT
+========================= -->
 
 <div class="card">
 
@@ -1046,112 +922,168 @@ Nominal: Rp 25.000.000
     <div class="toolbar" id="bankFilters"></div>
 
 
+    <!-- =========================
+         COPY GRID
+    ========================= -->
+
     <div class="copy-grid">
 
-    <!-- 1. NOMOR REKENING -->
-    <div class="copy-card">
-        <div class="copy-head">
-            <div class="copy-head-left">
-                <div class="copy-icon">#</div>
-                <h3>NOMOR REKENING</h3>
+        <!-- 1. NOMOR REKENING -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">#</div>
+                    <h3>NOMOR REKENING</h3>
+                </div>
+
+                <span id="accountCount">0</span>
+
             </div>
-            <span id="accountCount">0</span>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('account','ALL')">
+
+                    COPY SEMUA REKENING
+
+                    <small id="accountCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="accountList">
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="copy-body">
-            <button
-                class="copy-action copy-all"
-                onclick="copyField('account','ALL')">
-                COPY SEMUA REKENING
-                <small id="accountCopyCount">0</small>
-            </button>
 
-            <div
-                class="copy-list"
-                id="accountList">
+        <!-- 2. JENIS BANK -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">🏦</div>
+                    <h3>JENIS BANK</h3>
+                </div>
+
+                <span id="bankCount">0</span>
+
             </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('bank','ALL')">
+
+                    COPY SEMUA BANK
+
+                    <small id="bankTotalCopy">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="bankList">
+                </div>
+
+            </div>
+
         </div>
+
+
+        <!-- 3. NAMA REKENING -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">👤</div>
+                    <h3>NAMA REKENING</h3>
+                </div>
+
+                <span id="nameCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('name','ALL')">
+
+                    COPY SEMUA NAMA
+
+                    <small id="nameCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="nameList">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4. NOMINAL -->
+
+        <div class="copy-card">
+
+            <div class="copy-head">
+
+                <div class="copy-head-left">
+                    <div class="copy-icon">Rp</div>
+                    <h3>NOMINAL</h3>
+                </div>
+
+                <span id="nominalCount">0</span>
+
+            </div>
+
+            <div class="copy-body">
+
+                <button
+                    class="copy-action copy-all"
+                    onclick="copyField('nominal','ALL')">
+
+                    COPY SEMUA NOMINAL
+
+                    <small id="nominalCopyCount">
+                        0
+                    </small>
+
+                </button>
+
+                <div
+                    class="copy-list"
+                    id="nominalList">
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-
-
-    <!-- 2. JENIS BANK -->
-    <div class="copy-card">
-        <div class="copy-head">
-            <div class="copy-head-left">
-                <div class="copy-icon">🏦</div>
-                <h3>JENIS BANK</h3>
-            </div>
-            <span id="bankCount">0</span>
-        </div>
-
-        <div class="copy-body">
-            <button
-                class="copy-action copy-all"
-                onclick="copyField('bank','ALL')">
-                COPY SEMUA BANK
-                <small id="bankTotalCopy">0</small>
-            </button>
-
-            <div
-                class="copy-list"
-                id="bankList">
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 3. NAMA REKENING -->
-    <div class="copy-card">
-        <div class="copy-head">
-            <div class="copy-head-left">
-                <div class="copy-icon">👤</div>
-                <h3>NAMA REKENING</h3>
-            </div>
-            <span id="nameCount">0</span>
-        </div>
-
-        <div class="copy-body">
-            <button
-                class="copy-action copy-all"
-                onclick="copyField('name','ALL')">
-                COPY SEMUA NAMA
-                <small id="nameCopyCount">0</small>
-            </button>
-
-            <div
-                class="copy-list"
-                id="nameList">
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 4. NOMINAL -->
-    <div class="copy-card">
-        <div class="copy-head">
-            <div class="copy-head-left">
-                <div class="copy-icon">Rp</div>
-                <h3>NOMINAL</h3>
-            </div>
-            <span id="nominalCount">0</span>
-        </div>
-
-        <div class="copy-body">
-            <button
-                class="copy-action copy-all"
-                onclick="copyField('nominal','ALL')">
-                COPY SEMUA NOMINAL
-                <small id="nominalCopyCount">0</small>
-            </button>
-
-            <div
-                class="copy-list"
-                id="nominalList">
-            </div>
-        </div>
-    </div>
-
-</div>
 
 
     <div class="empty">
@@ -1168,7 +1100,9 @@ Nominal: Rp 25.000.000
     </div>
 
 
-    <!-- REPORT -->
+    <!-- =========================
+         REPORT
+    ========================= -->
 
     <div class="report-section">
 
@@ -1231,7 +1165,7 @@ Nominal: Rp 25.000.000
 <script>
 
 /* =========================================================
-   ELEMENT
+   ELEMENT HELPER
 ========================================================= */
 
 const $ = id => document.getElementById(id);
@@ -1239,7 +1173,6 @@ const $ = id => document.getElementById(id);
 
 /* =========================================================
    BANK DATABASE
-   DITAMBAHKAN DANA
 ========================================================= */
 
 const banks = [
@@ -1378,11 +1311,6 @@ function formatRupiah(value){
 
 /* =========================================================
    CLEAN CELL
-   Membersihkan:
-   **text**
-   <br>
-   HTML
-   quotation
 ========================================================= */
 
 function cleanCell(value){
@@ -1391,9 +1319,7 @@ function cleanCell(value){
         return "";
     }
 
-    let text = String(value);
-
-    text = text
+    return String(value)
         .replace(/<br\s*\/?>/gi," ")
         .replace(/<[^>]*>/g," ")
         .replace(/\*\*/g,"")
@@ -1402,8 +1328,6 @@ function cleanCell(value){
         .replace(/&nbsp;/gi," ")
         .replace(/\u00a0/g," ")
         .trim();
-
-    return text;
 
 }
 
@@ -1429,7 +1353,7 @@ function normalizeText(value){
 
 function detectBank(value){
 
-    let text = normalizeText(value);
+    const text = normalizeText(value);
 
     if(!text){
         return null;
@@ -1450,9 +1374,7 @@ function detectBank(value){
                 text.startsWith(target + " ") ||
                 text.endsWith(" " + target)
             ){
-
                 return bank.result;
-
             }
 
         }
@@ -1465,47 +1387,33 @@ function detectBank(value){
 
 
 /* =========================================================
-   ACCOUNT NORMALIZER
+   ACCOUNT
 ========================================================= */
 
 function cleanAccount(value){
 
-    let text = cleanCell(value)
+    return cleanCell(value)
         .replace(/[^\d]/g,"");
-
-    return text;
 
 }
 
-
-/* =========================================================
-   IS ACCOUNT
-========================================================= */
 
 function isAccount(value){
 
-    let account = cleanAccount(value);
-
-    /*
-     * SENGAJA TIDAK MEMBLOK NOMOR
-     * YANG DIMULAI DENGAN 0.
-     */
-
-    return /^\d{6,20}$/.test(account);
+    return /^\d{6,20}$/.test(
+        cleanAccount(value)
+    );
 
 }
 
 
 /* =========================================================
-   PARSE NOMINAL
+   NOMINAL
 ========================================================= */
 
 function parseNominal(value){
 
-    if(
-        value === null ||
-        value === undefined
-    ){
+    if(value === null || value === undefined){
         return 0;
     }
 
@@ -1520,44 +1428,27 @@ function parseNominal(value){
         return 0;
     }
 
-
-    /*
-     * 5,000,000
-     */
+    /* 5,000,000 */
 
     if(/^\d{1,3}(,\d{3})+$/.test(text)){
-
         return parseInt(
             text.replace(/,/g,""),
             10
         ) || 0;
-
     }
 
-
-    /*
-     * 5.000.000
-     */
+    /* 5.000.000 */
 
     if(/^\d{1,3}(\.\d{3})+$/.test(text)){
-
         return parseInt(
             text.replace(/\./g,""),
             10
         ) || 0;
-
     }
 
+    /* Format campuran */
 
-    /*
-     * 5.000.000,50
-     * 5,000,000.50
-     */
-
-    if(
-        text.includes(".") &&
-        text.includes(",")
-    ){
+    if(text.includes(".") && text.includes(",")){
 
         const lastComma = text.lastIndexOf(",");
         const lastDot = text.lastIndexOf(".");
@@ -1582,11 +1473,6 @@ function parseNominal(value){
 
     }
 
-
-    /*
-     * 5000000
-     */
-
     return parseInt(
         text.replace(/[.,]/g,""),
         10
@@ -1595,13 +1481,9 @@ function parseNominal(value){
 }
 
 
-/* =========================================================
-   IS NOMINAL
-========================================================= */
-
 function isNominalText(value){
 
-    let text = cleanCell(value);
+    const text = cleanCell(value);
 
     if(!text){
         return false;
@@ -1611,24 +1493,18 @@ function isNominalText(value){
         return true;
     }
 
-    if(/^\d{1,3}([.,]\d{3})+$/.test(
+    return /^\d{1,3}([.,]\d{3})+$/.test(
         text.replace(/\s/g,"")
-    )){
-        return true;
-    }
-
-    return false;
+    );
 
 }
 
 
 /* =========================================================
-   HEADER CHECK
+   HEADER
 ========================================================= */
 
 function isHeader(value){
-
-    let text = normalizeText(value);
 
     return [
         "BANK",
@@ -1643,13 +1519,15 @@ function isHeader(value){
         "JUMLAH",
         "TOTAL",
         "ACCOUNT"
-    ].includes(text);
+    ].includes(
+        normalizeText(value)
+    );
 
 }
 
 
 /* =========================================================
-   PARSE CELLS UNIVERSAL
+   UNIVERSAL CELL PARSER
 ========================================================= */
 
 function parseCells(cells){
@@ -1658,20 +1536,16 @@ function parseCells(cells){
         return null;
     }
 
-
     const cleanCells = cells
         .map(cleanCell)
-        .filter(x=>x !== "");
-
+        .filter(Boolean);
 
     if(cleanCells.length < 3){
         return null;
     }
 
 
-    /*
-     * CARI BANK
-     */
+    /* BANK */
 
     let bank = "";
 
@@ -1693,9 +1567,7 @@ function parseCells(cells){
     }
 
 
-    /*
-     * CARI ACCOUNT
-     */
+    /* ACCOUNT */
 
     let account = "";
 
@@ -1717,11 +1589,7 @@ function parseCells(cells){
     }
 
 
-    /*
-     * CARI NOMINAL
-     * Mulai dari belakang karena nominal
-     * biasanya berada di kolom paling kanan.
-     */
+    /* NOMINAL */
 
     let nominal = 0;
 
@@ -1729,57 +1597,36 @@ function parseCells(cells){
 
         const cell = cleanCells[i];
 
-        if(!cell){
-            continue;
-        }
-
-        if(detectBank(cell)){
-            continue;
-        }
-
-        if(cleanAccount(cell) === account){
-            continue;
-        }
-
-        if(isHeader(cell)){
+        if(
+            !cell ||
+            detectBank(cell) ||
+            cleanAccount(cell) === account ||
+            isHeader(cell)
+        ){
             continue;
         }
 
         const number = parseNominal(cell);
 
-        /*
-         * Nominal minimal 1.
-         */
-
-        if(number > 0){
-
-            /*
-             * Hindari mengambil nomor lain
-             * sebagai nominal.
-             *
-             * Kalau cell adalah angka murni
-             * 6-20 digit dan bukan nominal berformat,
-             * anggap sebagai account/angka lain.
-             */
-
-            const cleaned = cell
-                .replace(/\s/g,"");
-
-            const plainNumber =
-                /^\d{6,20}$/.test(cleaned);
-
-            if(
-                plainNumber &&
-                !/[.,]/.test(cleaned) &&
-                !/^RP/i.test(cleaned)
-            ){
-                continue;
-            }
-
-            nominal = number;
-            break;
-
+        if(number <= 0){
+            continue;
         }
+
+        const cleaned = cell.replace(/\s/g,"");
+
+        const plainNumber =
+            /^\d{6,20}$/.test(cleaned);
+
+        if(
+            plainNumber &&
+            !/[.,]/.test(cleaned) &&
+            !/^RP/i.test(cleaned)
+        ){
+            continue;
+        }
+
+        nominal = number;
+        break;
 
     }
 
@@ -1788,45 +1635,25 @@ function parseCells(cells){
     }
 
 
-    /*
-     * CARI NAMA
-     */
+    /* NAME */
 
     let name = "";
 
     for(const cell of cleanCells){
 
-        if(!cell){
+        if(
+            !cell ||
+            detectBank(cell) ||
+            cleanAccount(cell) === account ||
+            isHeader(cell) ||
+            isNominalText(cell)
+        ){
             continue;
         }
-
-        if(detectBank(cell)){
-            continue;
-        }
-
-        if(cleanAccount(cell) === account){
-            continue;
-        }
-
-        if(isHeader(cell)){
-            continue;
-        }
-
-        if(isNominalText(cell)){
-            continue;
-        }
-
-        /*
-         * Skip angka murni
-         */
 
         if(/^\d[\d\s-]*$/.test(cell)){
             continue;
         }
-
-        /*
-         * Skip teks yang isinya hanya nominal.
-         */
 
         const possibleNominal = parseNominal(cell);
 
@@ -1848,10 +1675,10 @@ function parseCells(cells){
 
 
     return {
-        bank:bank,
-        name:name,
-        account:account,
-        nominal:nominal,
+        bank,
+        name,
+        account,
+        nominal,
         ket:""
     };
 
@@ -1859,10 +1686,10 @@ function parseCells(cells){
 
 
 /* =========================================================
-   MARKDOWN TABLE
+   MARKDOWN / PIPE
 ========================================================= */
 
-function parseMarkdownTable(text){
+function parsePipeRows(text){
 
     const result = [];
 
@@ -1870,99 +1697,6 @@ function parseMarkdownTable(text){
         .replace(/\r\n/g,"\n")
         .replace(/\r/g,"\n")
         .split("\n");
-
-
-    for(const originalLine of lines){
-
-        let line = originalLine.trim();
-
-        if(!line){
-            continue;
-        }
-
-
-        /*
-         * HARUS ADA |
-         */
-
-        if(!line.includes("|")){
-            continue;
-        }
-
-
-        /*
-         * Buang pipe pembuka / penutup
-         */
-
-        line = line
-            .replace(/^\s*\|/,"")
-            .replace(/\|\s*$/,"");
-
-
-        let cells = line
-            .split("|")
-            .map(cleanCell)
-            .map(x=>x.trim());
-
-
-        /*
-         * Skip separator Markdown:
-         * :-----:
-         */
-
-        if(
-            cells.length &&
-            cells.every(
-                cell =>
-                    /^:?-+:?$/.test(
-                        cell.replace(/\s/g,"")
-                    )
-            )
-        ){
-            continue;
-        }
-
-
-        /*
-         * Header
-         */
-
-        if(
-            cells.some(
-                cell => isHeader(cell)
-            )
-        ){
-            continue;
-        }
-
-
-        const parsed = parseCells(cells);
-
-        if(parsed){
-            result.push(parsed);
-        }
-
-    }
-
-
-    return result;
-
-}
-
-
-/* =========================================================
-   PIPE TABLE / GENERAL PIPE
-========================================================= */
-
-function parsePipeTable(text){
-
-    const result = [];
-
-    const lines = text
-        .replace(/\r\n/g,"\n")
-        .replace(/\r/g,"\n")
-        .split("\n");
-
 
     for(const originalLine of lines){
 
@@ -1975,33 +1709,30 @@ function parsePipeTable(text){
         line = line
             .replace(/^\s*\|/,"")
             .replace(/\|\s*$/,"");
-
 
         const cells = line
             .split("|")
             .map(cleanCell)
             .filter(Boolean);
 
-
         if(cells.length < 3){
             continue;
         }
 
-
-        /*
-         * Skip Markdown separator
-         */
-
         if(
             cells.every(
-                x => /^:?-+:?$/.test(
-                    x.replace(/\s/g,"")
-                )
+                x =>
+                    /^:?-+:?$/.test(
+                        x.replace(/\s/g,"")
+                    )
             )
         ){
             continue;
         }
 
+        if(cells.some(isHeader)){
+            continue;
+        }
 
         const parsed = parseCells(cells);
 
@@ -2010,7 +1741,6 @@ function parsePipeTable(text){
         }
 
     }
-
 
     return result;
 
@@ -2030,25 +1760,21 @@ function parseTabFormat(text){
         .replace(/\r/g,"\n")
         .split("\n");
 
-
     for(const lineRaw of lines){
 
         const line = lineRaw.trim();
 
-        if(!line){
+        if(
+            !line ||
+            !line.includes("\t")
+        ){
             continue;
         }
-
-        if(!line.includes("\t")){
-            continue;
-        }
-
 
         const cells = line
             .split("\t")
             .map(cleanCell)
             .filter(Boolean);
-
 
         const parsed = parseCells(cells);
 
@@ -2057,7 +1783,6 @@ function parseTabFormat(text){
         }
 
     }
-
 
     return result;
 
@@ -2077,31 +1802,25 @@ function parseSpaceFormat(text){
         .replace(/\r/g,"\n")
         .split("\n");
 
-
     for(const lineRaw of lines){
 
         const line = lineRaw.trim();
 
-        if(!line){
+        if(
+            !line ||
+            !/\s{2,}/.test(line)
+        ){
             continue;
         }
-
-
-        if(!/\s{2,}/.test(line)){
-            continue;
-        }
-
 
         const cells = line
             .split(/\s{2,}/)
             .map(cleanCell)
             .filter(Boolean);
 
-
         if(cells.length < 3){
             continue;
         }
-
 
         const parsed = parseCells(cells);
 
@@ -2110,7 +1829,6 @@ function parseSpaceFormat(text){
         }
 
     }
-
 
     return result;
 
@@ -2130,7 +1848,6 @@ function parseCSVFormat(text){
         .replace(/\r/g,"\n")
         .split("\n");
 
-
     for(const lineRaw of lines){
 
         const line = lineRaw.trim();
@@ -2140,63 +1857,60 @@ function parseCSVFormat(text){
         }
 
 
-        let cells = null;
-
+        /* SEMICOLON */
 
         if(line.includes(";")){
 
-            cells = line
+            const cells = line
                 .split(";")
                 .map(cleanCell)
                 .filter(Boolean);
 
-        }
-        else if(line.includes(",")){
+            if(cells.length >= 3){
 
-            /*
-             * Jangan asal split
-             * "5,000,000"
-             *
-             * Hanya coba kalau terdapat
-             * bank + account di baris.
-             */
+                const parsed = parseCells(cells);
 
-            if(!detectBank(line)){
-                continue;
+                if(parsed){
+                    result.push(parsed);
+                }
+
             }
 
-
-            /*
-             * Coba regex:
-             * bank, account, name, nominal
-             */
-
-            const parts = line
-                .split(",")
-                .map(cleanCell)
-                .filter(Boolean);
-
-
-            if(parts.length >= 3){
-                cells = parts;
-            }
-
-        }
-
-
-        if(!cells || cells.length < 3){
             continue;
         }
 
 
-        const parsed = parseCells(cells);
+        /*
+         * COMMA
+         *
+         * Hindari memecah:
+         * 5,000,000
+         *
+         * Hanya proses jika
+         * struktur terlihat seperti
+         * CSV biasa.
+         */
 
-        if(parsed){
-            result.push(parsed);
+        if(line.includes(",")){
+
+            const cells = line
+                .split(",")
+                .map(cleanCell)
+                .filter(Boolean);
+
+            if(cells.length < 3){
+                continue;
+            }
+
+            const parsed = parseCells(cells);
+
+            if(parsed){
+                result.push(parsed);
+            }
+
         }
 
     }
-
 
     return result;
 
@@ -2218,17 +1932,13 @@ function parseLabelFormat(text){
         .map(x=>cleanCell(x).trim())
         .filter(Boolean);
 
-
     let current = null;
 
 
     function saveCurrent(){
 
-        if(!current){
-            return;
-        }
-
         if(
+            current &&
             current.bank &&
             current.name &&
             current.account &&
@@ -2250,20 +1960,39 @@ function parseLabelFormat(text){
 
     for(const line of lines){
 
-        /*
-         * BANK
-         */
-
         const bank = detectBank(line);
 
-        if(bank){
+        /*
+         * Hanya anggap sebagai
+         * BANK jika baris memang
+         * berupa nama bank.
+         *
+         * Ini mencegah nama seperti
+         * "PENGIRIMAN DANA KE BNI"
+         * dianggap sebagai awal data baru.
+         */
+
+        const normalizedLine =
+            normalizeText(line);
+
+        const exactBank =
+            banks.find(bankItem =>
+                bankItem.names.some(
+                    name =>
+                        normalizeText(name) ===
+                        normalizedLine
+                )
+            );
+
+
+        if(bank && exactBank){
 
             if(current){
                 saveCurrent();
             }
 
             current = {
-                bank:bank,
+                bank,
                 name:"",
                 account:"",
                 nominal:0
@@ -2273,9 +2002,7 @@ function parseLabelFormat(text){
         }
 
 
-        /*
-         * NAME
-         */
+        /* NAME */
 
         let match = line.match(
             /^nama\s*(?:rekening)?\s*(?::|=|-)?\s*(.+)$/i
@@ -2292,15 +2019,14 @@ function parseLabelFormat(text){
                 };
             }
 
-            current.name = cleanCell(match[1]);
+            current.name =
+                cleanCell(match[1]);
 
             continue;
         }
 
 
-        /*
-         * ACCOUNT
-         */
+        /* ACCOUNT */
 
         match = line.match(
             /^(?:nomor\s*)?(?:rekening|rek)\s*(?::|=|-)?\s*([0-9][0-9\s-]{5,})$/i
@@ -2317,15 +2043,14 @@ function parseLabelFormat(text){
                 };
             }
 
-            current.account = cleanAccount(match[1]);
+            current.account =
+                cleanAccount(match[1]);
 
             continue;
         }
 
 
-        /*
-         * NOMINAL
-         */
+        /* NOMINAL */
 
         match = line.match(
             /^(?:nominal|jumlah|total)\s*(?::|=|-)?\s*(?:rp\.?\s*)?([\d.,]+)(?:,-)?$/i
@@ -2361,14 +2086,12 @@ function parseLabelFormat(text){
 
 
 /* =========================================================
-   PARSER UTAMA
+   MAIN PARSER
 ========================================================= */
 
 function parseFlexibleData(text){
 
     const result = [];
-
-    const seen = new Set();
 
 
     function add(item){
@@ -2376,7 +2099,6 @@ function parseFlexibleData(text){
         if(!item){
             return;
         }
-
 
         const bank =
             cleanCell(item.bank).toUpperCase();
@@ -2391,66 +2113,36 @@ function parseFlexibleData(text){
             Number(item.nominal || 0);
 
 
-        if(!bank){
-            return;
-        }
-
-        if(!name){
-            return;
-        }
-
-        if(!isAccount(account)){
-            return;
-        }
-
-        if(nominal <= 0){
+        if(
+            !bank ||
+            !name ||
+            !isAccount(account) ||
+            nominal <= 0
+        ){
             return;
         }
 
 
-        const key =
-            bank +
-            "|" +
-            name.toUpperCase() +
-            "|" +
-            account +
-            "|" +
-            nominal;
-
-
-        if(seen.has(key)){
-            return;
-        }
-
-
-        seen.add(key);
-
+        /*
+         * DATA DUPLICATE TETAP DIPERTAHANKAN
+         * sesuai fungsi asli.
+         */
 
         result.push({
-            bank:bank,
-            name:name,
-            account:account,
-            nominal:nominal,
+            bank,
+            name,
+            account,
+            nominal,
             ket:""
         });
 
     }
 
 
-    /*
-     * Semua parser dijalankan.
-     */
-
-    parseMarkdownTable(text).forEach(add);
-
-    parsePipeTable(text).forEach(add);
-
+    parsePipeRows(text).forEach(add);
     parseTabFormat(text).forEach(add);
-
     parseSpaceFormat(text).forEach(add);
-
     parseCSVFormat(text).forEach(add);
-
     parseLabelFormat(text).forEach(add);
 
 
@@ -2468,7 +2160,6 @@ function processData(){
     const input =
         $("rawInput").value.trim();
 
-
     if(!input){
 
         showToast(
@@ -2482,32 +2173,20 @@ function processData(){
     allData =
         parseFlexibleData(input);
 
-
     currentFilter =
         "ALL";
 
 
     render();
-
-
     generateReport();
 
 
-    if(allData.length){
-
-        showToast(
-            allData.length +
-            " data berhasil dibaca."
-        );
-
-    }
-    else{
-
-        showToast(
-            "Data tidak berhasil dibaca. Periksa format data."
-        );
-
-    }
+    showToast(
+        allData.length
+            ? allData.length +
+              " data berhasil dibaca."
+            : "Data tidak berhasil dibaca. Periksa format data."
+    );
 
 }
 
@@ -2534,12 +2213,13 @@ function updateStats(){
     const total =
         allData.length;
 
+    const filtered =
+        getFilteredData();
 
     const bankCount =
         new Set(
             allData.map(x=>x.bank)
         ).size;
-
 
     const totalNominal =
         allData.reduce(
@@ -2553,50 +2233,38 @@ function updateStats(){
     $("totalData").textContent =
         total.toLocaleString("id-ID");
 
-
     $("totalBank").textContent =
         bankCount;
-
 
     $("totalNominal").textContent =
         formatRupiah(totalNominal);
 
-
     $("statusText").textContent =
         total + " DATA";
-
 
     $("bankCount").textContent =
         bankCount;
 
-
     $("nameCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("accountCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("nominalCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("bankTotalCopy").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("nameCopyCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("accountCopyCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("nominalCopyCount").textContent =
-        getFilteredData().length;
-
+        filtered.length;
 
     $("reportStatus").textContent =
         total + " DATA";
@@ -2610,14 +2278,13 @@ function updateStats(){
 
 function renderFilters(){
 
-    const box = $("bankFilters");
+    const box =
+        $("bankFilters");
 
     box.innerHTML = "";
 
 
-    /* =========================
-       COPY ALL — PALING DEPAN
-    ========================= */
+    /* COPY ALL */
 
     const copyAllButton =
         document.createElement("button");
@@ -2625,18 +2292,18 @@ function renderFilters(){
     copyAllButton.className =
         "filter copy-all-global";
 
-    copyAllButton.innerHTML =
+    copyAllButton.textContent =
         "⚡ COPY ALL";
 
     copyAllButton.onclick =
-        ()=>copyAllData();
+        copyAllData;
 
-    box.appendChild(copyAllButton);
+    box.appendChild(
+        copyAllButton
+    );
 
 
-    /* =========================
-       SEMUA
-    ========================= */
+    /* SEMUA */
 
     const allButton =
         document.createElement("button");
@@ -2655,12 +2322,12 @@ function renderFilters(){
     allButton.onclick =
         ()=>filterBank("ALL");
 
-    box.appendChild(allButton);
+    box.appendChild(
+        allButton
+    );
 
 
-    /* =========================
-       FILTER BANK
-    ========================= */
+    /* BANK FILTER */
 
     const uniqueBanks =
         [
@@ -2689,9 +2356,25 @@ function renderFilters(){
         button.onclick =
             ()=>filterBank(bank);
 
-        box.appendChild(button);
+        box.appendChild(
+            button
+        );
 
     });
+
+}
+
+
+/* =========================================================
+   FILTER BANK
+========================================================= */
+
+function filterBank(bank){
+
+    currentFilter =
+        bank;
+
+    render();
 
 }
 
@@ -2707,43 +2390,9 @@ function getFilteredData(){
     }
 
     return allData.filter(
-        x =>
-            x.bank === currentFilter
+        item =>
+            item.bank === currentFilter
     );
-
-}
-
-
-/* =========================================================
-   FILTERED COUNT
-========================================================= */
-
-function updateFilteredCounts(){
-
-    const count =
-        getFilteredData().length;
-
-
-    $("nameCount").textContent =
-        count;
-
-    $("accountCount").textContent =
-        count;
-
-    $("nominalCount").textContent =
-        count;
-
-    $("bankTotalCopy").textContent =
-        count;
-
-    $("nameCopyCount").textContent =
-        count;
-
-    $("accountCopyCount").textContent =
-        count;
-
-    $("nominalCopyCount").textContent =
-        count;
 
 }
 
@@ -2758,8 +2407,11 @@ function renderPanels(){
         getFilteredData();
 
 
-    renderBankPanel(data);
-
+    renderList(
+        "bankList",
+        "bank",
+        data
+    );
 
     renderList(
         "nameList",
@@ -2767,13 +2419,11 @@ function renderPanels(){
         data
     );
 
-
     renderList(
         "accountList",
         "account",
         data
     );
-
 
     renderList(
         "nominalList",
@@ -2781,29 +2431,6 @@ function renderPanels(){
         data
     );
 
-}
-
-
-/* =========================================================
-   BANK PANEL
-========================================================= */
-
-function renderBankPanel(data){
-
-    const list =
-        $("bankList");
-
-    list.innerHTML = "";
-
-    data.forEach(
-        (item,index)=>
-            addItem(
-                list,
-                item.bank,
-                "bank",
-                index
-            )
-    );
 }
 
 
@@ -2859,14 +2486,12 @@ function addItem(
     const row =
         document.createElement("div");
 
-
     row.className =
         "copy-item";
 
 
     const valueBox =
         document.createElement("div");
-
 
     valueBox.className =
         "copy-item-value";
@@ -2878,7 +2503,6 @@ function addItem(
         );
     }
 
-
     valueBox.textContent =
         value;
 
@@ -2886,14 +2510,11 @@ function addItem(
     const button =
         document.createElement("button");
 
-
     button.className =
         "copy-item-btn";
 
-
     button.textContent =
         "COPY";
-
 
     button.onclick =
         ()=>copySingleFiltered(
@@ -2902,10 +2523,17 @@ function addItem(
         );
 
 
-    row.appendChild(valueBox);
-    row.appendChild(button);
+    row.appendChild(
+        valueBox
+    );
 
-    list.appendChild(row);
+    row.appendChild(
+        button
+    );
+
+    list.appendChild(
+        row
+    );
 
 }
 
@@ -2919,24 +2547,13 @@ function copyField(
     bank
 ){
 
-    let data;
-
-
-    if(bank !== "ALL"){
-
-        data =
-            allData.filter(
-                x =>
-                    x.bank === bank
-            );
-
-    }
-    else{
-
-        data =
-            getFilteredData();
-
-    }
+    const data =
+        bank === "ALL"
+            ? getFilteredData()
+            : allData.filter(
+                item =>
+                    item.bank === bank
+              );
 
 
     if(!data.length){
@@ -2960,45 +2577,53 @@ function copyField(
 
     copyToClipboard(output);
 
-
     showToast(
         "Data berhasil disalin."
     );
 
 }
 
+
 /* =========================================================
-   COPY ALL DATA
-   URUTAN:
-   NOMOR REKENING | JENIS BANK | NAMA REKENING | NOMINAL
+   COPY ALL
 ========================================================= */
 
 function copyAllData(){
 
-    const data = getFilteredData();
+    const data =
+        getFilteredData();
+
 
     if(!data.length){
-        showToast("Tidak ada data untuk disalin.");
+
+        showToast(
+            "Tidak ada data untuk disalin."
+        );
+
         return;
     }
 
-    const output = data.map(item => {
 
-        return [
-            item.account,
-            item.bank,
-            item.name,
-            item.nominal
-        ].join("\t");
+    const output =
+        data.map(
+            item =>
+                [
+                    item.account,
+                    item.bank,
+                    item.name,
+                    item.nominal
+                ].join("\t")
+        ).join("\n");
 
-    }).join("\n");
 
     copyToClipboard(output);
 
     showToast(
         "Semua data berhasil disalin."
     );
+
 }
+
 
 /* =========================================================
    COPY SINGLE
@@ -3011,7 +2636,6 @@ function copySingleFiltered(
 
     const data =
         getFilteredData();
-
 
     const item =
         data[index];
@@ -3029,7 +2653,6 @@ function copySingleFiltered(
 
 
     copyToClipboard(value);
-
 
     showToast(
         "Berhasil copy."
@@ -3069,31 +2692,17 @@ function generateReport(){
         );
 
 
-    const lines = [];
+    const lines = [
 
-
-    lines.push(
-        "Info : ZIATOGEL"
-    );
-
-    lines.push(
-        "Perihal :"
-    );
-
-    lines.push(
-        "Dari :"
-    );
-
-    lines.push("");
-
-
-    lines.push(
+        "Info : ZIATOGEL",
+        "Perihal :",
+        "Dari :",
+        "",
         "Total : " +
-        total.toLocaleString("en-US")
-    );
+        total.toLocaleString("en-US"),
+        ""
 
-
-    lines.push("");
+    ];
 
 
     data.forEach(
@@ -3137,10 +2746,8 @@ function generateReport(){
     $("reportOutput").value =
         lines.join("\n");
 
-
     $("reportStatus").textContent =
-        data.length +
-        " DATA";
+        data.length + " DATA";
 
 }
 
@@ -3169,7 +2776,6 @@ function copyReport(){
 
     copyToClipboard(text);
 
-
     showToast(
         "Report berhasil disalin."
     );
@@ -3181,20 +2787,29 @@ function copyReport(){
    CLIPBOARD
 ========================================================= */
 
-function copyToClipboard(text){
+async function copyToClipboard(text){
 
-    if(
-        navigator.clipboard &&
-        window.isSecureContext
-    ){
+    try{
 
-        navigator.clipboard
-            .writeText(text)
-            .catch(
-                ()=>fallbackCopy(text)
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ){
+
+            await navigator.clipboard.writeText(
+                text
             );
 
-        return;
+            return;
+
+        }
+
+    }
+    catch(error){
+        console.warn(
+            "Clipboard API gagal, menggunakan fallback.",
+            error
+        );
     }
 
 
@@ -3216,7 +2831,6 @@ function fallbackCopy(text){
     area.value =
         text;
 
-
     area.style.position =
         "fixed";
 
@@ -3226,9 +2840,13 @@ function fallbackCopy(text){
     area.style.top =
         "0";
 
+    area.style.opacity =
+        "0";
 
-    document.body.appendChild(area);
 
+    document.body.appendChild(
+        area
+    );
 
     area.focus();
     area.select();
@@ -3236,12 +2854,21 @@ function fallbackCopy(text){
 
     try{
 
-        document.execCommand("copy");
+        document.execCommand(
+            "copy"
+        );
 
     }
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Gagal copy:",
+            error
+        );
+
+        showToast(
+            "Clipboard tidak tersedia."
+        );
 
     }
 
@@ -3271,7 +2898,6 @@ function clearAll(){
 
     render();
 
-
     showToast(
         "Semua data dibersihkan."
     );
@@ -3292,8 +2918,9 @@ function showToast(message){
     toast.textContent =
         message;
 
-
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
 
     clearTimeout(
