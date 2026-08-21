@@ -45,7 +45,8 @@ body{
 .header{
     position:relative;
     min-height:70px;
-    padding:20px 25px;
+    padding: 16px 22px;
+    border-radius: 16px;
     margin-bottom:20px;
     display:flex;
     align-items:center;
@@ -84,7 +85,8 @@ body{
 }
 
 .header h1{
-    font-size:30px;
+    font-size:20px;
+    margin: 0;
     font-weight:950;
     letter-spacing:.6px;
 }
@@ -192,7 +194,7 @@ body{
     color:#79c0ff;
     background:#087cff14;
     border:1px solid #087cff4c;
-    font-size:9px;
+    font-size:8px;
     font-weight:900;
 }
 
@@ -582,7 +584,7 @@ button:active{
     min-width:0;
     flex:1;
     color:#d8e9f9;
-    font-size:8px;
+    font-size:10px;
     font-weight:750;
     white-space:nowrap;
     overflow:hidden;
@@ -595,7 +597,7 @@ button:active{
     background:#12304a;
     border:1px solid #2a4f6c;
     color:#9fc5e7;
-    font-size:7px;
+    font-size:8px;
 }
 
 .copy-item-btn:hover{
@@ -898,6 +900,26 @@ button:active{
         display:none;
     }
 }
+
+.copy-all-global{
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #0055d4
+        ) !important;
+
+    border-color:#2e96ff !important;
+    color:#fff !important;
+
+    box-shadow:
+        0 5px 16px #087cff35;
+}
+
+.copy-all-global:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.12);
+}
 </style>
 </head>
 
@@ -1026,167 +1048,110 @@ Nominal: Rp 25.000.000
 
     <div class="copy-grid">
 
-        <!-- BANK -->
-
-        <div class="copy-card">
-
-            <div class="copy-head">
-
-                <div class="copy-head-left">
-                    <div class="copy-icon">🏦</div>
-                    <h3>JENIS BANK</h3>
-                </div>
-
-                <span id="bankCount">0</span>
-
+    <!-- 1. NOMOR REKENING -->
+    <div class="copy-card">
+        <div class="copy-head">
+            <div class="copy-head-left">
+                <div class="copy-icon">#</div>
+                <h3>NOMOR REKENING</h3>
             </div>
-
-            <div class="copy-body">
-
-                <button
-                    class="copy-action copy-all"
-                    onclick="copyField('bank','ALL')">
-
-                    COPY SEMUA BANK
-
-                    <small id="bankTotalCopy">
-                        0
-                    </small>
-
-                </button>
-
-                <div
-                    class="bank-copy-buttons"
-                    id="bankCopyButtons">
-                </div>
-
-                <div
-                    class="copy-list"
-                    id="bankList">
-                </div>
-
-            </div>
-
+            <span id="accountCount">0</span>
         </div>
 
+        <div class="copy-body">
+            <button
+                class="copy-action copy-all"
+                onclick="copyField('account','ALL')">
+                COPY SEMUA REKENING
+                <small id="accountCopyCount">0</small>
+            </button>
 
-        <!-- NAME -->
-
-        <div class="copy-card">
-
-            <div class="copy-head">
-
-                <div class="copy-head-left">
-                    <div class="copy-icon">👤</div>
-                    <h3>NAMA REKENING</h3>
-                </div>
-
-                <span id="nameCount">0</span>
-
+            <div
+                class="copy-list"
+                id="accountList">
             </div>
-
-            <div class="copy-body">
-
-                <button
-                    class="copy-action copy-all"
-                    onclick="copyField('name','ALL')">
-
-                    COPY SEMUA NAMA
-
-                    <small id="nameCopyCount">
-                        0
-                    </small>
-
-                </button>
-
-                <div
-                    class="copy-list"
-                    id="nameList">
-                </div>
-
-            </div>
-
         </div>
-
-
-        <!-- ACCOUNT -->
-
-        <div class="copy-card">
-
-            <div class="copy-head">
-
-                <div class="copy-head-left">
-                    <div class="copy-icon">#</div>
-                    <h3>NOMOR REKENING</h3>
-                </div>
-
-                <span id="accountCount">0</span>
-
-            </div>
-
-            <div class="copy-body">
-
-                <button
-                    class="copy-action copy-all"
-                    onclick="copyField('account','ALL')">
-
-                    COPY SEMUA REKENING
-
-                    <small id="accountCopyCount">
-                        0
-                    </small>
-
-                </button>
-
-                <div
-                    class="copy-list"
-                    id="accountList">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- NOMINAL -->
-
-        <div class="copy-card">
-
-            <div class="copy-head">
-
-                <div class="copy-head-left">
-                    <div class="copy-icon">Rp</div>
-                    <h3>NOMINAL</h3>
-                </div>
-
-                <span id="nominalCount">0</span>
-
-            </div>
-
-            <div class="copy-body">
-
-                <button
-                    class="copy-action copy-all"
-                    onclick="copyField('nominal','ALL')">
-
-                    COPY SEMUA NOMINAL
-
-                    <small id="nominalCopyCount">
-                        0
-                    </small>
-
-                </button>
-
-                <div
-                    class="copy-list"
-                    id="nominalList">
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
+
+
+    <!-- 2. JENIS BANK -->
+    <div class="copy-card">
+        <div class="copy-head">
+            <div class="copy-head-left">
+                <div class="copy-icon">🏦</div>
+                <h3>JENIS BANK</h3>
+            </div>
+            <span id="bankCount">0</span>
+        </div>
+
+        <div class="copy-body">
+            <button
+                class="copy-action copy-all"
+                onclick="copyField('bank','ALL')">
+                COPY SEMUA BANK
+                <small id="bankTotalCopy">0</small>
+            </button>
+
+            <div
+                class="copy-list"
+                id="bankList">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 3. NAMA REKENING -->
+    <div class="copy-card">
+        <div class="copy-head">
+            <div class="copy-head-left">
+                <div class="copy-icon">👤</div>
+                <h3>NAMA REKENING</h3>
+            </div>
+            <span id="nameCount">0</span>
+        </div>
+
+        <div class="copy-body">
+            <button
+                class="copy-action copy-all"
+                onclick="copyField('name','ALL')">
+                COPY SEMUA NAMA
+                <small id="nameCopyCount">0</small>
+            </button>
+
+            <div
+                class="copy-list"
+                id="nameList">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 4. NOMINAL -->
+    <div class="copy-card">
+        <div class="copy-head">
+            <div class="copy-head-left">
+                <div class="copy-icon">Rp</div>
+                <h3>NOMINAL</h3>
+            </div>
+            <span id="nominalCount">0</span>
+        </div>
+
+        <div class="copy-body">
+            <button
+                class="copy-action copy-all"
+                onclick="copyField('nominal','ALL')">
+                COPY SEMUA NOMINAL
+                <small id="nominalCopyCount">0</small>
+            </button>
+
+            <div
+                class="copy-list"
+                id="nominalList">
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
     <div class="empty">
@@ -2645,11 +2610,33 @@ function updateStats(){
 
 function renderFilters(){
 
-    const box =
-        $("bankFilters");
+    const box = $("bankFilters");
 
     box.innerHTML = "";
 
+
+    /* =========================
+       COPY ALL — PALING DEPAN
+    ========================= */
+
+    const copyAllButton =
+        document.createElement("button");
+
+    copyAllButton.className =
+        "filter copy-all-global";
+
+    copyAllButton.innerHTML =
+        "⚡ COPY ALL";
+
+    copyAllButton.onclick =
+        ()=>copyAllData();
+
+    box.appendChild(copyAllButton);
+
+
+    /* =========================
+       SEMUA
+    ========================= */
 
     const allButton =
         document.createElement("button");
@@ -2670,6 +2657,10 @@ function renderFilters(){
 
     box.appendChild(allButton);
 
+
+    /* =========================
+       FILTER BANK
+    ========================= */
 
     const uniqueBanks =
         [
@@ -2701,22 +2692,6 @@ function renderFilters(){
         box.appendChild(button);
 
     });
-
-}
-
-
-/* =========================================================
-   FILTER BANK
-========================================================= */
-
-function filterBank(bank){
-
-    currentFilter =
-        bank;
-
-    renderFilters();
-    renderPanels();
-    updateFilteredCounts();
 
 }
 
@@ -2818,55 +2793,7 @@ function renderBankPanel(data){
     const list =
         $("bankList");
 
-    const buttons =
-        $("bankCopyButtons");
-
-
     list.innerHTML = "";
-    buttons.innerHTML = "";
-
-
-    const uniqueBanks =
-        [
-            ...new Set(
-                allData.map(x=>x.bank)
-            )
-        ];
-
-
-    uniqueBanks.forEach(bank=>{
-
-        const count =
-            allData.filter(
-                x=>x.bank === bank
-            ).length;
-
-
-        const button =
-            document.createElement("button");
-
-        button.className =
-            "bank-copy-btn";
-
-        button.textContent =
-            "COPY " +
-            bank +
-            " (" +
-            count +
-            ")";
-
-
-        button.onclick =
-            ()=>copyField(
-                "bank",
-                bank
-            );
-
-
-        buttons.appendChild(button);
-
-    });
-
 
     data.forEach(
         (item,index)=>
@@ -2877,7 +2804,6 @@ function renderBankPanel(data){
                 index
             )
     );
-
 }
 
 
@@ -3041,6 +2967,38 @@ function copyField(
 
 }
 
+/* =========================================================
+   COPY ALL DATA
+   URUTAN:
+   NOMOR REKENING | JENIS BANK | NAMA REKENING | NOMINAL
+========================================================= */
+
+function copyAllData(){
+
+    const data = getFilteredData();
+
+    if(!data.length){
+        showToast("Tidak ada data untuk disalin.");
+        return;
+    }
+
+    const output = data.map(item => {
+
+        return [
+            item.account,
+            item.bank,
+            item.name,
+            item.nominal
+        ].join("\t");
+
+    }).join("\n");
+
+    copyToClipboard(output);
+
+    showToast(
+        "Semua data berhasil disalin."
+    );
+}
 
 /* =========================================================
    COPY SINGLE
