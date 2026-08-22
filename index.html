@@ -392,43 +392,18 @@ body{
     transition:.25s;
 }
 
-/* WP */
-.wp-btn.active .menu-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #0874ff,
-            #00c7ff
-        );
-    box-shadow: 0 0 16px rgba(0,180,255,.45);
+/* DAILY REPORT (Urutan 1) */
+.daily-btn.active{
+    border-color: rgba(0,220,255,.45);
+    background: linear-gradient(135deg, rgba(0,140,220,.27), rgba(0,200,255,.08));
 }
-
-/* WA */
-.wa-btn.active{
-    border-color: rgba(60,230,150,.45);
-    background: linear-gradient(135deg, rgba(0,175,100,.27), rgba(0,220,140,.08));
+.daily-btn.active::before{
+    background: linear-gradient(180deg, #00b3ff, #00f0ff);
+    box-shadow: 0 0 10px #00d9ff;
 }
-.wa-btn.active::before{
-    background: linear-gradient(180deg, #00d879, #00ffae);
-    box-shadow: 0 0 10px #00e88a;
-}
-.wa-btn.active .menu-icon{
-    background: linear-gradient(135deg, #00b968, #00e58a);
-    box-shadow: 0 0 16px rgba(0,220,130,.35);
-}
-
-/* SYAIR */
-.syair-btn.active{
-    border-color: rgba(210,100,255,.45);
-    background: linear-gradient(135deg, rgba(140,0,220,.27), rgba(200,50,255,.08));
-}
-.syair-btn.active::before{
-    background: linear-gradient(180deg, #b000ff, #ea80ff);
-    box-shadow: 0 0 10px #cc44ff;
-}
-.syair-btn.active .menu-icon{
-    background: linear-gradient(135deg, #9900ee, #cc44ff);
-    box-shadow: 0 0 16px rgba(180,0,255,.35);
+.daily-btn.active .menu-icon{
+    background: linear-gradient(135deg, #0099ee, #00d9ff);
+    box-shadow: 0 0 16px rgba(0,200,255,.35);
 }
 
 /* PIUTANG */
@@ -445,18 +420,43 @@ body{
     box-shadow: 0 0 16px rgba(255,170,0,.35);
 }
 
-/* DAILY REPORT */
-.daily-btn.active{
-    border-color: rgba(0,220,255,.45);
-    background: linear-gradient(135deg, rgba(0,140,220,.27), rgba(0,200,255,.08));
+/* WA */
+.wa-btn.active{
+    border-color: rgba(60,230,150,.45);
+    background: linear-gradient(135deg, rgba(0,175,100,.27), rgba(0,220,140,.08));
 }
-.daily-btn.active::before{
-    background: linear-gradient(180deg, #00b3ff, #00f0ff);
-    box-shadow: 0 0 10px #00d9ff;
+.wa-btn.active::before{
+    background: linear-gradient(180deg, #00d879, #00ffae);
+    box-shadow: 0 0 10px #00e88a;
 }
-.daily-btn.active .menu-icon{
-    background: linear-gradient(135deg, #0099ee, #00d9ff);
-    box-shadow: 0 0 16px rgba(0,200,255,.35);
+.wa-btn.active .menu-icon{
+    background: linear-gradient(135deg, #00b968, #00e58a);
+    box-shadow: 0 0 16px rgba(0,220,130,.35);
+}
+
+/* WP */
+.wp-btn.active .menu-icon{
+    background:
+        linear-gradient(
+            135deg,
+            #0874ff,
+            #00c7ff
+        );
+    box-shadow: 0 0 16px rgba(0,180,255,.45);
+}
+
+/* SYAIR */
+.syair-btn.active{
+    border-color: rgba(210,100,255,.45);
+    background: linear-gradient(135deg, rgba(140,0,220,.27), rgba(200,50,255,.08));
+}
+.syair-btn.active::before{
+    background: linear-gradient(180deg, #b000ff, #ea80ff);
+    box-shadow: 0 0 10px #cc44ff;
+}
+.syair-btn.active .menu-icon{
+    background: linear-gradient(135deg, #9900ee, #cc44ff);
+    box-shadow: 0 0 16px rgba(180,0,255,.35);
 }
 
 /* XPAY QRIS */
@@ -834,34 +834,17 @@ body{
 
 
         <div class="menu-list">
-    <!-- Menu Asli -->
-    <button class="menu-btn wp-btn active" onclick="openGenerator('generator-wp.html', this)">
-        <div class="menu-icon">📝</div>
+    <!-- 1. DAILY REPORT -->
+    <button class="menu-btn daily-btn active" onclick="openGenerator('daily-report.html', this)">
+        <div class="menu-icon">📊</div>
         <div class="menu-content">
-            <div class="menu-title">GENERATOR WP</div>
-            <div class="menu-desc">POSTING WORDPRES</div>
+            <div class="menu-title">DAILY REPORT</div>
+            <div class="menu-desc">REKAP LAPORAN HARIAN</div>
         </div>
         <div class="menu-arrow">›</div>
     </button>
 
-    <button class="menu-btn wa-btn" onclick="openGenerator('generator-wa.html', this)">
-        <div class="menu-icon">💬</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR WA</div>
-            <div class="menu-desc">POSTING WHATSAPP</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <button class="menu-btn syair-btn" onclick="openGenerator('generator-syair.html', this)">
-        <div class="menu-icon">📜</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR SYAIR</div>
-            <div class="menu-desc">SYAIR TOGEL</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
+    <!-- 2. GENERATOR PIUTANG -->
     <button class="menu-btn piutang-btn" onclick="openGenerator('generator-piutang.html', this)">
         <div class="menu-icon">💰</div>
         <div class="menu-content">
@@ -871,30 +854,52 @@ body{
         <div class="menu-arrow">›</div>
     </button>
 
+    <!-- 3. GENERATOR WA -->
+    <button class="menu-btn wa-btn" onclick="openGenerator('generator-wa.html', this)">
+        <div class="menu-icon">💬</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR WA</div>
+            <div class="menu-desc">POSTING WHATSAPP</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <!-- 4. GENERATOR WP -->
+    <button class="menu-btn wp-btn" onclick="openGenerator('generator-wp.html', this)">
+        <div class="menu-icon">📝</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR WP</div>
+            <div class="menu-desc">POSTING WORDPRES</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <!-- 5. GENERATOR SYAIR -->
+    <button class="menu-btn syair-btn" onclick="openGenerator('generator-syair.html', this)">
+        <div class="menu-icon">📜</div>
+        <div class="menu-content">
+            <div class="menu-title">GENERATOR SYAIR</div>
+            <div class="menu-desc">SYAIR TOGEL</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <!-- 6. QRIS XPAY -->
+    <button class="menu-btn xpay-btn" onclick="openGenerator('cek-qris-xpay.html', this)">
+        <div class="menu-icon">💳</div>
+        <div class="menu-content">
+            <div class="menu-title">CEK QRIS XPAY</div>
+            <div class="menu-desc">VALIDASI TRANSAKSI QRIS</div>
+        </div>
+        <div class="menu-arrow">›</div>
+    </button>
+
+    <!-- 7. PREDIKSI & JADWAL -->
     <button class="menu-btn analisa-btn" onclick="openGenerator('generator-prediksi.html', this)">
         <div class="menu-icon">📊</div>
         <div class="menu-content">
             <div class="menu-title">PREDIKSI & JADWAL</div>
             <div class="menu-desc">TOGEL ONLINE</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <button class="menu-btn daily-btn" onclick="openGenerator('daily-report.html', this)">
-        <div class="menu-icon">📊</div>
-        <div class="menu-content">
-            <div class="menu-title">DAILY REPORT</div>
-            <div class="menu-desc">REKAP LAPORAN HARIAN</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- Menu Baru: CEK QRIS XPAY -->
-    <button class="menu-btn xpay-btn" onclick="openGenerator('cek-qris-xpay.html', this)">
-        <div class="menu-icon">💳</div>
-        <div class="menu-content">
-            <div class="menu-title">QRIS XPAY</div>
-            <div class="menu-desc">CEK TRANSAKSI XPAY</div>
         </div>
         <div class="menu-arrow">›</div>
     </button>
@@ -941,7 +946,7 @@ body{
 
         <iframe
             id="generatorFrame"
-            src="generator-wp.html"
+            src="daily-report.html"
             title="Posting Generator"
         ></iframe>
 
@@ -1014,13 +1019,13 @@ document
 
 document.addEventListener("keydown", function(e){
     if(e.altKey){
-        if(e.key === "1") openGenerator('generator-wp.html', document.querySelector('.wp-btn'));
-        if(e.key === "2") openGenerator('generator-wa.html', document.querySelector('.wa-btn'));
-        if(e.key === "3") openGenerator('generator-syair.html', document.querySelector('.syair-btn'));
-        if(e.key === "4") openGenerator('generator-piutang.html', document.querySelector('.piutang-btn'));
-        if(e.key === "5") openGenerator('generator-prediksi.html', document.querySelector('.analisa-btn'));
-        if(e.key === "6") openGenerator('daily-report.html', document.querySelector('.daily-btn'));
-        if(e.key === "7") openGenerator('cek-qris-xpay.html', document.querySelector('.xpay-btn'));
+        if(e.key === "1") openGenerator('daily-report.html', document.querySelector('.daily-btn'));
+        if(e.key === "2") openGenerator('generator-piutang.html', document.querySelector('.piutang-btn'));
+        if(e.key === "3") openGenerator('generator-wa.html', document.querySelector('.wa-btn'));
+        if(e.key === "4") openGenerator('generator-wp.html', document.querySelector('.wp-btn'));
+        if(e.key === "5") openGenerator('generator-syair.html', document.querySelector('.syair-btn'));
+        if(e.key === "6") openGenerator('cek-qris-xpay.html', document.querySelector('.xpay-btn'));
+        if(e.key === "7") openGenerator('generator-prediksi.html', document.querySelector('.analisa-btn'));
     }
 });
 </script>
