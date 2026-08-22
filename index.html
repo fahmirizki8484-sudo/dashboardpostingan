@@ -2,1033 +2,175 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>POSTING GENERATOR DASHBOARD</title>
-
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-:root{
-    --navy:#061735;
-    --navy2:#0a2450;
-    --blue:#086cff;
-    --blue2:#168cff;
-    --electric:#00c8ff;
-    --cyan:#65e5ff;
-
-    --white:#ffffff;
-    --muted:#8da7c8;
-
-    --border:rgba(102,190,255,.18);
-}
-
-/* =========================================================
-   BODY
-========================================================= */
-
-body{
-    min-height:100vh;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-    color:#fff;
-
-    background:
-        radial-gradient(
-            circle at 10% 0%,
-            rgba(0,150,255,.25),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 100%,
-            rgba(0,220,255,.16),
-            transparent 28%
-        ),
-        linear-gradient(
-            135deg,
-            #04102a,
-            #082352 50%,
-            #061735
-        );
-
-    overflow:hidden;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-    height:76px;
-    padding:0 28px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(13,48,102,.96),
-            rgba(5,24,58,.97)
-        );
-
-    border-bottom:2px solid rgba(90,190,255,.25);
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.25);
-    position:relative;
-
-    z-index:10;
-}
-
-.header::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-1px;
-    height:3px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #087cff,
-            #00d9ff,
-            #087cff,
-            transparent
-        );
-
-    box-shadow:
-        0 0 12px rgba(0,200,255,.6);
-}
-
-
-/* LOGO */
-
-.header-left{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.logo-icon{
-    width:45px;
-    height:45px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:12px;
-    font-size:25px;
-    background:
-        linear-gradient(
-            135deg,
-            #0b6fff,
-            #00bfff
-        );
-    border:1px solid rgba(255,255,255,.25);
-    box-shadow:
-        0 5px 20px rgba(0,110,255,.35),
-        inset 0 1px 0 rgba(255,255,255,.35);
-}
-
-.logo-area{
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-}
-
-.logo{
-    font-size:25px;
-    font-weight:900;
-    letter-spacing:1.5px;
-    color:#fff;
-    text-shadow:
-        0 2px 10px rgba(0,0,0,.3);
-}
-
-.subtitle{
-    color:#78a8d8;
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:1.8px;
-}
-
-
-/* HEADER RIGHT */
-
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.online{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 14px;
-    border-radius:20px;
-    border:1px solid rgba(0,230,255,.25);
-    background:
-        rgba(0,190,255,.08);
-
-    color:#8deaff;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-
-.online-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#00eaff;
-    box-shadow:
-        0 0 7px #00eaff,
-        0 0 15px rgba(0,234,255,.6);
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.main-layout{
-    display:flex;
-    height:calc(100vh - 76px);
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar{
-    width:285px;
-    padding:24px 17px;
-    display:flex;
-    flex-direction:column;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(8,30,66,.98),
-            rgba(5,20,45,.99)
-        );
-
-    border-right:1px solid rgba(90,190,255,.2);
-    box-shadow:
-        8px 0 35px rgba(0,0,0,.22);
-    position:relative;
-
-    z-index:5;
-}
-
-
-/* sidebar highlight */
-
-.sidebar::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:160px;
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(0,150,255,.18),
-            transparent 70%
-        );
-    pointer-events:none;
-}
-
-
-/* MENU TITLE */
-
-.menu-top{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:3px 8px 16px;
-}
-
-.menu-label{
-    color:#7fa5ca;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.8px;
-}
-
-.menu-number{
-    padding:4px 8px;
-    border-radius:6px;
-    color:#6bdcff;
-    background:
-        rgba(0,190,255,.1);
-    border:1px solid rgba(0,210,255,.2);
-    font-size:8px;
-    font-weight:900;
-}
-
-
-/* =========================================================
-   MENU
-========================================================= */
-
-.menu-list{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    gap:11px;
-}
-
-.menu-btn{
-    position:relative;
-    width:100%;
-    min-height:70px;
-    padding:12px 13px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,.07);
-    color:#fff;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    text-align:left;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
-
-    transition:
-        .25s ease;
-}
-
-.menu-btn:hover{
-    transform:translateX(3px);
-    border-color:
-        rgba(80,190,255,.4);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(20,125,255,.18),
-            rgba(0,180,255,.06)
-        );
-
-    box-shadow:
-        0 8px 22px rgba(0,80,180,.18);
-}
-
-
-/* ACTIVE */
-
-.menu-btn.active{
-    transform:translateX(3px);
-    border-color:
-        rgba(75,205,255,.65);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(13,109,255,.48),
-            rgba(0,185,255,.17)
-        );
-
-    box-shadow:
-        0 8px 25px rgba(0,110,255,.24),
-        inset 0 0 25px rgba(0,180,255,.08);
-}
-
-.menu-btn.active::before{
-    content:"";
-    position:absolute;
-    left:-1px;
-    top:14px;
-    bottom:14px;
-    width:4px;
-    border-radius:0 5px 5px 0;
-    background:
-        linear-gradient(
-            180deg,
-            #168cff,
-            #00eaff
-        );
-
-    box-shadow:
-        0 0 10px #00c8ff;
-}
-
-
-/* ICON STYLING & WARNA SPESIFIK */
-
-.menu-icon{
-    width:43px;
-    height:43px;
-    flex:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:12px;
-    font-size:19px;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.25s;
-}
-
-/* DAILY REPORT (Urutan 1) */
-.daily-btn.active{
-    border-color: rgba(0,220,255,.45);
-    background: linear-gradient(135deg, rgba(0,140,220,.27), rgba(0,200,255,.08));
-}
-.daily-btn.active::before{
-    background: linear-gradient(180deg, #00b3ff, #00f0ff);
-    box-shadow: 0 0 10px #00d9ff;
-}
-.daily-btn.active .menu-icon{
-    background: linear-gradient(135deg, #0099ee, #00d9ff);
-    box-shadow: 0 0 16px rgba(0,200,255,.35);
-}
-
-/* PIUTANG */
-.piutang-btn.active{
-    border-color: rgba(255,180,60,.45);
-    background: linear-gradient(135deg, rgba(220,130,0,.27), rgba(255,200,50,.08));
-}
-.piutang-btn.active::before{
-    background: linear-gradient(180deg, #ff9900, #ffcc00);
-    box-shadow: 0 0 10px #ffbb00;
-}
-.piutang-btn.active .menu-icon{
-    background: linear-gradient(135deg, #e68a00, #ffb800);
-    box-shadow: 0 0 16px rgba(255,170,0,.35);
-}
-
-/* WA */
-.wa-btn.active{
-    border-color: rgba(60,230,150,.45);
-    background: linear-gradient(135deg, rgba(0,175,100,.27), rgba(0,220,140,.08));
-}
-.wa-btn.active::before{
-    background: linear-gradient(180deg, #00d879, #00ffae);
-    box-shadow: 0 0 10px #00e88a;
-}
-.wa-btn.active .menu-icon{
-    background: linear-gradient(135deg, #00b968, #00e58a);
-    box-shadow: 0 0 16px rgba(0,220,130,.35);
-}
-
-/* WP */
-.wp-btn.active .menu-icon{
-    background:
-        linear-gradient(
-            135deg,
-            #0874ff,
-            #00c7ff
-        );
-    box-shadow: 0 0 16px rgba(0,180,255,.45);
-}
-
-/* SYAIR */
-.syair-btn.active{
-    border-color: rgba(210,100,255,.45);
-    background: linear-gradient(135deg, rgba(140,0,220,.27), rgba(200,50,255,.08));
-}
-.syair-btn.active::before{
-    background: linear-gradient(180deg, #b000ff, #ea80ff);
-    box-shadow: 0 0 10px #cc44ff;
-}
-.syair-btn.active .menu-icon{
-    background: linear-gradient(135deg, #9900ee, #cc44ff);
-    box-shadow: 0 0 16px rgba(180,0,255,.35);
-}
-
-/* XPAY QRIS */
-.xpay-btn.active{
-    border-color: rgba(255,90,90,.45);
-    background: linear-gradient(135deg, rgba(220,0,0,.27), rgba(255,50,50,.08));
-}
-.xpay-btn.active::before{
-    background: linear-gradient(180deg, #ff3b3b, #ff7b7b);
-    box-shadow: 0 0 10px #ff4d4d;
-}
-.xpay-btn.active .menu-icon{
-    background: linear-gradient(135deg, #e60000, #ff4d4d);
-    box-shadow: 0 0 16px rgba(255,0,0,.35);
-}
-
-/* TEXT */
-
-.menu-content{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-
-    gap:4px;
-}
-
-.menu-title{
-    font-size:11px;
-    font-weight:900;
-
-    letter-spacing:.5px;
-}
-
-.menu-desc{
-    color:#7894b5;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.7px;
-}
-
-.menu-arrow{
-    color:#52718f;
-    font-size:18px;
-    transition:.25s;
-}
-
-.menu-btn:hover .menu-arrow,
-.menu-btn.active .menu-arrow{
-    color:#5edfff;
-
-    transform:translateX(3px);
-}
-
-
-/* =========================================================
-   SIDEBAR INFO
-========================================================= */
-
-.sidebar-info{
-    position:relative;
-    margin-top:auto;
-    padding:15px;
-    border-radius:15px;
-    border:1px solid rgba(80,190,255,.13);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,120,255,.09),
-            rgba(255,255,255,.025)
-        );
-}
-
-.info-title{
-    margin-bottom:6px;
-    color:#75cfff;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.2px;
-}
-
-.info-text{
-    color:#617c9d;
-    font-size:10px;
-    line-height:1.55;
-}
-
-
-/* =========================================================
-   VIEWER
-========================================================= */
-
-.viewer-container{
-    flex:1;
-    min-width:0;
-    position:relative;
-    background:#f7faff;
-    overflow:hidden;
-}
-
-#generatorFrame{
-    width:100%;
-    height:100%;
-    border:0;
-    display:block;
-    background:#fff;
-    position:relative;
-    z-index:2;
-}
-
-
-/* =========================================================
-   LOADING
-========================================================= */
-
-.loading{
-    position:absolute;
-    inset:0;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:15px;
-    background:
-        radial-gradient(
-            circle at center,
-            #10346a,
-            #06152f 65%,
-            #031024
-        );
-
-    z-index:10;
-}
-
-.loading.show{
-    display:flex;
-}
-
-.spinner{
-    width:48px;
-    height:48px;
-    border:3px solid rgba(255,255,255,.1);
-    border-top-color:#00cfff;
-    border-right-color:#087cff;
-    border-radius:50%;
-    animation:spin .7s linear infinite;
-    box-shadow:
-        0 0 18px rgba(0,190,255,.35);
-}
-
-.loading-text{
-    color:#8cb9dd;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1.4px;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#061735;--navy2:#0a2450;--blue:#086cff;--blue2:#168cff;--electric:#00c8ff;--cyan:#65e5ff;--white:#fff;--muted:#8da7c8;--border:rgba(102,190,255,.18)}
+body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;color:#fff;overflow:hidden;background:radial-gradient(circle at 10% 0%,rgba(0,150,255,.25),transparent 30%),radial-gradient(circle at 90% 100%,rgba(0,220,255,.16),transparent 28%),linear-gradient(135deg,#04102a,#082352 50%,#061735)}
+.header{height:76px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,rgba(13,48,102,.96),rgba(5,24,58,.97));border-bottom:2px solid rgba(90,190,255,.25);box-shadow:0 8px 30px rgba(0,0,0,.25);position:relative;z-index:10}
+.header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,transparent,#087cff,#00d9ff,#087cff,transparent);box-shadow:0 0 12px rgba(0,200,255,.6)}
+.header-left,.header-right,.online{display:flex;align-items:center}
+.header-left{gap:14px}
+.logo-icon{width:45px;height:45px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:25px;background:linear-gradient(135deg,#0b6fff,#00bfff);border:1px solid rgba(255,255,255,.25);box-shadow:0 5px 20px rgba(0,110,255,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+.logo-area{display:flex;flex-direction:column;gap:4px}
+.logo{font-size:25px;font-weight:900;letter-spacing:1.5px;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+.subtitle{color:#78a8d8;font-size:9px;font-weight:700;letter-spacing:1.8px}
+.header-right{gap:12px}
+.online{gap:8px;padding:8px 14px;border-radius:20px;border:1px solid rgba(0,230,255,.25);background:rgba(0,190,255,.08);color:#8deaff;font-size:10px;font-weight:900;letter-spacing:1px}
+.online-dot{width:7px;height:7px;border-radius:50%;background:#00eaff;box-shadow:0 0 7px #00eaff,0 0 15px rgba(0,234,255,.6)}
+.main-layout{display:flex;height:calc(100vh - 76px)}
+.sidebar{width:285px;padding:24px 17px;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(8,30,66,.98),rgba(5,20,45,.99));border-right:1px solid rgba(90,190,255,.2);box-shadow:8px 0 35px rgba(0,0,0,.22);position:relative;z-index:5}
+.sidebar:before{content:"";position:absolute;top:0;left:0;width:100%;height:160px;background:radial-gradient(circle at 50% 0%,rgba(0,150,255,.18),transparent 70%);pointer-events:none}
+.menu-top{position:relative;display:flex;align-items:center;justify-content:space-between;padding:3px 8px 16px}
+.menu-label{color:#7fa5ca;font-size:10px;font-weight:900;letter-spacing:1.8px}
+.menu-number{padding:4px 8px;border-radius:6px;color:#6bdcff;background:rgba(0,190,255,.1);border:1px solid rgba(0,210,255,.2);font-size:8px;font-weight:900}
+.menu-list{position:relative;display:flex;flex-direction:column;gap:11px}
+.menu-btn{position:relative;width:100%;min-height:70px;padding:12px 13px;border-radius:15px;border:1px solid rgba(255,255,255,.07);color:#fff;cursor:pointer;display:flex;align-items:center;gap:12px;text-align:left;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:.25s}
+.menu-btn:hover{transform:translateX(3px);border-color:rgba(80,190,255,.4);background:linear-gradient(145deg,rgba(20,125,255,.18),rgba(0,180,255,.06));box-shadow:0 8px 22px rgba(0,80,180,.18)}
+.menu-btn.active{transform:translateX(3px);border-color:rgba(75,205,255,.65);background:linear-gradient(135deg,rgba(13,109,255,.48),rgba(0,185,255,.17));box-shadow:0 8px 25px rgba(0,110,255,.24),inset 0 0 25px rgba(0,180,255,.08)}
+.menu-btn.active:before{content:"";position:absolute;left:-1px;top:14px;bottom:14px;width:4px;border-radius:0 5px 5px 0;background:linear-gradient(180deg,#168cff,#00eaff);box-shadow:0 0 10px #00c8ff}
+.menu-icon{width:43px;height:43px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:19px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);transition:.25s}
+.daily-btn.active{border-color:rgba(0,220,255,.45);background:linear-gradient(135deg,rgba(0,140,220,.27),rgba(0,200,255,.08))}
+.daily-btn.active:before{background:linear-gradient(180deg,#00b3ff,#00f0ff);box-shadow:0 0 10px #00d9ff}
+.daily-btn.active .menu-icon{background:linear-gradient(135deg,#0099ee,#00d9ff);box-shadow:0 0 16px rgba(0,200,255,.35)}
+.piutang-btn.active{border-color:rgba(255,180,60,.45);background:linear-gradient(135deg,rgba(220,130,0,.27),rgba(255,200,50,.08))}
+.piutang-btn.active:before{background:linear-gradient(180deg,#ff9900,#ffcc00);box-shadow:0 0 10px #ffbb00}
+.piutang-btn.active .menu-icon{background:linear-gradient(135deg,#e68a00,#ffb800);box-shadow:0 0 16px rgba(255,170,0,.35)}
+.wa-btn.active{border-color:rgba(60,230,150,.45);background:linear-gradient(135deg,rgba(0,175,100,.27),rgba(0,220,140,.08))}
+.wa-btn.active:before{background:linear-gradient(180deg,#00d879,#00ffae);box-shadow:0 0 10px #00e88a}
+.wa-btn.active .menu-icon{background:linear-gradient(135deg,#00b968,#00e58a);box-shadow:0 0 16px rgba(0,220,130,.35)}
+.wp-btn.active .menu-icon{background:linear-gradient(135deg,#0874ff,#00c7ff);box-shadow:0 0 16px rgba(0,180,255,.45)}
+.syair-btn.active{border-color:rgba(210,100,255,.45);background:linear-gradient(135deg,rgba(140,0,220,.27),rgba(200,50,255,.08))}
+.syair-btn.active:before{background:linear-gradient(180deg,#b000ff,#ea80ff);box-shadow:0 0 10px #cc44ff}
+.syair-btn.active .menu-icon{background:linear-gradient(135deg,#9900ee,#cc44ff);box-shadow:0 0 16px rgba(180,0,255,.35)}
+.xpay-btn.active{border-color:rgba(255,90,90,.45);background:linear-gradient(135deg,rgba(220,0,0,.27),rgba(255,50,50,.08))}
+.xpay-btn.active:before{background:linear-gradient(180deg,#ff3b3b,#ff7b7b);box-shadow:0 0 10px #ff4d4d}
+.xpay-btn.active .menu-icon{background:linear-gradient(135deg,#e60000,#ff4d4d);box-shadow:0 0 16px rgba(255,0,0,.35)}
+.menu-content{flex:1;display:flex;flex-direction:column;gap:4px}
+.menu-title{font-size:11px;font-weight:900;letter-spacing:.5px}
+.menu-desc{color:#7894b5;font-size:10px;font-weight:700;letter-spacing:.7px}
+.menu-arrow{color:#52718f;font-size:18px;transition:.25s}
+.menu-btn:hover .menu-arrow,.menu-btn.active .menu-arrow{color:#5edfff;transform:translateX(3px)}
+.sidebar-info{position:relative;margin-top:auto;padding:15px;border-radius:15px;border:1px solid rgba(80,190,255,.13);background:linear-gradient(145deg,rgba(0,120,255,.09),rgba(255,255,255,.025))}
+.info-title{margin-bottom:6px;color:#75cfff;font-size:10px;font-weight:900;letter-spacing:1.2px}
+.info-text{color:#617c9d;font-size:10px;line-height:1.55}
+.viewer-container{flex:1;min-width:0;position:relative;background:#f7faff;overflow:hidden}
+#generatorFrame{width:100%;height:100%;border:0;display:block;background:#fff;position:relative;z-index:2}
+.loading{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:15px;background:radial-gradient(circle at center,#10346a,#06152f 65%,#031024);z-index:10}
+.loading.show{display:flex}
+.spinner{width:48px;height:48px;border:3px solid rgba(255,255,255,.1);border-top-color:#00cfff;border-right-color:#087cff;border-radius:50%;animation:spin .7s linear infinite;box-shadow:0 0 18px rgba(0,190,255,.35)}
+.loading-text{color:#8cb9dd;font-size:10px;font-weight:900;letter-spacing:1.4px}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 @media(max-width:768px){
-
-    body{
-        overflow:auto;
-    }
-
-    .header{
-        height:65px;
-
-        padding:0 14px;
-    }
-
-    .logo-icon{
-        width:35px;
-        height:35px;
-
-        font-size:16px;
-    }
-
-    .logo{
-        font-size:14px;
-    }
-
-    .subtitle{
-        display:none;
-    }
-
-    .header-right{
-        display:none;
-    }
-
-    .main-layout{
-        flex-direction:column;
-
-        height:auto;
-
-        min-height:
-            calc(100vh - 65px);
-    }
-
-    .sidebar{
-        width:100%;
-
-        padding:10px;
-
-        border-right:0;
-
-        border-bottom:
-            1px solid rgba(80,190,255,.2);
-    }
-
-    .sidebar::before{
-        display:none;
-    }
-
-    .menu-top{
-        display:none;
-    }
-
-    .menu-list{
-        flex-direction:row;
-
-        gap:8px;
-    }
-
-    .menu-btn{
-        min-height:57px;
-
-        padding:8px;
-    }
-
-    .menu-btn.active{
-        transform:none;
-    }
-
-    .menu-btn.active::before{
-        left:12px;
-        right:12px;
-
-        top:auto;
-        bottom:-1px;
-
-        width:auto;
-        height:3px;
-    }
-
-    .menu-icon{
-        width:36px;
-        height:36px;
-
-        font-size:16px;
-    }
-
-    .menu-title{
-        font-size:10px;
-    }
-
-    .menu-desc{
-        font-size:7px;
-    }
-
-    .menu-arrow{
-        display:none;
-    }
-
-    .sidebar-info{
-        display:none;
-    }
-
-    .viewer-container{
-        height:
-            calc(100vh - 130px);
-
-        min-height:500px;
-    }
+body{overflow:auto}
+.header{height:65px;padding:0 14px}
+.logo-icon{width:35px;height:35px;font-size:16px}
+.logo{font-size:14px}
+.subtitle,.header-right,.menu-top,.menu-arrow,.sidebar-info{display:none}
+.main-layout{flex-direction:column;height:auto;min-height:calc(100vh - 65px)}
+.sidebar{width:100%;padding:10px;border-right:0;border-bottom:1px solid rgba(80,190,255,.2)}
+.sidebar:before{display:none}
+.menu-list{flex-direction:row;gap:8px}
+.menu-btn{min-height:57px;padding:8px}
+.menu-btn.active{transform:none}
+.menu-btn.active:before{left:12px;right:12px;top:auto;bottom:-1px;width:auto;height:3px}
+.menu-icon{width:36px;height:36px;font-size:16px}
+.menu-title{font-size:10px}
+.menu-desc{font-size:7px}
+.viewer-container{height:calc(100vh - 130px);min-height:500px}
 }
-
-
 @media(max-width:430px){
-
-    .menu-btn{
-        min-height:52px;
-    }
-
-    .menu-icon{
-        width:32px;
-        height:32px;
-    }
-
-    .menu-desc{
-        display:none;
-    }
+.menu-btn{min-height:52px}
+.menu-icon{width:32px;height:32px}
+.menu-desc{display:none}
 }
 </style>
 </head>
-
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="header">
-
-    <div class="header-left">
-
-        <div class="logo-icon">
-            ⚡
-        </div>
-
-        <div class="logo-area">
-
-            <div class="logo">
-                DASHBOARD HARIAN
-            </div>
-
-            <div class="subtitle">
-                PREMIUM CONTENT MANAGEMENT
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="header-right">
-
-        <div class="online">
-
-            <span class="online-dot"></span>
-
-            SYSTEM ONLINE
-
-        </div>
-
-    </div>
-
+<div class="header-left">
+<div class="logo-icon">⚡</div>
+<div class="logo-area">
+<div class="logo">DASHBOARD HARIAN</div>
+<div class="subtitle">PREMIUM CONTENT MANAGEMENT</div>
+</div>
+</div>
+<div class="header-right">
+<div class="online"><span class="online-dot"></span>SYSTEM ONLINE</div>
+</div>
 </header>
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <div class="main-layout">
-
-
-    <!-- =================================================
-         SIDEBAR
-    ================================================ -->
-
-    <aside class="sidebar">
-
-
-        <div class="menu-top">
-
-            <div class="menu-label">
-                MENU UTAMA
-            </div>
-
-            <div class="menu-number">
-                07
-            </div>
-
-        </div>
-
-
-        <div class="menu-list">
-    <!-- 1. DAILY REPORT -->
-    <button class="menu-btn daily-btn active" onclick="openGenerator('daily-report.html', this)">
-        <div class="menu-icon">📊</div>
-        <div class="menu-content">
-            <div class="menu-title">DAILY REPORT</div>
-            <div class="menu-desc">REKAP LAPORAN HARIAN</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 2. GENERATOR PIUTANG -->
-    <button class="menu-btn piutang-btn" onclick="openGenerator('generator-piutang.html', this)">
-        <div class="menu-icon">💰</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR PIUTANG</div>
-            <div class="menu-desc">HUTANG & PIUTANG</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 3. GENERATOR WA -->
-    <button class="menu-btn wa-btn" onclick="openGenerator('generator-wa.html', this)">
-        <div class="menu-icon">💬</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR WA</div>
-            <div class="menu-desc">POSTING WHATSAPP</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 4. GENERATOR WP -->
-    <button class="menu-btn wp-btn" onclick="openGenerator('generator-wp.html', this)">
-        <div class="menu-icon">📝</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR WP</div>
-            <div class="menu-desc">POSTING WORDPRES</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 5. GENERATOR SYAIR -->
-    <button class="menu-btn syair-btn" onclick="openGenerator('generator-syair.html', this)">
-        <div class="menu-icon">📜</div>
-        <div class="menu-content">
-            <div class="menu-title">GENERATOR SYAIR</div>
-            <div class="menu-desc">SYAIR TOGEL</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 6. QRIS XPAY -->
-    <button class="menu-btn xpay-btn" onclick="openGenerator('cek-qris-xpay.html', this)">
-        <div class="menu-icon">💳</div>
-        <div class="menu-content">
-            <div class="menu-title">CEK QRIS XPAY</div>
-            <div class="menu-desc">VALIDASI TRANSAKSI QRIS</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
-
-    <!-- 7. PREDIKSI & JADWAL -->
-    <button class="menu-btn analisa-btn" onclick="openGenerator('generator-prediksi.html', this)">
-        <div class="menu-icon">📊</div>
-        <div class="menu-content">
-            <div class="menu-title">PREDIKSI & JADWAL</div>
-            <div class="menu-desc">TOGEL ONLINE</div>
-        </div>
-        <div class="menu-arrow">›</div>
-    </button>
+<aside class="sidebar">
+<div class="menu-top">
+<div class="menu-label">MENU UTAMA</div>
+<div class="menu-number">07</div>
 </div>
 
+<div class="menu-list">
+<button class="menu-btn daily-btn active" onclick="openGenerator('daily-report.html',this)">
+<div class="menu-icon">🔥</div><div class="menu-content"><div class="menu-title">DAILY REPORT</div><div class="menu-desc">REKAP LAPORAN HARIAN</div></div><div class="menu-arrow">›</div>
+</button>
 
-        <div class="sidebar-info">
+<button class="menu-btn piutang-btn" onclick="openGenerator('generator-piutang.html',this)">
+<div class="menu-icon">💰</div><div class="menu-content"><div class="menu-title">GENERATOR PIUTANG</div><div class="menu-desc">HUTANG & PIUTANG</div></div><div class="menu-arrow">›</div>
+</button>
 
-            <div class="info-title">
-                POSTING GENERATOR
-            </div>
+<button class="menu-btn wa-btn" onclick="openGenerator('generator-wa.html',this)">
+<div class="menu-icon">💬</div><div class="menu-content"><div class="menu-title">GENERATOR WA</div><div class="menu-desc">POSTING WHATSAPP</div></div><div class="menu-arrow">›</div>
+</button>
 
-            <div class="info-text">
-                Pilih salah satu generator
-                untuk mulai membuat dan
-                mengelola posting.
-            </div>
+<button class="menu-btn wp-btn" onclick="openGenerator('generator-wp.html',this)">
+<div class="menu-icon">✪</div><div class="menu-content"><div class="menu-title">GENERATOR WP</div><div class="menu-desc">POSTING WORDPRES</div></div><div class="menu-arrow">›</div>
+</button>
 
-        </div>
+<button class="menu-btn syair-btn" onclick="openGenerator('generator-syair.html',this)">
+<div class="menu-icon">📜</div><div class="menu-content"><div class="menu-title">GENERATOR SYAIR</div><div class="menu-desc">SYAIR TOGEL</div></div><div class="menu-arrow">›</div>
+</button>
 
-    </aside>
+<button class="menu-btn xpay-btn" onclick="openGenerator('cek-qris-xpay.html',this)">
+<div class="menu-icon">⚝</div><div class="menu-content"><div class="menu-title">CEK QRIS XPAY</div><div class="menu-desc">VALIDASI TRANSAKSI QRIS</div></div><div class="menu-arrow">›</div>
+</button>
 
-
-    <!-- =================================================
-         VIEWER
-    ================================================ -->
-
-    <main class="viewer-container">
-
-
-        <div
-            class="loading"
-            id="loading"
-        >
-
-            <div class="spinner"></div>
-
-            <div class="loading-text">
-                MEMUAT GENERATOR...
-            </div>
-
-        </div>
-
-
-        <iframe
-            id="generatorFrame"
-            src="daily-report.html"
-            title="Posting Generator"
-        ></iframe>
-
-
-    </main>
-
+<button class="menu-btn analisa-btn" onclick="openGenerator('generator-prediksi.html',this)">
+<div class="menu-icon">⚠</div><div class="menu-content"><div class="menu-title">PREDIKSI & JADWAL</div><div class="menu-desc">TOGEL ONLINE</div></div><div class="menu-arrow">›</div>
+</button>
 </div>
 
+<div class="sidebar-info">
+<div class="info-title">POSTING GENERATOR</div>
+<div class="info-text">Pilih salah satu generator untuk mulai membuat dan mengelola posting.</div>
+</div>
+</aside>
+
+<main class="viewer-container">
+<div class="loading" id="loading">
+<div class="spinner"></div>
+<div class="loading-text">MEMUAT GENERATOR...</div>
+</div>
+<iframe id="generatorFrame" src="daily-report.html" title="Posting Generator"></iframe>
+</main>
+</div>
 
 <script>
-
-/* =====================================================
-   OPEN GENERATOR
-===================================================== */
-
-function openGenerator(file,button){
-
-    const frame =
-        document.getElementById(
-            "generatorFrame"
-        );
-
-    const loading =
-        document.getElementById(
-            "loading"
-        );
-
-
-    loading.classList.add("show");
-
-
-    document
-        .querySelectorAll(".menu-btn")
-        .forEach(btn => {
-
-            btn.classList.remove("active");
-
-        });
-
-
-    button.classList.add("active");
-
-
-    frame.src = file;
-
+const frame=document.getElementById('generatorFrame'),loading=document.getElementById('loading');
+function openGenerator(file,btn){
+ loading.classList.add('show');
+ document.querySelectorAll('.menu-btn').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');
+ frame.src=file;
 }
+frame.onload=()=>loading.classList.remove('show');
 
-
-/* =====================================================
-   FRAME LOAD
-===================================================== */
-
-document
-    .getElementById("generatorFrame")
-    .addEventListener(
-        "load",
-        function(){
-
-            document
-                .getElementById("loading")
-                .classList.remove("show");
-
-        }
-    );
-
-
-/* =====================================================
-   SHORTCUT
-===================================================== */
-
-document.addEventListener("keydown", function(e){
-    if(e.altKey){
-        if(e.key === "1") openGenerator('daily-report.html', document.querySelector('.daily-btn'));
-        if(e.key === "2") openGenerator('generator-piutang.html', document.querySelector('.piutang-btn'));
-        if(e.key === "3") openGenerator('generator-wa.html', document.querySelector('.wa-btn'));
-        if(e.key === "4") openGenerator('generator-wp.html', document.querySelector('.wp-btn'));
-        if(e.key === "5") openGenerator('generator-syair.html', document.querySelector('.syair-btn'));
-        if(e.key === "6") openGenerator('cek-qris-xpay.html', document.querySelector('.xpay-btn'));
-        if(e.key === "7") openGenerator('generator-prediksi.html', document.querySelector('.analisa-btn'));
-    }
+document.addEventListener('keydown',e=>{
+ if(!e.altKey)return;
+ const b=['daily-btn','piutang-btn','wa-btn','wp-btn','syair-btn','xpay-btn','analisa-btn'];
+ const f=['daily-report.html','generator-piutang.html','generator-wa.html','generator-wp.html','generator-syair.html','cek-qris-xpay.html','generator-prediksi.html'];
+ const i=+e.key-1;
+ if(i>=0&&i<7)openGenerator(f[i],document.querySelector('.'+b[i]));
 });
 </script>
-
 </body>
 </html>
